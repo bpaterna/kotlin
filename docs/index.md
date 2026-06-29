@@ -1,23 +1,20 @@
-#Presentación
-
-<span class="mi_h3">Descripción</span>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis pharetra magna, ut gravida elit pellentesque nec. Cras nec nisi a massa rutrum commodo. Quisque convallis, metus non convallis fringilla, lorem neque volutpat lectus, vitae aliquet quam est id magna. Nulla ornare neque quis tortor eleifend ornare. Sed justo lacus, elementum a lacinia ut, consectetur et mauris. Nam et orci ex. Mauris sed ex nec leo iaculis auctor. Cras vel elit ornare ligula ullamcorper porta eu eu metus. Curabitur non sodales risus, venenatis tempus tortor. Aliquam sed nunc libero.
+# 1. Kotlin
 
 
-!!! success "Lorem ipsum" 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis pharetra magna, ut gravida elit pellentesque nec..
+<span class="mi_h3">Revisiones</span>
 
-!!! warning "Lorem ipsum" 
-    Nulla ornare neque quis tortor eleifend ornare. Sed justo lacus, elementum a lacinia ut, consectetur et mauris. Nam et orci ex. Mauris sed ex nec leo iaculis auctor. Cras vel elit ornare ligula ullamcorper porta eu eu metus. Curabitur non sodales risus, venenatis tempus tortor. Aliquam sed nunc libero.
-
-!!! danger "Lorem ipsum" 
-    Nam et orci ex. Mauris sed ex nec leo iaculis auctor. Cras vel elit ornare ligula ullamcorper porta eu eu metus. Curabitur non sodales risus, venenatis tempus tortor. Aliquam sed nunc libero.
+| Revisión | Fecha      | Descripción                             |
+|----------|------------|-----------------------------------------|
+| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
 
 
-<span class="mi_h3">Documentación</span>
 
-Plantilla creada con el tema Material for MkDocs, documentación en [https://squidfunk.github.io/mkdocs-material/setup/](https://squidfunk.github.io/mkdocs-material/setup/)
+Kotlin es un lenguaje de programación moderno, conciso y seguro diseñado por JetBrains (los creadores de IntelliJ IDEA). Sus características clave son:
+
+* **Ejecución en la JVM:** Funciona sobre la Máquina Virtual de Java (JVM).
+* **Interoperabilidad:** Es 100% interoperable con Java. Esto significa que puedes usar librerías de Java en código de Kotlin y viceversa de forma directa.
+* **Multiuso:** Se utiliza para desarrollo móvil (Android), aplicaciones de escritorio (Swing, JavaFX o Compose Desktop), backends web (Ktor o Spring) y desarrollo multiplataforma (Kotlin Multiplatform).
+
 
 
 ---

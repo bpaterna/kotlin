@@ -1,5 +1,5 @@
-site_name: Apuntes
-site_url: https://bpaterna.github.io/apuntes/
+site_name: Kotlin
+site_url: https://bpaterna.github.io/kotlin/
 site_author: Begoña Paterna
 theme:
   name: material

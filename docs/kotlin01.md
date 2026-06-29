@@ -11,19 +11,7 @@
 
 
 
-## 1. ¿Qué es Kotlin?
-
-Tras asimilar algunos conceptos básicos de programación (estructuras de control, objetos y herencia) utilizando **Java** en 1º de DAM, en este módulo de **Acceso a Datos** daremos el salto a **Kotlin**. Utilizaremos este lenguaje para desarrollar aplicaciones capaces de conectar con almacenamientos externos (como bases de datos o archivos), logrando así consultar, guardar y administrar la información de manera segura y eficiente.
-
-Kotlin es un lenguaje de programación moderno, conciso y seguro diseñado por JetBrains (los creadores de IntelliJ IDEA). Sus características clave son:
-
-* **Ejecución en la JVM:** Funciona sobre la Máquina Virtual de Java (JVM).
-* **Interoperabilidad:** Es 100% interoperable con Java. Esto significa que puedes usar librerías de Java en código de Kotlin y viceversa de forma directa.
-* **Multiuso:** Se utiliza para desarrollo móvil (Android), aplicaciones de escritorio (Swing, JavaFX o Compose Desktop), backends web (Ktor o Spring) y desarrollo multiplataforma (Kotlin Multiplatform).
-
-
-
-## 2. Instalación de IntelliJ IDEA Community
+## 1. Instalación de IntelliJ IDEA Community
 
 Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **Community Edition**.
 
@@ -53,7 +41,7 @@ Para realizar la instalación en tu equipo personal con Windows:
 
 
 
-## 3. Gestión y Configuración de Proyectos
+## 2. Gestión y Configuración de Proyectos
 
 <span class="mi_h3">3.1. Organización del espacio de trabajo</span>
 
