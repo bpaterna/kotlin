@@ -1,0 +1,1068 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Begoña Paterna">
+      
+      
+        <link rel="canonical" href="https://bpaterna.github.io/kotlin/kotlin07.html">
+      
+      
+        <link rel="prev" href="kotlin06.html">
+      
+      
+        <link rel="next" href="kotlin08.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>7. Programación Orientada a Objetos - Kotlin</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-programacion-orientada-a-objetos-poo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="Kotlin" class="md-header__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kotlin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Programación Orientada a Objetos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Kotlin" class="md-nav__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kotlin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Estructuras de control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kotlin07.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-clases-constructores-y-atributos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Clases, constructores y atributos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-propiedades-getters-y-setters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Propiedades, getters y setters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-relacion-entre-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Relación entre clases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-modificadores-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Modificadores de acceso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-herencia-y-polimorfismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Herencia y polimorfismo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-sobrecarga-de-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Sobrecarga de operadores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-objetos-sin-clases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Objetos sin clases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ejemplos-de-jerarquia-de-clases-y-arrays-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Ejemplos de jerarquía de clases y arrays de objetos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación funcional y expresiones Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Gestión de errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="7-programacion-orientada-a-objetos-poo">7. Programación Orientada a Objetos (POO)<a class="headerlink" href="#7-programacion-orientada-a-objetos-poo" title="Permanent link">&para;</a></h1>
+<p><span class="mi_h3">Revisiones</span></p>
+<table>
+<thead>
+<tr>
+<th>Revisión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>29-06-2026</td>
+<td>Adaptación de los materiales a markdown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>La <strong>Programación Orientada a Objetos</strong> es un paradigma que te permite estructurar tus programas simulando elementos del mundo real.</p>
+<p>Para entenderlo, imagina una <strong>planta</strong> real en tu invernadero:
+* Tiene características o <strong>propiedades</strong> (especie, altura, nivel de humedad, edad).
+* Puede realizar acciones o <strong>métodos</strong> (crecer, florecer, marchitarse).</p>
+<p>En la POO, utilizamos las <strong>clases</strong> como moldes o planos de diseño, y los <strong>objetos</strong> como los ejemplares reales (instancias) creados a partir de ese molde.</p>
+<h2 id="2-clases-constructores-y-atributos">2. Clases, constructores y atributos<a class="headerlink" href="#2-clases-constructores-y-atributos" title="Permanent link">&para;</a></h2>
+<p>Kotlin simplifica enormemente la creación de clases en comparación con otros lenguajes. Dispones de tres formas de estructurar tus constructores según la complejidad que busques.</p>
+<p><strong>Ejemplo 1: Constructor primario (La forma recomendada)</strong></p>
+<p>Define las propiedades directamente en la cabecera de la clase.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Planta</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">alturaCm</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Método de la clase</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">imprimirFicha</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Especie: </span><span class="si">$</span><span class="n">especie</span><span class="s"> | Altura: </span><span class="si">$</span><span class="n">alturaCm</span><span class="s"> cm&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">necesitaRiego</span><span class="p">(</span><span class="n">humedad</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">humedad</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">40</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Creamos dos objetos (instancias) de la clase Planta</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">planta1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Planta</span><span class="p">(</span><span class="s">&quot;Monstera deliciosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">45.0</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">planta2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Planta</span><span class="p">(</span><span class="s">&quot;Cactus de Pascua&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">12.0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">planta1</span><span class="p">.</span><span class="na">imprimirFicha</span><span class="p">()</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;¿Necesita riego planta 2? </span><span class="si">${</span><span class="n">planta2</span><span class="p">.</span><span class="na">necesitaRiego</span><span class="p">(</span><span class="m">25</span><span class="p">)</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 2: Propiedades dentro del cuerpo</strong></p>
+<p>Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Flor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Desconocida&quot;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">colorPetalos</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Blanco&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 3: Constructor secundario</strong></p>
+<p>A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada <code>constructor</code> y este debe delegar en el constructor primario usando <code>: this(...)</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">PlantaExotica</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">alturaCm</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">paisOrigen</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Constructor secundario que asume origen desconocido si no se especifica</span>
+<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">alturaCm</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">especie</span><span class="p">,</span><span class="w"> </span><span class="n">alturaCm</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Desconocido&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="3-propiedades-getters-y-setters">3. Propiedades, getters y setters<a class="headerlink" href="#3-propiedades-getters-y-setters" title="Permanent link">&para;</a></h2>
+<p>En Kotlin, todas las propiedades mutables (<code>var</code>) generan automáticamente un <strong>getter</strong> (para leer su valor) y un <strong>setter</strong> (para modificarlo) por detrás. Si necesitas aplicar lógica de negocio o validación al asignar o leer un dato, puedes personalizarlos usando la variable implícita <code>field</code> (que hace referencia al campo físico de memoria).</p>
+<p><strong>Ejemplo 1: Validación personalizada de humedad</strong></p>
+<p>Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">SensorSuelo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">porcentajeHumedad</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>
+<span class="w">        </span><span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Validamos que el porcentaje sea coherente</span>
+<span class="w">            </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">50</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 2: Propiedad de solo lectura con cálculo automático</strong></p>
+<p>Si declaras una propiedad con <code>val</code>, solo tendrá <em>getter</em>. Es útil para campos calculados dinámicamente.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Invernadero</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">largoMetros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">anchoMetros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Getter personalizado. No almacena el dato en memoria, lo calcula al consultarlo</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">superficieMetrosCuadrados</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">largoMetros</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">anchoMetros</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">miInvernadero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Invernadero</span><span class="p">(</span><span class="m">10.0</span><span class="p">,</span><span class="w"> </span><span class="m">4.0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Superficie útil: </span><span class="si">${</span><span class="n">miInvernadero</span><span class="p">.</span><span class="na">superficieMetrosCuadrados</span><span class="si">}</span><span class="s"> m²&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 40.0 m²</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 3: Setter privado (Encapsulamiento)</strong></p>
+<p>Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que <strong>solo pueda modificarse desde dentro de la propia clase</strong>, puedes privatizar su <em>setter</em>.</p>
+<ul>
+<li><strong>Metáfora:</strong> La edad en días de una planta solo debería incrementarse mediante un método controlado, nunca asignándole valores arbitrarios desde fuera.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">PlantaInvernadero</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">edadDias</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">        </span><span class="n">private</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="c1">// El setter es privado, nadie puede hacer &#39;planta.edadDias = 90&#39; desde fuera</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">pasarDia</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">edadDias</span><span class="o">++</span><span class="w"> </span><span class="c1">// Solo la propia clase puede modificarlo</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="4-relacion-entre-clases">4. Relación entre clases<a class="headerlink" href="#4-relacion-entre-clases" title="Permanent link">&para;</a></h2>
+<p>En el mundo real, los objetos contienen otros objetos o se relacionan entre sí. La composición (o relación entre clases) consiste en definir propiedades dentro de una clase que son instancias de otra clase.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Maceta</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">material</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">volumenLitros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">PlantaDomestica</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">contenedor</span><span class="p">:</span><span class="w"> </span><span class="n">Maceta</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">describirCultivo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La planta &#39;</span><span class="si">$</span><span class="n">especie</span><span class="s">&#39; está plantada en una maceta de </span><span class="si">${</span><span class="n">contenedor</span><span class="p">.</span><span class="na">material</span><span class="si">}</span><span class="s"> de </span><span class="si">${</span><span class="n">contenedor</span><span class="p">.</span><span class="na">volumenLitros</span><span class="si">}</span><span class="s">L.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">macetaBarro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Maceta</span><span class="p">(</span><span class="s">&quot;Barro cocido&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">5.0</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">helecho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PlantaDomestica</span><span class="p">(</span><span class="s">&quot;Helecho real&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">macetaBarro</span><span class="p">)</span>
+<span class="w">    </span><span class="n">helecho</span><span class="p">.</span><span class="na">describirCultivo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="5-modificadores-de-acceso">5. Modificadores de acceso<a class="headerlink" href="#5-modificadores-de-acceso" title="Permanent link">&para;</a></h2>
+<p>En Kotlin, todo es público por defecto. No obstante, puedes restringir la visibilidad de tus clases, métodos y propiedades para proteger la integridad de tus datos.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Modificador</th>
+<th style="text-align: left;">Visibilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>public</code></strong> <em>(por defecto)</em></td>
+<td style="text-align: left;">Accesible desde cualquier parte del proyecto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>private</code></strong></td>
+<td style="text-align: left;">Accesible únicamente dentro de la misma clase o archivo que lo contiene.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>protected</code></strong></td>
+<td style="text-align: left;">Accesible dentro de la misma clase y de sus subclases (herencia).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>internal</code></strong></td>
+<td style="text-align: left;">Accesible dentro del mismo módulo de compilación (útil en librerías).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-herencia-y-polimorfismo">6. Herencia y polimorfismo<a class="headerlink" href="#6-herencia-y-polimorfismo" title="Permanent link">&para;</a></h2>
+<p>En Kotlin, por seguridad, <strong>todas las clases son cerradas (<code>final</code>) por defecto</strong>, lo que significa que no se pueden heredar a menos que las marques explícitamente con la palabra reservada <strong><code>open</code></strong>. Los métodos que desees sobrescribir en las subclases también deben ser <code>open</code>.</p>
+<p><strong>Ejemplo 1: Jerarquía de plantas</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Clase base marcada como open</span>
+<span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Vegetal</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Método open para permitir que las subclases lo personalicen</span>
+<span class="w">    </span><span class="kd">open</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">regar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Regando </span><span class="si">$</span><span class="n">especie</span><span class="s"> de manera estándar.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Subclase Helecho que hereda de Vegetal</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Helecho</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vegetal</span><span class="p">(</span><span class="s">&quot;Helecho espada&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Sobrescribimos el comportamiento específico de riego</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">regar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">regar</span><span class="p">()</span><span class="w"> </span><span class="c1">// Ejecuta el riego estándar opcionalmente</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- Cuidado extra: Pulverizar agua sobre las frondas para emular humedad alta.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Subclase Cactus que hereda de Vegetal</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Cactus</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vegetal</span><span class="p">(</span><span class="s">&quot;Cactus de barril&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">regar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Regar </span><span class="si">$</span><span class="n">especie</span><span class="s"> con muy poca agua, garantizando suelo seco entre riegos.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 2: Polimorfismo en colecciones de objetos</strong></p>
+<p>El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Array polimórfico que almacena diferentes vegetales</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">jardin</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Vegetal</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Helecho</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">Cactus</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">Vegetal</span><span class="p">(</span><span class="s">&quot;Planta genérica&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Recorremos el jardín y cada planta responde de forma única al riego</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">planta</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">jardin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">planta</span><span class="p">.</span><span class="na">regar</span><span class="p">()</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;-----------------------------------&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="7-data-classes">7. Data classes<a class="headerlink" href="#7-data-classes" title="Permanent link">&para;</a></h2>
+<p>Las clases de datos (<code>data class</code>) son clases diseñadas específicamente para <strong>almacenar información</strong>. Al anteponer la palabra <code>data</code> a una clase, el compilador de Kotlin genera automáticamente por detrás una serie de funciones de utilidad:
+* Un formato de texto legible para consola (<code>toString()</code>).
+* Comparación de igualdad basada en sus datos internos (<code>equals()</code>).
+* Generador de códigos únicos de dispersión (<code>hashCode()</code>).
+* Clonación del objeto permitiendo modificar propiedades específicas (<code>copy()</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Clase de datos para modelar semillas</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">LoteSemillas</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">variedad</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">cantidadSemillas</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">añoCosecha</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">lote1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoteSemillas</span><span class="p">(</span><span class="s">&quot;Girasol gigante&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">150</span><span class="p">,</span><span class="w"> </span><span class="m">2025</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">lote2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoteSemillas</span><span class="p">(</span><span class="s">&quot;Girasol gigante&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">150</span><span class="p">,</span><span class="w"> </span><span class="m">2025</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 1. toString() automático</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">lote1</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida legible: LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, añoCosecha=2025)</span>
+
+<span class="w">    </span><span class="c1">// 2. equals() automático (compara valores, no referencias de memoria)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;¿Son lotes idénticos? </span><span class="si">${</span><span class="n">lote1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">lote2</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: true</span>
+
+<span class="w">    </span><span class="c1">// 3. copy() automático (clona el lote pero actualizando el año de cosecha)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">loteNuevoAnual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lote1</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">añoCosecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2026</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">loteNuevoAnual</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="8-sobrecarga-de-operadores">8. Sobrecarga de operadores<a class="headerlink" href="#8-sobrecarga-de-operadores" title="Permanent link">&para;</a></h2>
+<p>Kotlin te permite personalizar el comportamiento de operadores matemáticos o lógicos (<code>+</code>, <code>-</code>, <code>*</code>, <code>==</code>) cuando interactúan con tus propios objetos. Para ello, debes definir funciones utilizando la palabra clave <strong><code>operator</code></strong>.</p>
+<ul>
+<li><strong>Metáfora botánica:</strong> Si sumas dos sacos de tierra con diferentes litros, el resultado debería ser un nuevo saco de tierra con la suma total del volumen.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">SacoTierra</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">volumenLitros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Sobrecargamos el operador &#39;+&#39; (asociado a la función &#39;plus&#39;)</span>
+<span class="w">    </span><span class="kd">operator</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">plus</span><span class="p">(</span><span class="n">otroSaco</span><span class="p">:</span><span class="w"> </span><span class="n">SacoTierra</span><span class="p">):</span><span class="w"> </span><span class="n">SacoTierra</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">SacoTierra</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">volumenLitros</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">otroSaco</span><span class="p">.</span><span class="na">volumenLitros</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">sacoPequeño</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SacoTierra</span><span class="p">(</span><span class="m">15.0</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">sacoGrande</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SacoTierra</span><span class="p">(</span><span class="m">50.0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Usamos el operador &#39;+&#39; directamente de forma intuitiva</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">mezclaSustrato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sacoPequeño</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sacoGrande</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Has combinado la tierra. El saco resultante tiene: </span><span class="si">${</span><span class="n">mezclaSustrato</span><span class="p">.</span><span class="na">volumenLitros</span><span class="si">}</span><span class="s"> litros.&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// Salida: 65.0 litros</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="9-objetos-sin-clases">9. Objetos sin clases<a class="headerlink" href="#9-objetos-sin-clases" title="Permanent link">&para;</a></h2>
+<p>En ocasiones, necesitas una estructura que actúe como un gestor o base de datos centralizada de la cual <strong>solo debe existir una única instancia en toda tu aplicación</strong>. En Kotlin, esto se resuelve de forma directa sin necesidad de configurar patrones complejos de diseño; simplemente declaras un <strong><code>object</code></strong> en lugar de una <code>class</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">FlorExotica</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">color</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+
+<span class="c1">// Singleton para el registro de especies raras del Jardín Botánico</span>
+<span class="kd">object</span><span class="w"> </span><span class="nc">RegistroBotanicoUnico</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">floresRegistradas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">FlorExotica</span><span class="o">&gt;</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">añadirFlor</span><span class="p">(</span><span class="n">flor</span><span class="p">:</span><span class="w"> </span><span class="n">FlorExotica</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">floresRegistradas</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">flor</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Flor &#39;</span><span class="si">${</span><span class="n">flor</span><span class="p">.</span><span class="na">nombre</span><span class="si">}</span><span class="s">&#39; añadida al herbario nacional.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">mostrarHerbario</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;--- HERBARIO OFICIAL ---&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">floresRegistradas</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- </span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">nombre</span><span class="si">}</span><span class="s"> (</span><span class="si">${</span><span class="nb">it</span><span class="p">.</span><span class="na">color</span><span class="si">}</span><span class="s">)&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// No usamos constructores ni &#39;new&#39;. Accedemos directamente por su nombre</span>
+<span class="w">    </span><span class="n">RegistroBotanicoUnico</span><span class="p">.</span><span class="na">añadirFlor</span><span class="p">(</span><span class="n">FlorExotica</span><span class="p">(</span><span class="s">&quot;Orquídea Negra&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Negro azabache&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">RegistroBotanicoUnico</span><span class="p">.</span><span class="na">añadirFlor</span><span class="p">(</span><span class="n">FlorExotica</span><span class="p">(</span><span class="s">&quot;Flor de Jade&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Turquesa&quot;</span><span class="p">))</span>
+
+<span class="w">    </span><span class="n">RegistroBotanicoUnico</span><span class="p">.</span><span class="na">mostrarHerbario</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="10-ejemplos-de-jerarquia-de-clases-y-arrays-de-objetos">10. Ejemplos de jerarquía de clases y arrays de objetos<a class="headerlink" href="#10-ejemplos-de-jerarquia-de-clases-y-arrays-de-objetos" title="Permanent link">&para;</a></h2>
+<p>Utilizaremos esta jerarquía de clases base para los ejemplos:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Clase base</span>
+<span class="kd">open</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Vegetal</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">open</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Aplicando cuidados estándar para la planta &#39;</span><span class="si">$</span><span class="n">nombre</span><span class="s">&#39;.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Subclase Flor</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Flor</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">colorPetalos</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vegetal</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Riego moderado para la flor &#39;</span><span class="si">$</span><span class="n">nombre</span><span class="s">&#39; y protección de sus pétalos de color </span><span class="si">$</span><span class="n">colorPetalos</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método específico de esta subclase</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">fertilizarFloracion</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;¡Aplicando abono especial de fósforo para estimular la floración de la flor &#39;</span><span class="si">$</span><span class="n">nombre</span><span class="s">&#39;!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Subclase Arbol</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Arbol</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">alturaMaxMetros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Vegetal</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Poda estructural para el árbol &#39;</span><span class="si">$</span><span class="n">nombre</span><span class="s">&#39; (Altura máxima esperada: </span><span class="si">$</span><span class="n">alturaMaxMetros</span><span class="s"> m).&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 1: Array de objetos</strong></p>
+<p>En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1. Declaramos un array con diferentes subclases de Vegetal</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">jardin</span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Vegetal</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Rosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rojo&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Pino&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">20.0</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Girasol&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Amarillo&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Vegetal</span><span class="p">(</span><span class="s">&quot;Planta silvestre&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 2. Recorremos el array llamando al método polimórfico</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;--- Cuidados diarios del jardín ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">planta</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">jardin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">planta</span><span class="p">.</span><span class="na">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="c1">// Llama automáticamente al método correcto de cada clase</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\n--- Operaciones de mantenimiento por índice ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Acceso directo a un elemento por su índice</span>
+<span class="w">    </span><span class="n">jardin</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="p">.</span><span class="na">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="c1">// Llama al cuidado del Pino</span>
+
+<span class="w">    </span><span class="c1">// Modificar un elemento del array por otro objeto</span>
+<span class="w">    </span><span class="n">jardin</span><span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Roble joven&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">15.0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Se ha reemplazado la planta silvestre por un Roble.&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 3. Crear un array inicialmente vacío de tamaño fijo y luego asignarle elementos</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">estanteInvernadero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOfNulls</span><span class="o">&lt;</span><span class="n">Vegetal</span><span class="o">&gt;</span><span class="p">(</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// Array de tamaño 3 que permite nulos</span>
+<span class="w">    </span><span class="n">estanteInvernadero</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Tulipán&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rosa&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">estanteInvernadero</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Bonsái de Olivo&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1.5</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// El índice 2 quedará como null hasta que asignemos un objeto</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo 2: ArrayList de objetos y filtrado</strong></p>
+<p>En este ejemplo trabajarás con una lista dinámica (<code>MutableList</code>), que es el equivalente nativo en Kotlin al <code>ArrayList</code> de Java. Verás cómo llenarla y cómo utilizar la función <strong><code>filterIsInstance</code></strong> para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1. Creamos una lista dinámica (MutableList) de vegetales</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">inventarioInvernadero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="n">Vegetal</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Orquídea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blanco&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Naranjo&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">4.0</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Azalea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rosa&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Limonero&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 2. Mostrar todas las plantas del invernadero</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;--- Catálogo Completo del Invernadero ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">planta</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">inventarioInvernadero</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">planta</span><span class="p">.</span><span class="na">aplicarCuidados</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 3. FILTRADO CON filterIsInstance: Extraer SOLO las flores de la lista general</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\n--- Tarea especial: Abonar únicamente las flores ---&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Filtramos la lista para obtener una de tipo List&lt;Flor&gt;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">soloFlores</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Flor</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventarioInvernadero</span><span class="p">.</span><span class="na">filterIsInstance</span><span class="o">&lt;</span><span class="n">Flor</span><span class="o">&gt;</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">flor</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">soloFlores</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Al estar seguros de que son de tipo Flor, podemos usar sus métodos exclusivos</span>
+<span class="w">        </span><span class="n">flor</span><span class="p">.</span><span class="na">fertilizarFloracion</span><span class="p">()</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Operaciones funcionales adicionales en listas de objetos</strong></p>
+<p>Kotlin te permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">invernadero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Orquídea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blanco&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Arbol</span><span class="p">(</span><span class="s">&quot;Naranjo&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">4.0</span><span class="p">),</span>
+<span class="w">        </span><span class="n">Flor</span><span class="p">(</span><span class="s">&quot;Azalea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rosa&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// A) Recorrer de forma compacta con forEach</span>
+<span class="w">    </span><span class="n">invernadero</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">aplicarCuidados</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// B) Transformar los objetos en una lista de nombres con map</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">nombresEspecies</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">invernadero</span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">nombre</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\nListado de especies: </span><span class="si">$</span><span class="n">nombresEspecies</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// Salida: [Orquídea, Naranjo, Azalea]</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><span class="mi_h3">Autoría</span></p>
+<p>Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
