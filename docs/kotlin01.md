@@ -183,8 +183,8 @@ import botanica.util.saludarJardinero as saludarBreve
 import botanica.administracion.saludarJardinero as saludarCompleto
 
 fun main() {
-    saludarBreve("Ana")     // Llama a la función del paquete util
-    saludarCompleto("Ana")  // Llama a la función del paquete administracion
+    saludarBreve("Pol")     // Llama a la función del paquete util
+    saludarCompleto("Pol")  // Llama a la función del paquete administracion
 }
 ```
 
@@ -281,7 +281,7 @@ import util.bienvenida as saludar
 
 fun main() {
     // Usamos el alias importado
-    println(saludar("Carlos"))
+    println(saludar("Pol"))
     println("----------------------------------------")
 
     // Creamos la planta utilizando la clase del paquete modelo
@@ -301,7 +301,7 @@ fun main() {
 **Salida por consola de tu proyecto multiarchivo:**
 
 ```text
-¡Hola, Carlos! Iniciando asistente de control...
+¡Hola, Pol! Iniciando asistente de control...
 ----------------------------------------
 Planta: Helecho real
 Humedad registrada: 50% (Humedad objetivo: 75%)
