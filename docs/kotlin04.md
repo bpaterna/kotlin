@@ -1,17 +1,17 @@
-# 4. Estructuras de control de flujo
+# 4. Estructuras de control
 
 
 <span class="mi_h3">Revisiones</span>
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
 ## 1. Introducción
 
-Las estructuras de control te permiten romper la ejecución secuencial (de arriba a abajo) de tus programas. Con ellas, podrás tomar decisiones lógicas (condicionales) o repetir ciertas acciones varias veces (bucles).
+Las estructuras de control permiten romper la ejecución secuencial (de arriba a abajo) de los programas. Con ellas, podrás tomar decisiones lógicas (condicionales) o repetir ciertas acciones varias veces (bucles).
 
 
 ## 2. Operadores relacionales y lógicos
@@ -33,7 +33,7 @@ Puedes combinar varias condiciones utilizando **operadores lógicos**:
 * **`||` (OR):** Devuelve `true` si al menos **una** de las condiciones es verdadera.
 * **`!` (NOT):** Invierte el valor lógico (lo que es `true` pasa a ser `false`).
 
-## 3. Estructuras Condicionales
+## 3. Estructuras condicionales
 
 Los condicionales te permiten ejecutar diferentes bloques de código en función de si se cumplen o no determinadas condiciones.
 
@@ -140,8 +140,7 @@ println("Informe del sensor: $estadoHumedad")
 ```
 
 
-
-## 4. Estructuras Repetitivas (Bucles)
+## 4. Estructuras repetitivas (bucles)
 
 Los bucles te permiten repetir la ejecución de un bloque de código. En Kotlin dispones de cuatro estructuras: `while`, `do-while`, `for` y `repeat`.
 
@@ -200,7 +199,7 @@ repeat(3) {
 
 
 
-**Comparativa de estructuras repetitivas**
+<span class="mi_h3">4.5. Comparativa de estructuras repetitivas</span>
 
 Para ayudarte a decidir qué bucle utilizar en el desarrollo de tus aplicaciones, puedes consultar esta tabla resumen:
 

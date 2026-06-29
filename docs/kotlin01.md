@@ -5,9 +5,7 @@
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
-
-
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
@@ -16,7 +14,7 @@
 Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **Community Edition**.
 
 
-<span class="mi_h3">2.1. Instalación en el ordenadores de clase</span>
+<span class="mi_h3">1.1. Instalación en el ordenadores de clase</span>
 
 Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
@@ -28,7 +26,7 @@ Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
     * Haz clic derecho sobre él, selecciona **Propiedades > Permisos** y asegúrate de que la opción **Permitir ejecutar el archivo como un programa** (o *Permet executar*) esté marcada.
     * Ejecuta el archivo desde la terminal o haciendo doble clic sobre él.
 
-<span class="mi_h3">2.2. Instalación en Windows</span>
+<span class="mi_h3">1.2. Instalación en Windows</span>
 
 Para realizar la instalación en tu equipo personal con Windows:
 
@@ -41,15 +39,16 @@ Para realizar la instalación en tu equipo personal con Windows:
 
 
 
-## 2. Gestión y Configuración de Proyectos
+## 2. Gestión y configuración de proyectos
 
-<span class="mi_h3">3.1. Organización del espacio de trabajo</span>
+<span class="mi_h3">2.1. Organización del espacio de trabajo</span>
 
 Antes de empezar a crear programas, es importante que mantengas tu espacio de trabajo organizado. Es recomendable que crees una carpeta raíz en tu unidad de almacenamiento (por ejemplo, una carpeta llamada `kot` dentro de tu unidad de trabajo) donde guardar de forma ordenada los proyectos del curso.
 
 > **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*).
 
-<span class="mi_h3">3.2. Creación de un nuevo proyecto</span>
+
+<span class="mi_h3">2.2. Creación de un nuevo proyecto</span>
 
 Para crear tu primer proyecto en Kotlin:
 
@@ -63,7 +62,7 @@ Para crear tu primer proyecto en Kotlin:
     * **Opciones adicionales:** Asegúrate de tener activada la opción **Add sample code** (para disponer de un archivo inicial de ejemplo) y **Use compact project structure**.
 3. Haz clic en **Create**.
 
-<span class="mi_h3">3.3. Estructura del proyecto y creación de archivos</span>
+<span class="mi_h3">2.3. Estructura del proyecto y creación de archivos</span>
 
 Al crearse el proyecto, la interfaz mostrará una estructura de carpetas en el margen izquierdo:
 
@@ -79,7 +78,7 @@ Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue est
 * Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (File, Class, Interface, etc.).
 
 
-<span class="mi_h3">3.4. Primer programa y su jecución</span>
+<span class="mi_h3">2.4. Primer programa y su jecución</span>
 
 Para que un proyecto en Kotlin pueda ejecutarse, requiere como mínimo tener un punto de entrada definido por una función llamada `main`. Kotlin utiliza la palabra reservada `fun` para declarar funciones.
 
@@ -115,7 +114,7 @@ Día 5: La planta 'Orquídea' ha sido regada correctamente.
 Process finished with exit code 0
 ```
 
-<span class="mi_h3">3.5. Compartir y entregar proyectos</span>
+<span class="mi_h3">2.5. Compartir y entregar proyectos</span>
 
 Cuando debas entregar una tarea de programación o compartir un proyecto con el profesor, evita subir archivos sueltos. El procedimiento correcto se realiza desde el explorador de archivos de tu sistema operativo:
 
@@ -125,6 +124,190 @@ Cuando debas entregar una tarea de programación o compartir un proyecto con el 
     * **En Windows:** Haz clic derecho sobre la carpeta del proyecto y haz clic en  **Enviar a carpeta comprimida (en zip)**.
     * **En Ubuntu:** Haz clic derecho sobre la carpeta y haz clic en **Comprimir... Seleccionar formato .zip**.
 4. Envía o sube a la plataforma del aula el archivo `.zip` resultante.
+
+
+## 3. Organización del código (Packages e Imports)
+
+A medida que tus proyectos crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve insostenible. En Kotlin, para mantener el proyecto limpio, ordenado y escalable, dividimos nuestro código en diferentes carpetas utilizando los conceptos de **package** (paquete) e **import** (importación).
+
+
+<span class="mi_h3">3.1. ¿Qué es un Package (Paquete)?</span>
+
+Un **package** es una forma de agrupar clases, funciones, objetos y otras estructuras relacionadas bajo un mismo espacio de nombres físico y lógico. Sirve para organizar tus archivos y evitar conflictos en caso de que declares dos funciones con el mismo nombre.
+
+**Reglas clave de los paquetes:**
+
+* La declaración del paquete debe ir en la **primera línea de tu archivo de código**, antes de cualquier otra cosa.
+* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package com.invernadero.util`.
+* Los nombres de los paquetes se escriben siempre en minúsculas y se separan por puntos `.`.
+
+**Ejemplo de archivo dentro de un paquete:**
+
+```kotlin
+// Archivo: src/botanica/util/MisCalculos.kt
+package botanica.util
+
+fun calcularConsumo(dias: Int) = dias * 1.5
+```
+
+
+<span class="mi_h3">3.2. ¿Qué es un Import?</span>
+
+La palabra clave **`import`** se utiliza para poder acceder y utilizar clases o funciones que están guardadas en otros paquetes diferentes, sin necesidad de escribir la ruta completa de carpetas cada vez que las uses.
+
+**Ejemplo de uso básico:**
+
+Si tu archivo principal está en el paquete `botanica.app` y deseas utilizar la función `calcularConsumo` que está en `botanica.util`:
+
+```kotlin
+// Archivo: src/botanica/app/Main.kt
+package botanica.app
+
+// Importamos la función específica indicando su paquete de origen
+import botanica.util.calcularConsumo
+
+fun main() {
+    val consumoTotal = calcularConsumo(7) // Podemos usar la función directamente
+    println("Consumo acumulado: $consumoTotal litros.")
+}
+```
+
+
+
+**Alias en importaciones**
+
+A veces puede ocurrir que necesites importar dos clases o funciones de diferentes paquetes que se llaman exactamente igual. Para evitar conflictos, puedes renombrar una de ellas de manera temporal en tu archivo actual utilizando la palabra clave **`as`** (alias).
+
+```kotlin
+import botanica.util.saludarJardinero as saludarBreve
+import botanica.administracion.saludarJardinero as saludarCompleto
+
+fun main() {
+    saludarBreve("Ana")     // Llama a la función del paquete util
+    saludarCompleto("Ana")  // Llama a la función del paquete administracion
+}
+```
+
+
+
+**Importaciones con comodín**
+
+Si un paquete contiene muchas funciones u objetos y necesitas utilizarlos casi todos en un mismo archivo, puedes evitar escribir una línea de importación para cada uno de ellos utilizando el comodín asterisco (`*`).
+
+```kotlin
+// Importa absolutamente todas las funciones y clases públicas del paquete util
+import botanica.util.*
+```
+
+<span class="mi_h3">3.3. Tabla resumen de organización</span>
+
+| Término | ¿Qué hace? | Ejemplo de uso |
+| :--- | :--- | :--- |
+| **`package`** | Define el espacio lógico y la ubicación del archivo actual. | `package botanica.modelo` |
+| **`import`** | Trae una herramienta (clase o función) de otro paquete para poder usarla. | `import botanica.util.evaluarHumedad` |
+| **`import ... as`**| Trae una herramienta y le asigna un nombre temporal para evitar conflictos. | `import botanica.util.regar as regadoAutomatico` |
+
+
+<span class="mi_h3">3.4. Ejemplo completo multiarchivo</span>
+
+Para entender cómo encaja todo esto de manera profesional en un proyecto de software, vamos a estructurar un asistente de control de humedad multiarchivo utilizando tres paquetes separados: `modelo`, `util` y `app`.
+
+**Estructura de carpetas de tu proyecto:**
+
+```text
+control_botanico/
+└── src/
+    ├── app/
+    │   └── Main.kt
+    ├── modelo/
+    │   └── Planta.kt
+    └── util/
+        └── AsistenteRiego.kt
+```
+
+
+
+**Archivo 1: `modelo/Planta.kt`**
+
+Este archivo define la estructura de datos base para nuestras plantas.
+
+```kotlin
+// src/modelo/Planta.kt
+package modelo
+
+data class Planta(val especie: String, val humedadIdeal: Int)
+```
+
+
+
+**Archivo 2: `util/AsistenteRiego.kt`**
+
+Este archivo contiene la lógica de asistencia y cálculo para el invernadero.
+
+```kotlin
+// src/util/AsistenteRiego.kt
+package util
+
+fun evaluarHumedad(actual: Int, ideal: Int): String {
+    return when {
+        actual < ideal - 15 -> "Urgente: Requiere riego inmediato."
+        actual > ideal + 15 -> "Atención: Suelo encharcado, suspender el riego."
+        else -> "Humedad adecuada."
+    }
+}
+
+fun bienvenida(nombreJardinero: String): String {
+    return "¡Hola, $nombreJardinero! Iniciando asistente de control..."
+}
+```
+
+
+
+**Archivo 3: `app/Main.kt`**
+Este es el archivo principal que coordina toda la aplicación e importa las clases y funciones de los otros dos paquetes.
+
+```kotlin
+// src/app/Main.kt
+package app
+
+// 1. Importamos la data class del paquete modelo
+import modelo.Planta
+
+// 2. Importamos la función de evaluación del paquete util
+import util.evaluarHumedad
+
+// 3. Importamos la función de bienvenida usando un alias para abreviarla
+import util.bienvenida as saludar
+
+fun main() {
+    // Usamos el alias importado
+    println(saludar("Carlos"))
+    println("----------------------------------------")
+
+    // Creamos la planta utilizando la clase del paquete modelo
+    val miHelecho = Planta("Helecho real", 75)
+    
+    // Evaluamos la humedad actual (por ejemplo, leída de un sensor: 50%) frente a su ideal (75%)
+    val lecturaSensor = 50
+    val diagnostico = evaluarHumedad(lecturaSensor, miHelecho.humedadIdeal)
+
+    // Mostramos el informe final por consola
+    println("Planta: ${miHelecho.especie}")
+    println("Humedad registrada: $lecturaSensor% (Humedad objetivo: ${miHelecho.humedadIdeal}%)")
+    println("Diagnóstico del sistema: $diagnostico")
+}
+```
+
+**Salida por consola de tu proyecto multiarchivo:**
+
+```text
+¡Hola, Carlos! Iniciando asistente de control...
+----------------------------------------
+Planta: Helecho real
+Humedad registrada: 50% (Humedad objetivo: 75%)
+Diagnóstico del sistema: Urgente: Requiere riego inmediato.
+```
+
 
 
 ---

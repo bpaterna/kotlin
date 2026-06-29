@@ -5,7 +5,7 @@
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
@@ -90,7 +90,7 @@ fun main() {
 
 
 
-## 5. Funciones simplificadas (Expresión única)
+## 5. Funciones simplificadas
 
 Si una función tiene una sola línea de código que simplemente devuelve un valor, Kotlin te permite prescindir de las llaves `{}` y de la palabra `return`. En su lugar, puedes estructurarla utilizando el operador de asignación **`=`**.
 
@@ -131,7 +131,7 @@ fun main() {
 
 
 
-## 7. Argumentos nombrados (*Named Arguments*)
+## 7. Argumentos nombrados
 
 Cuando llamas a una función que tiene muchos parámetros (algunos de ellos con valores por defecto), puede ser confuso recordar el orden exacto de las variables. Kotlin te permite solucionar esto indicando explícitamente el nombre del parámetro al que le estás asignando el valor. Además, te permite cambiar el orden de los argumentos en la llamada.
 
@@ -159,6 +159,146 @@ fun main() {
     programarTratamiento("Sansevieria", mililitros = 10.0) // Utiliza el valor por defecto: 1 semana
 }
 ```
+
+
+
+## 8. Funciones de extensión
+
+Las **funciones de extensión** te permiten añadir nuevas funciones a clases ya existentes (sean clases tuyas, de librerías de terceros, o clases estándar de Kotlin como `String`, `Int` o `Double`) **sin necesidad de heredar de ellas ni modificar su código original**.
+
+Para definirlas, debes anteponer el nombre de la clase que quieres extender al nombre de tu nueva función, separado por un punto `.`. Dentro de la función, la palabra clave **`this`** hace referencia al objeto real sobre el que se hace la llamada.
+
+**Ejemplo 1: Extensión sobre la clase estándar `String`**
+
+Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
+
+```kotlin
+// Extendemos la clase estándar String
+fun String.formatoEspecie(): String {
+    // 'this' es el String original sobre el que aplicamos la función
+    return this.trim().lowercase().replaceFirstChar { it.uppercase() }
+}
+
+fun main() {
+    val entradaSucia = "  mOnStErA dElIcIoSa  "
+    // Usamos nuestra nueva función como si siempre hubiera existido en los Strings
+    val especieLimpia = entradaSucia.formatoEspecie()
+    
+    println(especieLimpia) // Salida: Monstera deliciosa
+}
+```
+
+**Ejemplo 2: Extensión sobre tu propia clase personalizada**
+
+```kotlin
+class Maceta(val material: String, val volumenLitros: Double)
+
+// Añadimos una función de extensión a nuestra clase Maceta
+fun Maceta.mostrarDetalles(): String {
+    return "Contenedor de $material con capacidad de $volumenLitros litros de sustrato."
+}
+
+fun main() {
+    val miMaceta = Maceta("Terracota", 12.5)
+    println(miMaceta.mostrarDetalles())
+}
+```
+
+
+
+## 9. Funciones con cantidad variable de argumentos
+
+A veces necesitas que una función pueda recibir un número indeterminado de argumentos del mismo tipo (por ejemplo, registrar tres plantas en una tanda, o registrar diez). Para no verte obligado a crear una lista o un array previamente, puedes usar la palabra reservada **`vararg`** en la definición del parámetro.
+
+Internamente, Kotlin tratará ese parámetro variable como si fuera un array, permitiéndote acceder a su tamaño (`.size`), recorrerlo o usar sus elementos.
+
+**Ejemplo 3: Registro por lotes de plantas de exterior**
+
+```kotlin
+// Declaramos un parámetro variable usando vararg
+fun registrarLoteExteriores(vararg plantas: String) {
+    println("--- REGISTRO DE PARCELA (Total: ${plantas.size} especies) ---")
+    for (planta in plantas) {
+        println("- Especie añadida: $planta")
+    }
+}
+
+fun main() {
+    // 1. Llamada pasando argumentos individuales directamente
+    registrarLoteExteriores("Lavanda", "Romero", "Tomillo")
+    
+    // 2. Pasar un array existente usando el OPERADOR SPREAD (*)
+    // El asterisco '*' indica a Kotlin que debe "descomprimir" el array en argumentos individuales
+    val plantasSocio = arrayOf("Menta", "Albahaca")
+    registrarLoteExteriores(*plantasSocio)
+}
+```
+
+
+
+## 10. Funciones locales
+
+Una **función local** es una función que se declara **dentro de otra función**. Solo es visible y utilizable de manera interna por la función que la rodea. Te sirve para:
+* Organizar y dividir el código de funciones excesivamente largas.
+* Evitar la repetición de lógica que solo tiene sentido dentro de ese bloque concreto.
+* Encapsular operaciones de validación de manera limpia.
+
+> **Regla de oro:** Las funciones locales tienen acceso a las variables locales y parámetros de la función principal que las envuelve.
+
+**Ejemplo 4: Registro de fichas botánicas con validación interna**
+
+```kotlin
+fun registrarFichaBotanica(nombreComun: String, phSuelo: Double) {
+    
+    // Función local para validar que los nombres no tengan espacios de más
+    fun limpiarTexto(texto: String): String {
+        return texto.trim().uppercase()
+    }
+    
+    val nombreLimpio = limpiarTexto(nombreComun)
+    val estadoPh = if (phSuelo < 7.0) "Suelo Ácido" else "Suelo Alcalino/Neutro"
+    
+    println("Ficha generada -> [$nombreLimpio] | Diagnóstico: $estadoPh")
+}
+
+fun main() {
+    registrarFichaBotanica("   Hortensia Azul  ", 5.2)
+    // limpiarTexto("Test") // ¡Error! No puedes llamar a la función local desde aquí
+}
+```
+
+
+
+## 11. Funciones de orden superior
+
+Una **función de orden superior** es aquella que **recibe otra función como parámetro** o que **devuelve una función** como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.
+
+**Ejemplo 5: Calculadora dinámica de dosificación de abono**
+
+Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
+
+```kotlin
+// El tercer parámetro es una función 'operacion' que toma dos decimales y devuelve otro decimal
+fun aplicarTratamiento(aguaLitros: Double, abonoMl: Double, formula: (Double, Double) -> Double): Double {
+    return formula(aguaLitros, abonoMl)
+}
+
+fun main() {
+    // 1. Definimos una fórmula para un riego suave (concentración baja)
+    val concentracionSuave = aplicarTratamiento(5.0, 10.0) { agua, abono -> 
+        (abono / agua) * 0.8 
+    }
+    
+    // 2. Definimos otra fórmula para un riego intensivo de choque
+    val concentracionIntensiva = aplicarTratamiento(5.0, 10.0) { agua, abono -> 
+        (abono / agua) * 1.5 
+    }
+
+    println("Dosificación suave: $concentracionSuave mg/L")
+    println("Dosificación intensiva: $concentracionIntensiva mg/L")
+}
+```
+
 
 
 

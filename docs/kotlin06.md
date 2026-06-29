@@ -5,7 +5,7 @@
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
@@ -15,9 +15,9 @@ Las estructuras de datos te permiten organizar, almacenar y manipular grupos de 
 
 
 
-## 2. Array (Vector / Arreglo)
+## 2. Array
 
-Un **Array** es una colección ordenada de elementos con un **tamaño fijo** que no puede cambiar una vez creado. Todos los elementos almacenados deben ser del mismo tipo de dato y se accede a ellos a través de un índice numérico (que empieza siempre en `0`).
+Un **Array** también conocido como **Vector** o **Arreglo** es una colección ordenada de elementos con un **tamaño fijo** que no puede cambiar una vez creado. Todos los elementos almacenados deben ser del mismo tipo de dato y se accede a ellos a través de un índice numérico (que empieza siempre en `0`).
 
 
 <span class="mi_h3">2.1. Arrays especializados para tipos primitivos</span>
@@ -80,7 +80,7 @@ fun main() {
 
 
 
-## 3. List (Lista)
+## 3. List
 
 A diferencia de los Arrays, las **listas** son colecciones ordenadas cuyo tamaño puede ser dinámico. Además, permiten almacenar elementos duplicados. En Kotlin existen dos variantes fundamentales de listas:
 
@@ -126,9 +126,9 @@ fun main() {
 
 
 
-## 4. Set (Conjunto)
+## 4. Set
 
-Un **Set** es una colección de elementos únicos **donde no se permiten duplicados** y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.
+Un **Set** o **Conjunto** es una colección de elementos únicos **donde no se permiten duplicados** y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.
 
 **Ejemplo práctico: Control de plagas activas en parcelas**
 
@@ -158,9 +158,9 @@ fun main() {
 
 
 
-## 5. Map (Diccionario o Mapa)
+## 5. Map
 
-Un **Map** es una colección de **pares clave $\rightarrow$ valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
+Un **Map** o **Diccionario** es una colección de **pares clave $\rightarrow$ valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
 
 **Ejemplo práctico: Registro de humedad ideal y pH por lote**
 
@@ -194,7 +194,7 @@ fun main() {
 
 
 
-**Comparativa: Array, List, Set y Map**
+## 6. Comparativa: Array, list, set y map
 
 Esta tabla resumen te servirá para repasar las diferencias estructurales de cada una de las colecciones que has aprendido:
 
@@ -204,6 +204,7 @@ Esta tabla resumen te servirá para repasar las diferencias estructurales de cad
 | **List** | Sí | Sí | No | **Sí** (siempre que sea `MutableList`) |
 | **Set** | No | **No** | Sí (los elementos actúan como claves únicas) | **Sí** (siempre que sea `MutableSet`) |
 | **Map** | No | En los valores (no en las claves) | **Sí** (las claves deben ser únicas) | **Sí** (siempre que sea `MutableMap`) |
+
 
 
 ---

@@ -5,7 +5,7 @@
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
@@ -99,7 +99,6 @@ fun main() {
   Introduce la altura actual del girasol (en cm): 
   Error: Altura introducida no válida. Asegúrate de escribir un número entero.
   ```
-
 
 
 

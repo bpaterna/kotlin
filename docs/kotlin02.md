@@ -5,7 +5,7 @@
 
 | Revisión | Fecha      | Descripción                             |
 |----------|------------|-----------------------------------------|
-| 1.0      | 27-06-2026 | Adaptación de los materiales a markdown |
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
 
 
 
@@ -45,7 +45,6 @@ fun main() {
     println("La altura actual de la planta es de $alturaTalloCm cm") // Salida: 17.5 cm
 }
 ```
-
 
 
 ## 2. Tipos de datos en Kotlin
@@ -99,7 +98,7 @@ Kotlin utiliza los operadores matemáticos estándar para realizar cálculos sob
 
 
 
-## 4. Control de Nulos (*Null Safety*)
+## 4. Control de nulos (*Null Safety*)
 
 Uno de los principales problemas en lenguajes como Java es el famoso error `NullPointerException` (cuando intentas acceder a algo que apunta a la nada, es decir, a un valor `null`). Kotlin está diseñado específicamente para evitar este problema obligándote a controlar los nulos de forma explícita desde el código.
 

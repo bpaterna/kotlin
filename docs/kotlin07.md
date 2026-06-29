@@ -1,0 +1,444 @@
+# 7. Programación Orientada a Objetos (POO)
+
+
+<span class="mi_h3">Revisiones</span>
+
+| Revisión | Fecha      | Descripción                             |
+|----------|------------|-----------------------------------------|
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
+
+
+
+## 1. Introducción
+
+La **Programación Orientada a Objetos** es un paradigma que te permite estructurar tus programas simulando elementos del mundo real.
+
+Para entenderlo, imagina una **planta** real en tu invernadero:
+* Tiene características o **propiedades** (especie, altura, nivel de humedad, edad).
+* Puede realizar acciones o **métodos** (crecer, florecer, marchitarse).
+
+En la POO, utilizamos las **clases** como moldes o planos de diseño, y los **objetos** como los ejemplares reales (instancias) creados a partir de ese molde.
+
+
+
+## 2. Clases, constructores y atributos
+
+Kotlin simplifica enormemente la creación de clases en comparación con otros lenguajes. Dispones de tres formas de estructurar tus constructores según la complejidad que busques.
+
+**Ejemplo 1: Constructor primario (La forma recomendada)**
+
+Define las propiedades directamente en la cabecera de la clase.
+
+```kotlin
+class Planta(val especie: String, var alturaCm: Double) {
+    
+    // Método de la clase
+    fun imprimirFicha() {
+        println("Especie: $especie | Altura: $alturaCm cm")
+    }
+
+    fun necesitaRiego(humedad: Int): Boolean {
+        return humedad < 40
+    }
+}
+
+fun main() {
+    // Creamos dos objetos (instancias) de la clase Planta
+    val planta1 = Planta("Monstera deliciosa", 45.0)
+    val planta2 = Planta("Cactus de Pascua", 12.0)
+
+    planta1.imprimirFicha()
+    println("¿Necesita riego planta 2? ${planta2.necesitaRiego(25)}")
+}
+```
+
+**Ejemplo 2: Propiedades dentro del cuerpo**
+
+Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.
+
+```kotlin
+class Flor() {
+    var especie: String = "Desconocida"
+    var colorPetalos: String = "Blanco"
+}
+```
+
+**Ejemplo 3: Constructor secundario**
+
+A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada `constructor` y este debe delegar en el constructor primario usando `: this(...)`.
+
+```kotlin
+class PlantaExotica(val especie: String, var alturaCm: Double, val paisOrigen: String) {
+    
+    // Constructor secundario que asume origen desconocido si no se especifica
+    constructor(especie: String, alturaCm: Double) : this(especie, alturaCm, "Desconocido")
+}
+```
+
+
+
+## 3. Propiedades, getters y setters
+
+En Kotlin, todas las propiedades mutables (`var`) generan automáticamente un **getter** (para leer su valor) y un **setter** (para modificarlo) por detrás. Si necesitas aplicar lógica de negocio o validación al asignar o leer un dato, puedes personalizarlos usando la variable implícita `field` (que hace referencia al campo físico de memoria).
+
+**Ejemplo 1: Validación personalizada de humedad**
+
+Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.
+
+```kotlin
+class SensorSuelo {
+    var porcentajeHumedad: Int = 50
+        set(value) {
+            // Validamos que el porcentaje sea coherente
+            field = if (value in 0..100) value else 50
+        }
+}
+```
+
+**Ejemplo 2: Propiedad de solo lectura con cálculo automático**
+
+Si declaras una propiedad con `val`, solo tendrá *getter*. Es útil para campos calculados dinámicamente.
+
+```kotlin
+class Invernadero(val largoMetros: Double, val anchoMetros: Double) {
+    // Getter personalizado. No almacena el dato en memoria, lo calcula al consultarlo
+    val superficieMetrosCuadrados: Double
+        get() = largoMetros * anchoMetros
+}
+
+fun main() {
+    val miInvernadero = Invernadero(10.0, 4.0)
+    println("Superficie útil: ${miInvernadero.superficieMetrosCuadrados} m²") // 40.0 m²
+}
+```
+
+**Ejemplo 3: Setter privado (Encapsulamiento)**
+
+Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que **solo pueda modificarse desde dentro de la propia clase**, puedes privatizar su *setter*.
+
+* **Metáfora:** La edad en días de una planta solo debería incrementarse mediante un método controlado, nunca asignándole valores arbitrarios desde fuera.
+
+```kotlin
+class PlantaInvernadero(val especie: String) {
+    var edadDias: Int = 0
+        private set // El setter es privado, nadie puede hacer 'planta.edadDias = 90' desde fuera
+
+    fun pasarDia() {
+        edadDias++ // Solo la propia clase puede modificarlo
+    }
+}
+```
+
+
+
+## 4. Relación entre clases
+
+En el mundo real, los objetos contienen otros objetos o se relacionan entre sí. La composición (o relación entre clases) consiste en definir propiedades dentro de una clase que son instancias de otra clase.
+
+```kotlin
+class Maceta(val material: String, val volumenLitros: Double)
+
+class PlantaDomestica(val especie: String, val contenedor: Maceta) {
+    fun describirCultivo() {
+        println("La planta '$especie' está plantada en una maceta de ${contenedor.material} de ${contenedor.volumenLitros}L.")
+    }
+}
+
+fun main() {
+    val macetaBarro = Maceta("Barro cocido", 5.0)
+    val helecho = PlantaDomestica("Helecho real", macetaBarro)
+    helecho.describirCultivo()
+}
+```
+
+
+## 5. Modificadores de acceso
+
+En Kotlin, todo es público por defecto. No obstante, puedes restringir la visibilidad de tus clases, métodos y propiedades para proteger la integridad de tus datos.
+
+| Modificador | Visibilidad |
+| :--- | :--- |
+| **`public`** *(por defecto)* | Accesible desde cualquier parte del proyecto. |
+| **`private`** | Accesible únicamente dentro de la misma clase o archivo que lo contiene. |
+| **`protected`** | Accesible dentro de la misma clase y de sus subclases (herencia). |
+| **`internal`** | Accesible dentro del mismo módulo de compilación (útil en librerías). |
+
+---
+
+## 6. Herencia y polimorfismo
+
+En Kotlin, por seguridad, **todas las clases son cerradas (`final`) por defecto**, lo que significa que no se pueden heredar a menos que las marques explícitamente con la palabra reservada **`open`**. Los métodos que desees sobrescribir en las subclases también deben ser `open`.
+
+**Ejemplo 1: Jerarquía de plantas**
+
+```kotlin
+// Clase base marcada como open
+open class Vegetal(val especie: String) {
+    // Método open para permitir que las subclases lo personalicen
+    open fun regar() {
+        println("Regando $especie de manera estándar.")
+    }
+}
+
+// Subclase Helecho que hereda de Vegetal
+class Helecho : Vegetal("Helecho espada") {
+    // Sobrescribimos el comportamiento específico de riego
+    override fun regar() {
+        super.regar() // Ejecuta el riego estándar opcionalmente
+        println("- Cuidado extra: Pulverizar agua sobre las frondas para emular humedad alta.")
+    }
+}
+
+// Subclase Cactus que hereda de Vegetal
+class Cactus : Vegetal("Cactus de barril") {
+    override fun regar() {
+        println("Regar $especie con muy poca agua, garantizando suelo seco entre riegos.")
+    }
+}
+```
+
+
+**Ejemplo 2: Polimorfismo en colecciones de objetos**
+
+El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
+
+```kotlin
+fun main() {
+    // Array polimórfico que almacena diferentes vegetales
+    val jardin: Array<Vegetal> = arrayOf(
+        Helecho(),
+        Cactus(),
+        Vegetal("Planta genérica")
+    )
+
+    // Recorremos el jardín y cada planta responde de forma única al riego
+    for (planta in jardin) {
+        planta.regar()
+        println("-----------------------------------")
+    }
+}
+```
+
+
+
+## 7. Data classes
+
+Las clases de datos (`data class`) son clases diseñadas específicamente para **almacenar información**. Al anteponer la palabra `data` a una clase, el compilador de Kotlin genera automáticamente por detrás una serie de funciones de utilidad:
+* Un formato de texto legible para consola (`toString()`).
+* Comparación de igualdad basada en sus datos internos (`equals()`).
+* Generador de códigos únicos de dispersión (`hashCode()`).
+* Clonación del objeto permitiendo modificar propiedades específicas (`copy()`).
+
+```kotlin
+// Clase de datos para modelar semillas
+data class LoteSemillas(val variedad: String, val cantidadSemillas: Int, val añoCosecha: Int)
+
+fun main() {
+    val lote1 = LoteSemillas("Girasol gigante", 150, 2025)
+    val lote2 = LoteSemillas("Girasol gigante", 150, 2025)
+
+    // 1. toString() automático
+    println(lote1) // Salida legible: LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, añoCosecha=2025)
+
+    // 2. equals() automático (compara valores, no referencias de memoria)
+    println("¿Son lotes idénticos? ${lote1 == lote2}") // Salida: true
+
+    // 3. copy() automático (clona el lote pero actualizando el año de cosecha)
+    val loteNuevoAnual = lote1.copy(añoCosecha = 2026)
+    println(loteNuevoAnual)
+}
+```
+
+
+## 8. Sobrecarga de operadores
+
+Kotlin te permite personalizar el comportamiento de operadores matemáticos o lógicos (`+`, `-`, `*`, `==`) cuando interactúan con tus propios objetos. Para ello, debes definir funciones utilizando la palabra clave **`operator`**.
+
+* **Metáfora botánica:** Si sumas dos sacos de tierra con diferentes litros, el resultado debería ser un nuevo saco de tierra con la suma total del volumen.
+
+```kotlin
+data class SacoTierra(val volumenLitros: Double) {
+    // Sobrecargamos el operador '+' (asociado a la función 'plus')
+    operator fun plus(otroSaco: SacoTierra): SacoTierra {
+        return SacoTierra(this.volumenLitros + otroSaco.volumenLitros)
+    }
+}
+
+fun main() {
+    val sacoPequeño = SacoTierra(15.0)
+    val sacoGrande = SacoTierra(50.0)
+
+    // Usamos el operador '+' directamente de forma intuitiva
+    val mezclaSustrato = sacoPequeño + sacoGrande
+
+    println("Has combinado la tierra. El saco resultante tiene: ${mezclaSustrato.volumenLitros} litros.") 
+    // Salida: 65.0 litros
+}
+```
+
+
+
+## 9. Objetos sin clases
+
+En ocasiones, necesitas una estructura que actúe como un gestor o base de datos centralizada de la cual **solo debe existir una única instancia en toda tu aplicación**. En Kotlin, esto se resuelve de forma directa sin necesidad de configurar patrones complejos de diseño; simplemente declaras un **`object`** en lugar de una `class`.
+
+```kotlin
+data class FlorExotica(val nombre: String, val color: String)
+
+// Singleton para el registro de especies raras del Jardín Botánico
+object RegistroBotanicoUnico {
+    private val floresRegistradas = mutableListOf<FlorExotica>()
+
+    fun añadirFlor(flor: FlorExotica) {
+        floresRegistradas.add(flor)
+        println("Flor '${flor.nombre}' añadida al herbario nacional.")
+    }
+
+    fun mostrarHerbario() {
+        println("--- HERBARIO OFICIAL ---")
+        floresRegistradas.forEach { println("- ${it.nombre} (${it.color})") }
+    }
+}
+
+fun main() {
+    // No usamos constructores ni 'new'. Accedemos directamente por su nombre
+    RegistroBotanicoUnico.añadirFlor(FlorExotica("Orquídea Negra", "Negro azabache"))
+    RegistroBotanicoUnico.añadirFlor(FlorExotica("Flor de Jade", "Turquesa"))
+
+    RegistroBotanicoUnico.mostrarHerbario()
+}
+```
+
+
+## 10. Ejemplos de jerarquía de clases y arrays de objetos
+
+Utilizaremos esta jerarquía de clases base para los ejemplos:
+
+```kotlin
+// Clase base
+open class Vegetal(val nombre: String) {
+    open fun aplicarCuidados() {
+        println("Aplicando cuidados estándar para la planta '$nombre'.")
+    }
+}
+
+// Subclase Flor
+class Flor(nombre: String, val colorPetalos: String) : Vegetal(nombre) {
+    override fun aplicarCuidados() {
+        println("Riego moderado para la flor '$nombre' y protección de sus pétalos de color $colorPetalos.")
+    }
+
+    // Método específico de esta subclase
+    fun fertilizarFloracion() {
+        println("¡Aplicando abono especial de fósforo para estimular la floración de la flor '$nombre'!")
+    }
+}
+
+// Subclase Arbol
+class Arbol(nombre: String, val alturaMaxMetros: Double) : Vegetal(nombre) {
+    override fun aplicarCuidados() {
+        println("Poda estructural para el árbol '$nombre' (Altura máxima esperada: $alturaMaxMetros m).")
+    }
+}
+```
+
+**Ejemplo 1: Array de objetos**
+
+En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.
+
+```kotlin
+fun main() {
+    // 1. Declaramos un array con diferentes subclases de Vegetal
+    val jardin: Array<Vegetal> = arrayOf(
+        Flor("Rosa", "Rojo"),
+        Arbol("Pino", 20.0),
+        Flor("Girasol", "Amarillo"),
+        Vegetal("Planta silvestre")
+    )
+
+    // 2. Recorremos el array llamando al método polimórfico
+    println("--- Cuidados diarios del jardín ---")
+    for (planta in jardin) {
+        planta.aplicarCuidados() // Llama automáticamente al método correcto de cada clase
+    }
+
+    println("\n--- Operaciones de mantenimiento por índice ---")
+    // Acceso directo a un elemento por su índice
+    jardin[1].aplicarCuidados() // Llama al cuidado del Pino
+
+    // Modificar un elemento del array por otro objeto
+    jardin[3] = Arbol("Roble joven", 15.0)
+    println("Se ha reemplazado la planta silvestre por un Roble.")
+
+    // 3. Crear un array inicialmente vacío de tamaño fijo y luego asignarle elementos
+    val estanteInvernadero = arrayOfNulls<Vegetal>(3) // Array de tamaño 3 que permite nulos
+    estanteInvernadero[0] = Flor("Tulipán", "Rosa")
+    estanteInvernadero[1] = Arbol("Bonsái de Olivo", 1.5)
+    // El índice 2 quedará como null hasta que asignemos un objeto
+}
+```
+
+**Ejemplo 2: ArrayList de objetos y filtrado**
+
+En este ejemplo trabajarás con una lista dinámica (`MutableList`), que es el equivalente nativo en Kotlin al `ArrayList` de Java. Verás cómo llenarla y cómo utilizar la función **`filterIsInstance`** para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.
+
+```kotlin
+fun main() {
+    // 1. Creamos una lista dinámica (MutableList) de vegetales
+    val inventarioInvernadero = mutableListOf<Vegetal>(
+        Flor("Orquídea", "Blanco"),
+        Arbol("Naranjo", 4.0),
+        Flor("Azalea", "Rosa"),
+        Arbol("Limonero", 3.0)
+    )
+
+    // 2. Mostrar todas las plantas del invernadero
+    println("--- Catálogo Completo del Invernadero ---")
+    for (planta in inventarioInvernadero) {
+        planta.aplicarCuidados()
+    }
+
+    // 3. FILTRADO CON filterIsInstance: Extraer SOLO las flores de la lista general
+    println("\n--- Tarea especial: Abonar únicamente las flores ---")
+    
+    // Filtramos la lista para obtener una de tipo List<Flor>
+    val soloFlores: List<Flor> = inventarioInvernadero.filterIsInstance<Flor>()
+    
+    for (flor in soloFlores) {
+        // Al estar seguros de que son de tipo Flor, podemos usar sus métodos exclusivos
+        flor.fertilizarFloracion() 
+    }
+}
+```
+
+**Operaciones funcionales adicionales en listas de objetos**
+
+Kotlin te permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda:
+
+```kotlin
+fun main() {
+    val invernadero = listOf(
+        Flor("Orquídea", "Blanco"),
+        Arbol("Naranjo", 4.0),
+        Flor("Azalea", "Rosa")
+    )
+
+    // A) Recorrer de forma compacta con forEach
+    invernadero.forEach { it.aplicarCuidados() }
+
+    // B) Transformar los objetos en una lista de nombres con map
+    val nombresEspecies: List<String> = invernadero.map { it.nombre }
+    println("\nListado de especies: $nombresEspecies") 
+    // Salida: [Orquídea, Naranjo, Azalea]
+}
+```
+
+
+
+---
+
+<span class="mi_h3">Autoría</span>
+
+Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
+
+---
