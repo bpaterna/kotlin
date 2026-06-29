@@ -9,6 +9,8 @@ img {border:#767676 solid 2px;}
 
 .md-nav label { color:#ab47bd !important; font-size: .9rem !important;}
 
+.md-nav__title .md-nav__button.md-logo svg {fill: #ffffff;}
+
 .mi_h2 {
   color: #ab47bd;
   font-size: 1.5625em;
