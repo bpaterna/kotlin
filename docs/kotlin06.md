@@ -33,20 +33,41 @@ Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays e
 
 ```kotlin
 fun main() {
-    // 1. Crear un array vacío indicando el tamaño fijo (lleno de ceros por defecto)
-    val phParcelas = DoubleArray(4) 
+    // 1. Crear un array vacío indicando el tamaño fijo (lleno de 0.0 por defecto)
+    val phParcelas = DoubleArray(4)
     phParcelas[0] = 6.5
     phParcelas[1] = 7.2
-    // ...
-    
+    phParcelas[2] = 6.0
+    phParcelas[3] = 5.8
+
     // 2. Asignar los valores directamente al crearlo
     val phZonas = doubleArrayOf(5.5, 6.8, 7.1)
-    
+
     // 3. Utilizar arrayOf para tipos genéricos (como Strings, que no tienen clase optimizada)
     val plantasSocio = arrayOf("Ajo", "Zanahoria", "Lechuga")
+
+    // --- IMPRESIÓN DE LOS RESULTADOS POR CONSOLA ---
+    println("=== INFORME DE LA PARCELA BOTÁNICA ===")
+
+    // Acceso por índice y uso de .size para conocer el tamaño
+    println("pH de la primera parcela: ${phParcelas[0]} (Total de parcelas registradas: ${phParcelas.size})")
+
+    // Acceso a un elemento del segundo array
+    println("pH en la segunda zona de cultivo: ${phZonas[1]}")
+
+    // Uso de .joinToString() para mostrar todos los elementos de un array de forma legible
+    println("Plantas asociadas seleccionadas para el huerto: ${plantasSocio.joinToString(", ")}")
 }
 ```
 
+**Salida por consola:**
+
+```text
+=== INFORME DE LA PARCELA BOTÁNICA ===
+pH de la primera parcela: 6.5 (Total de parcelas registradas: 4)
+pH en la segunda zona de cultivo: 6.8
+Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
+```
 
 
 <span class="mi_h3">2.3. Operaciones comunes con Arrays</span>
@@ -78,6 +99,24 @@ fun main() {
 }
 ```
 
+**Salida por consola:**
+
+```text
+La primera flor del catálogo es: Rosa
+Total flores registradas: 4
+
+--- Método 1: Recorrido directo por elementos ---
+- Especie: Rosa
+- Especie: Tulipán
+- Especie: Lirio blanco
+- Especie: Girasol
+
+--- Método 2: Recorrido por índices ---
+Posición 0 en el estante: Rosa
+Posición 1 en el estante: Tulipán
+Posición 2 en el estante: Lirio blanco
+Posición 3 en el estante: Girasol
+```
 
 
 ## 3. List
@@ -124,6 +163,11 @@ fun main() {
 }
 ```
 
+**Salida por consola:**
+
+```text
+Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
+```
 
 
 ## 4. Set
@@ -156,6 +200,13 @@ fun main() {
 }
 ```
 
+**Salida por consola:**
+
+```text
+Plagas bajo control: [Pulgón, Araña roja]
+Composición química del abono: [Nitrógeno, Fósforo, Potasio]
+La mezcla contiene Potasio, es apta para la floración.
+```
 
 
 ## 5. Map
@@ -190,6 +241,13 @@ fun main() {
     // Eliminar un registro
     registroPhLotes.remove("Lote B-Hortensia")
 }
+```
+
+**Salida por consola:**
+
+```text
+La humedad ideal para el Helecho es del 80%
+pH Hortensias: 5.5
 ```
 
 
