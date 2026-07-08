@@ -212,27 +212,33 @@ import botanica.util.*
 
 Para entender cómo encaja todo esto de manera profesional en un proyecto de software, vamos a estructurar un asistente de control de humedad multiarchivo utilizando tres paquetes separados: `modelo`, `util` y `app`.
 
-**Estructura de carpetas de tu proyecto:**
+En la raíz del proyecto, el compilador de Kotlin toma la carpeta `kotlin` como el punto de inicio para los paquetes. Por tanto, las carpetas de paquetes (`modelo`, `util`, `app`) se crean dentro de ella.
+
+**Estructura de carpetas en IntelliJ:**
 
 ```text
 control_botanico/
 └── src/
-    ├── app/
-    │   └── Main.kt
-    ├── modelo/
-    │   └── Planta.kt
-    └── util/
-        └── AsistenteRiego.kt
+    └── main/
+        └── kotlin/
+            ├── app/
+            │   └── Main.kt
+            ├── modelo/
+            │   └── Planta.kt
+            └── util/
+                └── AsistenteRiego.kt
 ```
 
+*(En tu panel izquierdo de IntelliJ, verás la ruta completa como `src/main/kotlin` y dentro de ella las carpetas de tus paquetes).*
 
 
-**Archivo 1: `modelo/Planta.kt`**
+
+**Archivo 1: `src/main/kotlin/modelo/Planta.kt`**
 
 Este archivo define la estructura de datos base para nuestras plantas.
 
 ```kotlin
-// src/modelo/Planta.kt
+// src/main/kotlin/modelo/Planta.kt
 package modelo
 
 data class Planta(val especie: String, val humedadIdeal: Int)
@@ -240,12 +246,12 @@ data class Planta(val especie: String, val humedadIdeal: Int)
 
 
 
-**Archivo 2: `util/AsistenteRiego.kt`**
+**Archivo 2: `src/main/kotlin/util/AsistenteRiego.kt`**
 
 Este archivo contiene la lógica de asistencia y cálculo para el invernadero.
 
 ```kotlin
-// src/util/AsistenteRiego.kt
+// src/main/kotlin/util/AsistenteRiego.kt
 package util
 
 fun evaluarHumedad(actual: Int, ideal: Int): String {
@@ -262,41 +268,41 @@ fun bienvenida(nombreJardinero: String): String {
 ```
 
 
+**Archivo 3: `src/main/kotlin/app/Main.kt`**
 
-**Archivo 3: `app/Main.kt`**
 Este es el archivo principal que coordina toda la aplicación e importa las clases y funciones de los otros dos paquetes.
 
 ```kotlin
-// src/app/Main.kt
+// src/main/kotlin/app/Main.kt
 package app
 
-// 1. Importamos la data class del paquete modelo
+// Importamos la data class desde el paquete modelo
 import modelo.Planta
 
-// 2. Importamos la función de evaluación del paquete util
+// Importamos la función de evaluación desde el paquete util
 import util.evaluarHumedad
 
-// 3. Importamos la función de bienvenida usando un alias para abreviarla
+// Importamos la función de bienvenida usando un alias
 import util.bienvenida as saludar
 
 fun main() {
-    // Usamos el alias importado
     println(saludar("Pol"))
     println("----------------------------------------")
 
-    // Creamos la planta utilizando la clase del paquete modelo
+    // Creamos un objeto Planta
     val miHelecho = Planta("Helecho real", 75)
     
-    // Evaluamos la humedad actual (por ejemplo, leída de un sensor: 50%) frente a su ideal (75%)
+    // Evaluamos la humedad actual (sensor a 50%) frente a la ideal (75%)
     val lecturaSensor = 50
     val diagnostico = evaluarHumedad(lecturaSensor, miHelecho.humedadIdeal)
 
-    // Mostramos el informe final por consola
     println("Planta: ${miHelecho.especie}")
     println("Humedad registrada: $lecturaSensor% (Humedad objetivo: ${miHelecho.humedadIdeal}%)")
     println("Diagnóstico del sistema: $diagnostico")
 }
 ```
+
+
 
 **Salida por consola de tu proyecto multiarchivo:**
 
