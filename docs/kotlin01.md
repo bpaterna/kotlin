@@ -233,9 +233,7 @@ control_botanico/
 
 
 
-**Archivo 1: `src/main/kotlin/modelo/Planta.kt`**
-
-Este archivo define la estructura de datos base para nuestras plantas.
+**Archivo 1: `src/main/kotlin/modelo/Planta.kt`** Este archivo define la estructura de datos base para nuestras plantas.
 
 ```kotlin
 // src/main/kotlin/modelo/Planta.kt
@@ -246,9 +244,7 @@ data class Planta(val especie: String, val humedadIdeal: Int)
 
 
 
-**Archivo 2: `src/main/kotlin/util/AsistenteRiego.kt`**
-
-Este archivo contiene la lógica de asistencia y cálculo para el invernadero.
+**Archivo 2: `src/main/kotlin/util/AsistenteRiego.kt`** Este archivo contiene la lógica de asistencia y cálculo para el invernadero.
 
 ```kotlin
 // src/main/kotlin/util/AsistenteRiego.kt
@@ -268,21 +264,19 @@ fun bienvenida(nombreJardinero: String): String {
 ```
 
 
-**Archivo 3: `src/main/kotlin/app/Main.kt`**
-
-Este es el archivo principal que coordina toda la aplicación e importa las clases y funciones de los otros dos paquetes.
+**Archivo 3: `src/main/kotlin/app/Main.kt`** Este es el archivo principal que coordina toda la aplicación e importa las clases y funciones de los otros dos paquetes.
 
 ```kotlin
 // src/main/kotlin/app/Main.kt
 package app
 
-// Importamos la data class desde el paquete modelo
+// Importa la data class desde el paquete modelo
 import modelo.Planta
 
-// Importamos la función de evaluación desde el paquete util
+// Importa la función de evaluación desde el paquete util
 import util.evaluarHumedad
 
-// Importamos la función de bienvenida usando un alias
+// Importa la función de bienvenida usando un alias
 import util.bienvenida as saludar
 
 fun main() {
@@ -303,8 +297,7 @@ fun main() {
 ```
 
 
-
-**Salida por consola de tu proyecto multiarchivo:**
+**Salida por consola:**
 
 ```text
 ¡Hola, Pol! Iniciando asistente de control...
