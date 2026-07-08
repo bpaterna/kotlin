@@ -24,7 +24,7 @@ Para enviar información y texto hacia la pantalla, Kotlin pone a tu disposició
 | **`print()`** | Imprime el texto tal cual, **sin añadir un salto de línea** al final. El siguiente texto se mostrará pegado a continuación. | `print("Rosa ")`<br>`print("roja")` | `Rosa roja` |
 | **`println()`** | Imprime el texto y **añade automáticamente un salto de línea** al final. El siguiente texto comenzará en la línea inferior. | `println("Rosa")`<br>`println("roja")` | `Rosa`<br>`roja` |
 
-**Ejemplo práctico en consola:**
+**Ejemplo 1: Consola:**
 
 Imagina que quieres mostrar una pequeña ficha de registro de tareas de jardinería combinando ambas funciones:
 
@@ -61,7 +61,7 @@ Dado que intentar convertir un texto vacío o con letras (como `"mucho"`) a un n
 
 La forma correcta y segura de comprobar que la entrada de teclado no es nula ni está vacía antes de realizar cualquier conversión numérica es utilizando la función de validación `.isNotBlank()`.
 
-**Ejemplo práctico: Cálculo de crecimiento estimado**
+**Ejemplo 2: Cálculo de crecimiento estimado**
 Observa este programa que solicita la altura actual de un girasol y calcula cuánto medirá la próxima semana suponiendo un crecimiento estimado de 15 centímetros:
 
 ```kotlin

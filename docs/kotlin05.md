@@ -168,7 +168,7 @@ Las **funciones de extensión** te permiten añadir nuevas funciones a clases ya
 
 Para definirlas, debes anteponer el nombre de la clase que quieres extender al nombre de tu nueva función, separado por un punto `.`. Dentro de la función, la palabra clave **`this`** hace referencia al objeto real sobre el que se hace la llamada.
 
-**Ejemplo 1: Extensión sobre la clase estándar `String`**
+**Ejemplo 7: Extensión sobre la clase estándar `String`**
 
 Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
 
@@ -188,7 +188,7 @@ fun main() {
 }
 ```
 
-**Ejemplo 2: Extensión sobre tu propia clase personalizada**
+**Ejemplo 8: Extensión sobre tu propia clase personalizada**
 
 ```kotlin
 class Maceta(val material: String, val volumenLitros: Double)
@@ -212,7 +212,7 @@ A veces necesitas que una función pueda recibir un número indeterminado de arg
 
 Internamente, Kotlin tratará ese parámetro variable como si fuera un array, permitiéndote acceder a su tamaño (`.size`), recorrerlo o usar sus elementos.
 
-**Ejemplo 3: Registro por lotes de plantas de exterior**
+**Ejemplo 9: Registro por lotes de plantas de exterior**
 
 ```kotlin
 // Declaramos un parámetro variable usando vararg
@@ -245,7 +245,7 @@ Una **función local** es una función que se declara **dentro de otra función*
 
 > **Regla de oro:** Las funciones locales tienen acceso a las variables locales y parámetros de la función principal que las envuelve.
 
-**Ejemplo 4: Registro de fichas botánicas con validación interna**
+**Ejemplo 10: Registro de fichas botánicas con validación interna**
 
 ```kotlin
 fun registrarFichaBotanica(nombreComun: String, phSuelo: Double) {
@@ -273,7 +273,7 @@ fun main() {
 
 Una **función de orden superior** es aquella que **recibe otra función como parámetro** o que **devuelve una función** como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.
 
-**Ejemplo 5: Calculadora dinámica de dosificación de abono**
+**Ejemplo 11: Calculadora dinámica de dosificación de abono**
 
 Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
 
