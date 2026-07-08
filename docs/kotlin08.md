@@ -37,7 +37,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 1: Lambda básica con un parámetro ===
@@ -56,7 +56,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 2: Lambda sin parámetros ===
@@ -75,7 +75,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 3: Lambda con múltiples parámetros ===
@@ -176,7 +176,7 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 4: Operaciones avanzadas en colecciones mediante Lambdas ===

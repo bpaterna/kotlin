@@ -297,7 +297,7 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 ¡Hola, Pol! Iniciando asistente de control...

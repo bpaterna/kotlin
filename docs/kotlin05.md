@@ -28,9 +28,7 @@ Es común confundir estos términos al principio. Esta tabla te ayudará a difer
 | **Parámetro** | La variable que se define en la firma o declaración de la función. Actúa como un contenedor. | `fun regar(planta: String) { ... }`<br>*(aquí `planta` es el parámetro)* |
 | **Argumento** | El valor real que le envías a la función cuando la llamas. | `regar("Girasol")`<br>*(aquí `"Girasol"` es el argumento)* |
 
-**Ejemplo 1: Función simple sin parámetros ni retorno**
-
-Ideal para realizar acciones fijas, como imprimir una cabecera de informe.
+**Ejemplo 1: Función simple sin parámetros ni retorno** Ideal para realizar acciones fijas, como imprimir una cabecera de informe.
 
 ```kotlin
 // Declaración de la función
@@ -168,9 +166,7 @@ Las **funciones de extensión** te permiten añadir nuevas funciones a clases ya
 
 Para definirlas, debes anteponer el nombre de la clase que quieres extender al nombre de tu nueva función, separado por un punto `.`. Dentro de la función, la palabra clave **`this`** hace referencia al objeto real sobre el que se hace la llamada.
 
-**Ejemplo 7: Extensión sobre la clase estándar `String`**
-
-Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
+**Ejemplo 7: Extensión sobre la clase estándar `String`** Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
 
 ```kotlin
 // Extendemos la clase estándar String
@@ -273,9 +269,7 @@ fun main() {
 
 Una **función de orden superior** es aquella que **recibe otra función como parámetro** o que **devuelve una función** como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.
 
-**Ejemplo 11: Calculadora dinámica de dosificación de abono**
-
-Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
+**Ejemplo 11: Calculadora dinámica de dosificación de abono** Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
 
 ```kotlin
 // El tercer parámetro es una función 'operacion' que toma dos decimales y devuelve otro decimal

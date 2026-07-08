@@ -61,7 +61,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 1: Tres formas de crear un array ===
@@ -104,7 +104,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 2: Operaciones comunes con Arrays ===
@@ -171,7 +171,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 3: Inventario de maceteros ===
@@ -211,7 +211,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 4: Control de plagas activas en parcelas ===
@@ -257,7 +257,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 5: Registro de humedad ideal y pH por lote ===

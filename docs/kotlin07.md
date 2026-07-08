@@ -25,9 +25,7 @@ En la POO, utilizamos las **clases** como moldes o planos de diseño, y los **ob
 
 Kotlin simplifica enormemente la creación de clases en comparación con otros lenguajes. Dispones de tres formas de estructurar tus constructores según la complejidad que busques.
 
-**Ejemplo 1: Constructor primario (La forma recomendada)**
-
-Define las propiedades directamente en la cabecera de la clase.
+**Ejemplo 1: Constructor primario (La forma recomendada)** Define las propiedades directamente en la cabecera de la clase.
 
 ```kotlin
 class Planta(val especie: String, var alturaCm: Double) {
@@ -54,7 +52,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 1: CONSTRUCTOR PRIMARIO ===
@@ -63,9 +61,7 @@ Especie: Monstera deliciosa | Altura: 45.0 cm
 ```
 
 
-**Ejemplo 2: Propiedades dentro del cuerpo**
-
-Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.
+**Ejemplo 2: Propiedades dentro del cuerpo** Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.
 
 ```kotlin
 class Flor() {
@@ -90,7 +86,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 2: PROPIEDADES EN EL CUERPO ===
@@ -99,9 +95,7 @@ Flor modificada -> Especie: Tulipán, Color: Rojo
 ```
 
 
-**Ejemplo 3: Constructor secundario**
-
-A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada `constructor` y este debe delegar en el constructor primario usando `: this(...)`.
+**Ejemplo 3: Constructor secundario** A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada `constructor` y este debe delegar en el constructor primario usando `: this(...)`.
 
 ```kotlin
 class PlantaExotica(val especie: String, var alturaCm: Double, val paisOrigen: String) {
@@ -134,7 +128,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 3: CONSTRUCTOR SECUNDARIO ===
@@ -153,9 +147,7 @@ Planta 2 (Constructor Secundario):
 
 En Kotlin, todas las propiedades mutables (`var`) generan automáticamente un **getter** (para leer su valor) y un **setter** (para modificarlo) por detrás. Si necesitas aplicar lógica de negocio o validación al asignar o leer un dato, puedes personalizarlos usando la variable implícita `field` (que hace referencia al campo físico de memoria).
 
-**Ejemplo 4: Validación personalizada de humedad**
-
-Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.
+**Ejemplo 4: Validación personalizada de humedad** Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.
 
 ```kotlin
 class SensorSuelo {
@@ -198,7 +190,7 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 4: VALIDACIÓN PERSONALIZADA ===
@@ -214,9 +206,7 @@ Intentando asignar -10% (Valor fuera de rango)...
 Humedad registrada: 50%
 ```
 
-**Ejemplo 5: Propiedad de solo lectura con cálculo automático**
-
-Si declaras una propiedad con `val`, solo tendrá *getter*. Es útil para campos calculados dinámicamente.
+**Ejemplo 5: Propiedad de solo lectura con cálculo automático** Si declaras una propiedad con `val`, solo tendrá *getter*. Es útil para campos calculados dinámicamente.
 
 ```kotlin
 class Invernadero(val largoMetros: Double, val anchoMetros: Double) {
@@ -233,16 +223,14 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 5: PROPIEDAD SOLO LECTURA Y CÁLCULO AUTOMÁTICO ===
 Superficie útil: 40.0 m²
 ```
 
-**Ejemplo 6: Setter privado (Encapsulamiento)**
-
-Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que **solo pueda modificarse desde dentro de la propia clase**, puedes privatizar su *setter*.
+**Ejemplo 6: Setter privado (Encapsulamiento)** Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que **solo pueda modificarse desde dentro de la propia clase**, puedes privatizar su *setter*.
 
 * **Metáfora:** La edad en días de una planta solo debería incrementarse mediante un método controlado, nunca asignándole valores arbitrarios desde fuera.
 
@@ -288,7 +276,7 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 6: SETTER PRIVADO (ENCAPSULAMIENTO) ===
@@ -327,7 +315,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 7: RELACIÓN ENTRE CLASES ===
@@ -414,7 +402,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 8: JERARQUÍA DE PLANTAS (HERENCIA) ===
@@ -439,9 +427,7 @@ Regar Cactus de barril con muy poca agua, garantizando suelo seco entre riegos.
 ```
 
 
-**Ejemplo 9: Polimorfismo en colecciones de objetos**
-
-El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
+**Ejemplo 9: Polimorfismo en colecciones de objetos** El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
 
 ```kotlin
 fun main() {
@@ -462,7 +448,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 9: POLIMORFISMO EN COLECCIONES DE OBJETOS ===
@@ -508,7 +494,7 @@ fun main() {
 ```
 
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 10: DATA CLASSES ===
@@ -547,7 +533,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 11: SOBRECARGA DE OPERADORES ===
@@ -590,7 +576,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 12: OBJETOS SIN CLASES ===
@@ -633,9 +619,7 @@ class Arbol(nombre: String, val alturaMaxMetros: Double) : Vegetal(nombre) {
 }
 ```
 
-**Ejemplo 13: Array de objetos**
-
-En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.
+**Ejemplo 13: Array de objetos** En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.
 
 ```kotlin
 fun main() {
@@ -671,7 +655,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 13: ARRAY DE OBJETOS ===
@@ -687,9 +671,7 @@ Se ha reemplazado la planta silvestre por un Roble.
 ```
 
 
-**Ejemplo 14: ArrayList de objetos y filtrado**
-
-En este ejemplo trabajarás con una lista dinámica (`MutableList`), que es el equivalente nativo en Kotlin al `ArrayList` de Java. Verás cómo llenarla y cómo utilizar la función **`filterIsInstance`** para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.
+**Ejemplo 14: ArrayList de objetos y filtrado** En este ejemplo trabajarás con una lista dinámica (`MutableList`), que es el equivalente nativo en Kotlin al `ArrayList` de Java. Verás cómo llenarla y cómo utilizar la función **`filterIsInstance`** para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.
 
 ```kotlin
 fun main() {
@@ -722,7 +704,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 14: ARRAYLIST DE OBJETOS Y FILTRADO ===
@@ -738,9 +720,7 @@ Poda estructural para el árbol 'Limonero' (Altura máxima esperada: 3.0 m).
 ```
 
 
-**Ejemplo 15: Operaciones funcionales adicionales en listas de objetos**
-
-Kotlin permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda.
+**Ejemplo 15: Operaciones funcionales adicionales en listas de objetos** Kotlin permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda.
 
 ```kotlin
 fun main() {
@@ -762,7 +742,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 15: OPERACIONES ADICIONALES EN LISTAS DE OBJETOS ===

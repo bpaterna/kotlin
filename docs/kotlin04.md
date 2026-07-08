@@ -39,9 +39,7 @@ Los condicionales te permiten ejecutar diferentes bloques de código en función
 
 <span class="mi_h3">3.1. Estructura `if` / `if-else`</span>
 
-**Ejemplo 1: Condicional simple (`if`)**
-
-Se ejecuta un bloque de código únicamente si la condición resulta verdadera.
+**Ejemplo 1: Condicional simple (`if`)** Se ejecuta un bloque de código únicamente si la condición resulta verdadera.
 
 ```kotlin
 val humedadSuelo = 35
@@ -51,9 +49,7 @@ if (humedadSuelo < 40) {
 }
 ```
 
-**Ejemplo 2: Condicional doble (`if-else`)**
-
-Permite tomar un camino alternativo si la condición no se cumple.
+**Ejemplo 2: Condicional doble (`if-else`)** Permite tomar un camino alternativo si la condición no se cumple.
 
 ```kotlin
 val phTierra = 7.5
@@ -66,9 +62,7 @@ if (phTierra < 7.0) {
 }
 ```
 
-**Ejemplo 3: Condicionales anidados**
-
-Puedes introducir condicionales dentro de otros condicionales para refinar la lógica de control.
+**Ejemplo 3: Condicionales anidados** Puedes introducir condicionales dentro de otros condicionales para refinar la lógica de control.
 
 ```kotlin
 val temperatura = 24
@@ -88,9 +82,7 @@ if (temperatura >= 20 && tieneSombra) {
 }
 ```
 
-**Ejemplo 4: `if` como expresión**
-
-En Kotlin, el `if` puede devolver un valor directamente. Esto te permite ahorrar líneas de código al asignar valores.
+**Ejemplo 4: `if` como expresión** En Kotlin, el `if` puede devolver un valor directamente. Esto te permite ahorrar líneas de código al asignar valores.
 
 ```kotlin
 val litrosAgua = 1.5
@@ -105,9 +97,8 @@ println("El riego de hoy ha sido: $estadoRiego")
 
 La estructura `when` sustituye al clásico `switch` de otros lenguajes. Es mucho más potente y legible cuando tienes múltiples caminos lógicos.
 
-**Ejemplo 5: `when` como selector directo**
 
-Evalúa una variable y toma una acción según su valor coincidente.
+**Ejemplo 5: `when` como selector directo** Evalúa una variable y toma una acción según su valor coincidente.
 
 ```kotlin
 val tipoPlanta = "Cactus"
@@ -122,9 +113,7 @@ val frecuenciaRiego = when (tipoPlanta) {
 println("Riego recomendado para $tipoPlanta: $frecuenciaRiego")
 ```
 
-**Ejemplo 6: `when` con condiciones complejas**
-
-Si no le pasas ningún parámetro entre paréntesis a `when`, puedes evaluar condiciones libres en cada rama (similar a una cadena de `if-else if`).
+**Ejemplo 6: `when` con condiciones complejas** Si no le pasas ningún parámetro entre paréntesis a `when`, puedes evaluar condiciones libres en cada rama (similar a una cadena de `if-else if`).
 
 ```kotlin
 val humedadSuelo = 45

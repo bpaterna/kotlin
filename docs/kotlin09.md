@@ -25,9 +25,7 @@ Se utiliza cuando deseas ejecutar un bloque de código que es propenso a fallar 
 * **`catch`:** Captura el error y te permite manejarlo (mostrar un aviso, usar un valor por defecto, registrar el fallo, etc.). Puedes encadenar varios bloques `catch` para manejar diferentes tipos de errores.
 * **`finally`:** Contiene código que **se ejecutará siempre**, tanto si ha ocurrido un error como si no. Es opcional y se suele usar para tareas de limpieza.
 
-**Ejemplo 1: Dosificación de abono sin macetas registradas**
-
-Si intentamos dividir una dosis total de fertilizante entre cero macetas, el sistema lanzará un error matemático (`ArithmeticException`).
+**Ejemplo 1: Dosificación de abono sin macetas registradas** Si intentamos dividir una dosis total de fertilizante entre cero macetas, el sistema lanzará un error matemático (`ArithmeticException`).
 
 ```kotlin
 fun main() {
@@ -56,13 +54,13 @@ fun main() {
 }
 ```
 
-**Salida por consola para cantidadMacetas = 0:**
+Salida por consola para cantidadMacetas = 0:
 
 ```text
 Error: No puedes dosificar abono si tienes 0 macetas registradas.
 ```
 
-**Salida por consola para cantidadMacetas = 10:**
+Salida por consola para cantidadMacetas = 10:
 
 ```text
 === EJEMPLO 1: Dosificación de abono sin macetas registradas ===
@@ -82,8 +80,7 @@ Se puede aplicar sobre cualquier objeto que implemente la interfaz `Closeable` (
 
 
 
-**Ejemplo 2: Escribir el inventario del invernadero en un archivo**
-Utilizaremos `FileWriter` para guardar de forma persistente un listado de plantas en un archivo llamado `inventario_plantas.txt`.
+**Ejemplo 2: Escribir el inventario del invernadero en un archivo** Utilizaremos `FileWriter` para guardar de forma persistente un listado de plantas en un archivo llamado `inventario_plantas.txt`.
 
 ```kotlin
 import java.io.FileWriter
@@ -105,7 +102,7 @@ fun main() {
 }
 ```
 
-**Salida por consola:**
+Salida por consola:
 
 ```text
 === EJEMPLO 2: Escribir el inventario del invernadero en un archivo ===
@@ -113,9 +110,7 @@ Inventario botánico escrito en disco correctamente.
 ```
 
 
-**Ejemplo 3: Leer el archivo de inventario de forma segura**
-
-Ahora leeremos el archivo que acabamos de crear utilizando `BufferedReader`. Controlaremos de manera segura la posibilidad de que el archivo haya sido borrado o no exista.
+**Ejemplo 3: Leer el archivo de inventario de forma segura** Ahora leeremos el archivo que acabamos de crear utilizando `BufferedReader`. Controlaremos de manera segura la posibilidad de que el archivo haya sido borrado o no exista.
 
 ```kotlin
 import java.io.File
@@ -141,7 +136,7 @@ fun main() {
 }
 ```
 
-**Salida por consola de la lectura del archivo:**
+Salida por consola de la lectura del archivo:
 
 ```text
 === EJEMPLO 3: Leer el archivo de inventario de forma segura ===
