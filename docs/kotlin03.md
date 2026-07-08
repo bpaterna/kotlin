@@ -85,12 +85,12 @@ fun main() {
 
 **¿Qué ocurre bajo la superficie al ejecutar este programa?**
 
-* **Caso 1 (Entrada válida):**
+* Caso 1 (Entrada válida):
   ```text
   Introduce la altura actual del girasol (en cm): 45
   La próxima semana tu girasol medirá aproximadamente 60 cm.
   ```
-* **Caso 2 (Entrada vacía o incorrecta):**
+* Caso 2 (Entrada vacía o incorrecta):
   ```text
   Introduce la altura actual del girasol (en cm): g
   Error: Altura introducida no válida. Asegúrate de escribir un número entero.

@@ -334,7 +334,7 @@ En Kotlin, todo es público por defecto. No obstante, puedes restringir la visib
 | **`protected`** | Accesible dentro de la misma clase y de sus subclases (herencia). |
 | **`internal`** | Accesible dentro del mismo módulo de compilación (útil en librerías). |
 
----
+
 
 ## 6. Herencia y polimorfismo
 
