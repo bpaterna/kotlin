@@ -67,22 +67,18 @@ Observa este programa que solicita la altura actual de un girasol y calcula cuá
 ```kotlin
 fun main() {
     print("Introduce la altura actual del girasol (en cm): ")
-    
-    // Capturamos lo que escribe el usuario por consola
     val entrada = readLine()
-    
-    // Validamos de forma segura que la entrada no sea nula ni esté vacía o con espacios
-    if (entrada != null && entrada.isNotBlank()) {
-        
-        // Convertimos el String de forma segura a un número entero
-        val alturaActual = entrada.toInt()
+
+    // Intentamos la conversión de forma segura. Si introducen 'p', 'alturaActual' será null.
+    val alturaActual = entrada?.toIntOrNull()
+
+    // Ahora solo tenemos que validar que el resultado no sea nulo
+    if (alturaActual != null) {
         val alturaEstimada = alturaActual + 15
-        
         println("La próxima semana tu girasol medirá aproximadamente $alturaEstimada cm.")
-        
     } else {
-        // Mensaje de aviso si el usuario pulsó Enter sin escribir o dejó espacios en blanco
-        println("Error: Altura introducida no válida. Asegúrate de escribir un número entero.")
+        // Este mensaje ahora cubre tanto si pulsan Enter vacío como si escriben letras o decimales
+        println("Error: Altura introducida no válida. Asegúrate de escribir un número entero (sin letras).")
     }
 }
 ```
@@ -94,7 +90,7 @@ fun main() {
   Introduce la altura actual del girasol (en cm): 45
   La próxima semana tu girasol medirá aproximadamente 60 cm.
   ```
-* **Caso 2 (Entrada vacía o incorrecta - Pulsar enter directamente):**
+* **Caso 2 (Entrada vacía o incorrecta):**
   ```text
   Introduce la altura actual del girasol (en cm): 
   Error: Altura introducida no válida. Asegúrate de escribir un número entero.
