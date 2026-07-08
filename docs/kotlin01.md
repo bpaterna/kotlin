@@ -138,14 +138,14 @@ Un **package** es una forma de agrupar clases, funciones, objetos y otras estruc
 **Reglas clave de los paquetes:**
 
 * La declaración del paquete debe ir en la **primera línea de tu archivo de código**, antes de cualquier otra cosa.
-* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package com.invernadero.util`.
+* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package util.botanica`.
 * Los nombres de los paquetes se escriben siempre en minúsculas y se separan por puntos `.`.
 
 **Ejemplo de archivo dentro de un paquete:**
 
 ```kotlin
-// Archivo: src/botanica/util/MisCalculos.kt
-package botanica.util
+// Archivo: src/util/botanica/MisCalculos.kt
+package util.botanica
 
 fun calcularConsumo(dias: Int) = dias * 1.5
 ```
@@ -160,11 +160,11 @@ La palabra clave **`import`** se utiliza para poder acceder y utilizar clases o 
 Si tu archivo principal está en el paquete `botanica.app` y deseas utilizar la función `calcularConsumo` que está en `botanica.util`:
 
 ```kotlin
-// Archivo: src/botanica/app/Main.kt
-package botanica.app
+// Archivo: src/app/botanica/Main.kt
+package app.botanica
 
 // Importamos la función específica indicando su paquete de origen
-import botanica.util.calcularConsumo
+import util.botanica.calcularConsumo
 
 fun main() {
     val consumoTotal = calcularConsumo(7) // Podemos usar la función directamente
@@ -179,8 +179,8 @@ fun main() {
 A veces puede ocurrir que necesites importar dos clases o funciones de diferentes paquetes que se llaman exactamente igual. Para evitar conflictos, puedes renombrar una de ellas de manera temporal en tu archivo actual utilizando la palabra clave **`as`** (alias).
 
 ```kotlin
-import botanica.util.saludarJardinero as saludarBreve
-import botanica.administracion.saludarJardinero as saludarCompleto
+import util.botanica.saludarJardinero as saludarBreve
+import admin.botanica.saludarJardinero as saludarCompleto
 
 fun main() {
     saludarBreve("Pol")     // Llama a la función del paquete util
