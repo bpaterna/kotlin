@@ -39,11 +39,20 @@ fun mostrarCabeceraInvernadero() {
 }
 
 fun main() {
+    println("=== EJEMPLO 1: Función simple sin parámetros ni retorno ===")
     // Llamada a la función
     mostrarCabeceraInvernadero()
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 1: Función simple sin parámetros ni retorno ===
+=====================================
+   SISTEMA DE CONTROL BOTÁNICO v2   
+=====================================
+```
 
 
 ## 3. Funciones con parámetros
@@ -58,13 +67,20 @@ fun registrarRegado(especie: String) {
 }
 
 fun main() {
+    println("=== EJEMPLO 2: Función con un parámetro (sin retorno) ===")
     // Al llamar a la función, le enviamos un argumento de tipo String
     registrarRegado("Orquídea")
     registrarRegado("Helecho")
 }
 ```
 
+Salida por consola:
 
+```text
+=== EJEMPLO 2: Función con un parámetro (sin retorno) ===
+Acción: Se ha suministrado agua a la planta: Orquídea
+Acción: Se ha suministrado agua a la planta: Helecho
+```
 
 ## 4. Funciones que devuelven un valor
 
@@ -81,11 +97,18 @@ fun calcularConsumoAnual(litrosSemanales: Double): Double {
 }
 
 fun main() {
+    println("=== EJEMPLO 3: Calcular el consumo anual de agua ===")
     val consumoMacetas = calcularConsumoAnual(2.5)
     println("Consumo anual estimado para el lote de macetas: $consumoMacetas litros.")
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 3: Calcular el consumo anual de agua ===
+Consumo anual estimado para el lote de macetas: 130.0 litros.
+```
 
 
 ## 5. Funciones simplificadas
@@ -99,11 +122,18 @@ Si una función tiene una sola línea de código que simplemente devuelve un val
 fun obtenerNombreFamiliar(nombreComun: String) = "Familia de las $nombreComun"
 
 fun main() {
+    println("=== EJEMPLO 4: Formatear nombre familiar de una especie ===")
     val texto = obtenerNombreFamiliar("Rosáceas")
     println(texto) // Salida: Familia de las Rosáceas
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 4: Formatear nombre familiar de una especie ===
+Familia de las Rosáceas
+```
 
 
 ## 6. Parámetros con valores por defecto
@@ -119,6 +149,7 @@ fun registrarEspecie(nombre: String, ubicacion: String = "Invernadero A") {
 }
 
 fun main() {
+    println("=== EJEMPLO 5: Registro de especies con ubicación predeterminada ===")
     // Llamada usando el valor por defecto de la ubicación
     registrarEspecie("Cactus de Navidad") // Salida: Ubicación asignada: Invernadero A
     
@@ -127,6 +158,13 @@ fun main() {
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 5: Registro de especies con ubicación predeterminada ===
+Especie: Cactus de Navidad | Ubicación asignada: Invernadero A
+Especie: Monstera deliciosa | Ubicación asignada: Sector Sombra
+```
 
 
 ## 7. Argumentos nombrados
@@ -143,6 +181,7 @@ fun programarTratamiento(especie: String, mililitros: Double, repetirSemanas: In
 }
 
 fun main() {
+    println("=== EJEMPLO 6: Programación de tareas de abono ===")
     // 1. Llamada tradicional (respetando el orden estricto de los parámetros)
     programarTratamiento("Bonsái Ficus", 15.0, 4)
     
@@ -158,6 +197,20 @@ fun main() {
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 6: Programación de tareas de abono ===
+Tratamiento programado para 'Bonsái Ficus':
+- Cantidad: 15.0 ml
+- Duración: 4 semana(s)
+Tratamiento programado para 'Hiedra inglesa':
+- Cantidad: 25.5 ml
+- Duración: 2 semana(s)
+Tratamiento programado para 'Sansevieria':
+- Cantidad: 10.0 ml
+- Duración: 1 semana(s)
+```
 
 
 ## 8. Funciones de extensión
@@ -176,6 +229,7 @@ fun String.formatoEspecie(): String {
 }
 
 fun main() {
+    println("=== EJEMPLO 7: Extensión sobre la clase estándar `String` ===")
     val entradaSucia = "  mOnStErA dElIcIoSa  "
     // Usamos nuestra nueva función como si siempre hubiera existido en los Strings
     val especieLimpia = entradaSucia.formatoEspecie()
@@ -183,6 +237,14 @@ fun main() {
     println(especieLimpia) // Salida: Monstera deliciosa
 }
 ```
+
+Salida por consola:
+
+```text
+=== EJEMPLO 7: Extensión sobre la clase estándar `String` ===
+Monstera deliciosa
+```
+
 
 **Ejemplo 8: Extensión sobre tu propia clase personalizada**
 
@@ -195,11 +257,18 @@ fun Maceta.mostrarDetalles(): String {
 }
 
 fun main() {
+    println("=== EJEMPLO 8: Extensión sobre tu propia clase personalizada ===")
     val miMaceta = Maceta("Terracota", 12.5)
     println(miMaceta.mostrarDetalles())
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 8: Extensión sobre tu propia clase personalizada ===
+Contenedor de Terracota con capacidad de 12.5 litros de sustrato.
+```
 
 
 ## 9. Funciones con cantidad variable de argumentos
@@ -215,11 +284,12 @@ Internamente, Kotlin tratará ese parámetro variable como si fuera un array, pe
 fun registrarLoteExteriores(vararg plantas: String) {
     println("--- REGISTRO DE PARCELA (Total: ${plantas.size} especies) ---")
     for (planta in plantas) {
-        println("- Especie añadida: $planta")
+        println("- Especie anyadida: $planta")
     }
 }
 
 fun main() {
+    println("=== EJEMPLO 9: Registro por lotes de plantas de exterior ===")
     // 1. Llamada pasando argumentos individuales directamente
     registrarLoteExteriores("Lavanda", "Romero", "Tomillo")
     
@@ -230,6 +300,18 @@ fun main() {
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 9: Registro por lotes de plantas de exterior ===
+--- REGISTRO DE PARCELA (Total: 3 especies) ---
+- Especie anyadida: Lavanda
+- Especie anyadida: Romero
+- Especie anyadida: Tomillo
+--- REGISTRO DE PARCELA (Total: 2 especies) ---
+- Especie anyadida: Menta
+- Especie anyadida: Albahaca
+```
 
 
 ## 10. Funciones locales
@@ -252,17 +334,24 @@ fun registrarFichaBotanica(nombreComun: String, phSuelo: Double) {
     }
     
     val nombreLimpio = limpiarTexto(nombreComun)
-    val estadoPh = if (phSuelo < 7.0) "Suelo Ácido" else "Suelo Alcalino/Neutro"
+    val estadoPh = if (phSuelo < 7.0) "Suelo ácido" else "Suelo alcalino/Neutro"
     
     println("Ficha generada -> [$nombreLimpio] | Diagnóstico: $estadoPh")
 }
 
 fun main() {
-    registrarFichaBotanica("   Hortensia Azul  ", 5.2)
+    println("=== EJEMPLO 10: Registro de fichas botánicas con validación interna ===")
+    registrarFichaBotanica("   Hortensia azul  ", 5.2)
     // limpiarTexto("Test") // ¡Error! No puedes llamar a la función local desde aquí
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 10: Registro de fichas botánicas con validación interna ===
+Ficha generada -> [HORTENSIA AZUL] | Diagnóstico: Suelo ácido
+```
 
 
 ## 11. Funciones de orden superior
@@ -278,6 +367,7 @@ fun aplicarTratamiento(aguaLitros: Double, abonoMl: Double, formula: (Double, Do
 }
 
 fun main() {
+    println("=== EJEMPLO 11: Calculadora dinámica de dosificación de abono ===")
     // 1. Definimos una fórmula para un riego suave (concentración baja)
     val concentracionSuave = aplicarTratamiento(5.0, 10.0) { agua, abono -> 
         (abono / agua) * 0.8 
@@ -293,7 +383,13 @@ fun main() {
 }
 ```
 
+Salida por consola:
 
+```text
+=== EJEMPLO 11: Calculadora dinámica de dosificación de abono ===
+Dosificación suave: 1.6 mg/L
+Dosificación intensiva: 3.0 mg/L
+```
 
 
 ---
