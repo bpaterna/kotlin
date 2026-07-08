@@ -31,8 +31,12 @@ Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays e
 
 <span class="mi_h3">2.2. Tres formas de crear un array</span>
 
+**Ejemplo 1: Tres formas de crear un array**
+
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 1: Tres formas de crear un array ===")
+    
     // 1. Crear un array vacío indicando el tamaño fijo (lleno de 0.0 por defecto)
     val phParcelas = DoubleArray(4)
     phParcelas[0] = 6.5
@@ -45,9 +49,6 @@ fun main() {
 
     // 3. Utilizar arrayOf para tipos genéricos (como Strings, que no tienen clase optimizada)
     val plantasSocio = arrayOf("Ajo", "Zanahoria", "Lechuga")
-
-    // --- IMPRESIÓN DE LOS RESULTADOS POR CONSOLA ---
-    println("=== INFORME DE LA PARCELA BOTÁNICA ===")
 
     // Acceso por índice y uso de .size para conocer el tamaño
     println("pH de la primera parcela: ${phParcelas[0]} (Total de parcelas registradas: ${phParcelas.size})")
@@ -63,7 +64,7 @@ fun main() {
 **Salida por consola:**
 
 ```text
-=== INFORME DE LA PARCELA BOTÁNICA ===
+=== EJEMPLO 1: Tres formas de crear un array ===
 pH de la primera parcela: 6.5 (Total de parcelas registradas: 4)
 pH en la segunda zona de cultivo: 6.8
 Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
@@ -72,8 +73,12 @@ Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
 
 <span class="mi_h3">2.3. Operaciones comunes con Arrays</span>
 
+**Ejemplo 2: Operaciones comunes con Arrays**
+
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 2: Operaciones comunes con Arrays ===")
+    
     val floresInvernadero = arrayOf("Rosa", "Tulipán", "Lirio", "Girasol")
     
     // Acceder a un elemento por su índice
@@ -102,6 +107,7 @@ fun main() {
 **Salida por consola:**
 
 ```text
+=== EJEMPLO 2: Operaciones comunes con Arrays ===
 La primera flor del catálogo es: Rosa
 Total flores registradas: 4
 
@@ -134,10 +140,12 @@ val tareasFijas = listOf("Regar", "Abonar", "Revisar plagas")
 <span class="mi_h3">3.2. Lista Mutable (`MutableList`)</span>
 Creada con `mutableListOf()`, te permite gestionar libremente un inventario dinámico de elementos.
 
-**Ejemplo práctico: Inventario de maceteros**
+**Ejemplo 3: Inventario de maceteros**
 
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 3: Inventario de maceteros ===")
+    
     // Declaración de una lista de macetas mutable
     val maceteros = mutableListOf("Maceta Barro", "Maceta Plástico")
     
@@ -166,6 +174,7 @@ fun main() {
 **Salida por consola:**
 
 ```text
+=== EJEMPLO 3: Inventario de maceteros ===
 Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
 ```
 
@@ -174,10 +183,12 @@ Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
 
 Un **Set** o **Conjunto** es una colección de elementos únicos **donde no se permiten duplicados** y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.
 
-**Ejemplo práctico: Control de plagas activas en parcelas**
+**Ejemplo 4: Control de plagas activas en parcelas**
 
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 4: Control de plagas activas en parcelas ===")
+    
     // 1. Set Inmutable: "Pulgón" solo se registrará una vez
     val plagasDetectadas = setOf("Pulgón", "Araña roja", "Pulgón")
     println("Plagas bajo control: $plagasDetectadas") // Salida: [Pulgón, Araña roja]
@@ -203,6 +214,7 @@ fun main() {
 **Salida por consola:**
 
 ```text
+=== EJEMPLO 4: Control de plagas activas en parcelas ===
 Plagas bajo control: [Pulgón, Araña roja]
 Composición química del abono: [Nitrógeno, Fósforo, Potasio]
 La mezcla contiene Potasio, es apta para la floración.
@@ -213,10 +225,12 @@ La mezcla contiene Potasio, es apta para la floración.
 
 Un **Map** o **Diccionario** es una colección de **pares clave $\rightarrow$ valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
 
-**Ejemplo práctico: Registro de humedad ideal y pH por lote**
+**Ejemplo 5: Registro de humedad ideal y pH por lote**
 
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 5: Registro de humedad ideal y pH por lote ===")
+    
     // 1. Map Inmutable: Asociar planta con su humedad ideal (%)
     val humedadIdeal = mapOf(
         "Helecho" to 80,
@@ -246,6 +260,7 @@ fun main() {
 **Salida por consola:**
 
 ```text
+=== EJEMPLO 5: Registro de humedad ideal y pH por lote ===
 La humedad ideal para el Helecho es del 80%
 pH Hortensias: 5.5
 ```
