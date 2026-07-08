@@ -32,9 +32,11 @@ Si intentamos dividir una dosis total de fertilizante entre cero macetas, el sis
 ```kotlin
 fun main() {
     val dosisTotalMl = 150
-    val cantidadMacetas = 0 // El usuario ha olvidado registrar las macetas
+    val cantidadMacetas = 0 
 
     try {
+        println("=== EJEMPLO 1: Dosificación de abono sin macetas registradas ===")
+        
         // Esta línea lanzará una excepción al dividir entre cero
         val dosisPorMaceta = dosisTotalMl / cantidadMacetas
         println("Cada maceta recibirá: $dosisPorMaceta ml de abono.")
@@ -54,6 +56,19 @@ fun main() {
 }
 ```
 
+**Salida por consola para cantidadMacetas = 0:**
+
+```text
+Error: No puedes dosificar abono si tienes 0 macetas registradas.
+```
+
+**Salida por consola para cantidadMacetas = 10:**
+
+```text
+=== EJEMPLO 1: Dosificación de abono sin macetas registradas ===
+Cada maceta recibirá: 15 ml de abono.
+Fin del chequeo de dosificación de nutrientes.
+```
 
 
 ## 3. Gestión automática de recursos con `use`
@@ -75,6 +90,7 @@ import java.io.FileWriter
 
 fun main() {
     try {
+        println("=== EJEMPLO 2: Escribir el inventario del invernadero en un archivo ===")
         // Abrimos el archivo de texto. Al usar '.use', el archivo se cerrará solo al finalizar.
         FileWriter("inventario_plantas.txt").use { escritor ->
             escritor.write("ID: 1 | Monstera deliciosa | Seccion Sombra\n")
@@ -89,6 +105,12 @@ fun main() {
 }
 ```
 
+**Salida por consola:**
+
+```text
+=== EJEMPLO 2: Escribir el inventario del invernadero en un archivo ===
+Inventario botánico escrito en disco correctamente.
+```
 
 
 **Ejemplo 3: Leer el archivo de inventario de forma segura**
@@ -104,7 +126,7 @@ fun main() {
     try {
         // '.use' se asegura de liberar el lector y cerrar el archivo pase lo que pase
         archivo.bufferedReader().use { lector ->
-            println("=== LEYENDO HISTORIAL BOTÁNICO ===")
+            println("=== EJEMPLO 3: Leer el archivo de inventario de forma segura ===")
             var linea = lector.readLine()
             
             while (linea != null) {
@@ -122,7 +144,7 @@ fun main() {
 **Salida por consola de la lectura del archivo:**
 
 ```text
-=== LEYENDO HISTORIAL BOTÁNICO ===
+=== EJEMPLO 3: Leer el archivo de inventario de forma segura ===
 ID: 1 | Monstera deliciosa | Seccion Sombra
 ID: 2 | Lavanda dentata    | Seccion Exterior
 ID: 3 | Helecho real       | Seccion Humedad
