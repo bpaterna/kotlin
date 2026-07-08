@@ -30,6 +30,8 @@ $$\{\text{parámetro1}, \text{parámetro2} \rightarrow \text{cuerpo de la funci�
 val describirPlanta = { especie: String -> println("Especie catalogada: $especie") }
 
 fun main() {
+    println("=== EJEMPLO  ===")
+    
     // Se ejecuta llamándola como si fuera una función normal
     describirPlanta("Monstera")
 }
@@ -41,6 +43,7 @@ fun main() {
 val pulverizarAgua = { println("Acción: Pulverizando microgotas de agua...") }
 
 fun main() {
+    println("=== EJEMPLO  ===")
     pulverizarAgua()
 }
 ```
@@ -51,11 +54,11 @@ fun main() {
 val calcularCrecimiento = { inicial: Double, final: Double -> final - inicial }
 
 fun main() {
+    println("=== EJEMPLO  ===")
     val diferencia = calcularCrecimiento(15.2, 18.5)
     println("Crecimiento neto: $diferencia cm") // 3.3 cm
 }
 ```
-
 
 
 **Comparativa: Funciones Tradicionales vs. Lambdas**
@@ -72,88 +75,82 @@ Esta tabla te ayuda a visualizar cómo se simplifica el código al transformar f
 
 ## 3. Operaciones avanzadas en colecciones mediante Lambdas
 
-El verdadero potencial de las expresiones lambda en Kotlin se libera cuando las utilizas junto con colecciones (como `Arrays` o `Lists`) utilizando funciones de orden superior del sistema.
+El verdadero potencial de las expresiones lambda en Kotlin se libera cuando las utilizas junto con colecciones utilizando funciones de orden superior del sistema.
 
-Para los siguientes ejemplos, utilizaremos como base este registro de alturas de plantas:
-```kotlin
-val alturasCm = intArrayOf(12, 45, 80, 5, 110, 30)
-```
+A continuación tienes una tabla los operadores que utilizaremos en este curso:
 
-**`forEach` (Recorrer elementos)**
+| Operador / Función | ¿Qué hace?                                                                               | Comportamiento en el ejemplo botánico |
+| :--- |:-----------------------------------------------------------------------------------------| :--- |
+| **`forEach`** | Recorre cada elemento de la colección aplicando una acción.                              | Imprime de forma individual la altura de cada planta. |
+| **`map`** | Transforma cada elemento aplicando una regla matemática o lógica y **devuelve una nueva lista con los resultados**.  | Añade 5 cm de crecimiento estimado a cada planta. |
+| **`mapIndexed`** | Transforma cada elemento igual que `map`, pero dándote también su índice de posición.    | Genera un texto para etiquetar de forma numerada cada maceta. |
+| **`filter`** | Filtra la colección y conserva únicamente los elementos que cumplen una condición.       | Filtra solo las plantas que superan los 30 cm de altura. |
+| **`sumOf`** | Suma el resultado de aplicar una transformación o factor de escala a los datos.          | Suma los litros de abono aplicando un 10% de margen de evaporación. |
+| **`any`** | Devuelve `true` si **al menos uno** de los elementos cumple con la condición.            | Comprueba si hay riesgo de helada en alguna de las zonas evaluadas. |
+| **`all`** | Devuelve `true` si **todos** los elementos cumplen con la condición.                     | Verifica si todas las zonas cumplen con la temperatura óptima. |
+| **`none`** | Devuelve `true` si **ninguno** de los elementos cumple con la condición.                 | Comprueba si ninguna de las zonas sufre calor extremo. |
+| **`reduce`** | Acumula los valores de izquierda a derecha usando el primer elemento como valor inicial. | Suma las cantidades del lote de nuevos brotes. |
+| **`fold`** | Acumula los valores de izquierda a derecha partiendo de un valor inicial personalizado.  | Suma los nuevos brotes a un inventario base existente de 100 plantas. |
 
-Permite realizar una acción para cada elemento de la colección de forma compacta.
 
-```kotlin
-// 'it' es el nombre que Kotlin da por defecto al elemento único que se está procesando
-alturasCm.forEach { println("Altura de rama registrada: $it cm") }
-```
 
-**`map` (Transformar datos)**
 
-Transforma cada elemento de la colección aplicando una regla matemática o lógica y **devuelve una nueva lista con los resultados**.
 
-```kotlin
-// Simula el crecimiento de 5 cm en todas las plantas
-val alturasCrecidas = alturasCm.map { it + 5 } 
-println(alturasCrecidas) // [17, 50, 85, 10, 115, 35]
-```
+**Ejemplo 4: Operaciones avanzadas en colecciones mediante Lambdas**
 
-**`mapIndexed` (Transformar usando el índice)**
-
-Es idéntico a `map`, pero además de darte el elemento (`it`), te proporciona su posición o índice en la colección.
 
 ```kotlin
-val codigosMaceta = alturasCm.mapIndexed { index, altura -> "Maceta #${index + 1}: $altura cm" }
-println(codigosMaceta) // [Maceta #1: 12 cm, Maceta #2: 45 cm, ...]
+fun main() {
+    // Declaramos todos los conjuntos de datos iniciales
+    val alturasCm = intArrayOf(12, 45, 80, 5, 110, 30)
+    val abonosLitros = doubleArrayOf(1.5, 2.0, 0.5)
+    val temperaturasZonas = doubleArrayOf(18.5, 22.0, 14.0)
+    val nuevosBrotes = intArrayOf(5, 8, 12)
+
+    println("=== 1. Recorrido con 'forEach' ===")
+    // Recorremos de manera compacta el array de alturas
+    alturasCm.forEach { println("Altura de rama registrada: $it cm") }
+
+    println("\n=== 2. Transformación con 'map' ===")
+    // Genera una nueva lista sumando 5 cm de crecimiento estimado a cada elemento
+    val alturasCrecidas = alturasCm.map { it + 5 } 
+    println("Alturas estimadas tras el riego (+5cm): $alturasCrecidas")
+
+    println("\n=== 3. Transformación con 'mapIndexed' ===")
+    // Transformamos obteniendo también el índice de posición física de la planta
+    val codigosMaceta = alturasCm.mapIndexed { index, altura -> "Maceta #${index + 1}: $altura cm" }
+    codigosMaceta.forEach { println(it) }
+
+    println("\n=== 4. Filtrado con 'filter' ===")
+    // Filtramos únicamente las plantas que superan los 30 cm
+    val listasTrasplante = alturasCm.filter { it > 30 }
+    println("Plantas aptas para trasplante (>30cm): $listasTrasplante")
+
+    println("\n=== 5. Suma con transformación ('sumOf') ===")
+    // Suma las dosis aplicando un factor del 1.1 (margen extra del 10%)
+    val totalAbonoNecesario = abonosLitros.sumOf { it * 1.1 }
+    println("Volumen total de abono con margen del 10%: $totalAbonoNecesario litros")
+
+    println("\n=== 6. Consultas lógicas ('any', 'all', 'none') ===")
+    val hayRiesgoHelada = temperaturasZonas.any { it < 5.0 }
+    val todasZonasOptimas = temperaturasZonas.all { it >= 15.0 }
+    val ningunCalorExtremo = temperaturasZonas.none { it > 35.0 }
+
+    println("¿Hay riesgo de helada en alguna zona (<5°C)?: $hayRiesgoHelada")
+    println("¿Están todas las zonas a una temperatura óptima (>=15°C)?: $todasZonasOptimas")
+    println("¿Ninguna de las zonas supera el umbral de calor extremo (>35°C)?: $ningunCalorExtremo")
+
+    println("\n=== 7. Acumulación ('reduce' y 'fold') ===")
+    // reduce: Suma los nuevos brotes partiendo de su primer valor (5 + 8 + 12 = 25)
+    val sumaBrotes = nuevosBrotes.reduce { acumulado, brotes -> acumulado + brotes }
+    
+    // fold: Suma los nuevos brotes partiendo de un stock base ya existente en el invernadero (100)
+    val inventarioTotal = nuevosBrotes.fold(100) { acumulador, brotes -> acumulador + brotes }
+    
+    println("Suma neta del lote de nuevos brotes: $sumaBrotes")
+    println("Inventario total final en el sistema: $inventarioTotal")
+}
 ```
-
-**`filter` (Filtrar elementos)**
-
-Filtra la colección conservando **únicamente** aquellos elementos que cumplan una condición (es decir, que la lambda devuelva `true`).
-
-```kotlin
-// Filtramos solo aquellas plantas listas para trasplante (que midan más de 30 cm)
-val listasTrasplante = alturasCm.filter { it > 30 }
-println(listasTrasplante) // [45, 80, 110]
-```
-
-**`sumOf` (Sumar transformaciones)**
-Suma los valores de la colección aplicando opcionalmente una transformación o un factor de escala.
-
-```kotlin
-val abonosLitros = doubleArrayOf(1.5, 2.0, 0.5)
-// Sumamos los litros estimando un desperdicio del 10% por evaporación (factor 1.1)
-val totalAbonoNecesario = abonosLitros.sumOf { it * 1.1 }
-println("Volumen total requerido: $totalAbonoNecesario litros")
-```
-
-**`any`, `all` y `none` (Consultas lógicas)**
-
-* **`any`:** Devuelve `true` si **al menos una** planta cumple la condición.
-* **`all`:** Devuelve `true` si **todas** las plantas cumplen la condición.
-* **`none`:** Devuelve `true` si **ninguna** planta cumple la condición (o si todas la incumplen).
-
-```kotlin
-val temperaturasZonas = doubleArrayOf(18.5, 22.0, 14.0)
-
-val hayRiesgoHelada = temperaturasZonas.any { it < 5.0 } // false (ninguna baja de 5°C)
-val todasZonasOptimas = temperaturasZonas.all { it >= 15.0 } // false (la de 14.0°C no lo cumple)
-val ningunCalorExtremo = temperaturasZonas.none { it > 35.0 } // true (ninguna supera los 35°C)
-```
-
-**`reduce` y `fold` (Acumuladores)**
-
-* **`reduce`:** Acumula los valores de la colección de izquierda a derecha. Utiliza el primer elemento de la lista como valor inicial acumulado de forma automática.
-* **`fold`:** Es idéntico a `reduce`, pero te permite **definir un valor inicial de partida** personalizado para el acumulador.
-
-```kotlin
-val nuevosBrotes = intArrayOf(5, 8, 12)
-
-// Sumamos los nuevos brotes partiendo de un stock inicial de 100 plantas ya existentes
-val inventarioTotal = nuevosBrotes.fold(100) { acumulador, brotes -> acumulador + brotes }
-println("Total inventario invernadero: $inventarioTotal") // 100 + 5 + 8 + 12 = 125
-```
-
 
 
 ## 4. ¿Qué es exactamente la palabra reservada `it`?
