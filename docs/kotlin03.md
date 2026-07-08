@@ -92,7 +92,7 @@ fun main() {
   ```
 * **Caso 2 (Entrada vacía o incorrecta):**
   ```text
-  Introduce la altura actual del girasol (en cm): 
+  Introduce la altura actual del girasol (en cm): g
   Error: Altura introducida no válida. Asegúrate de escribir un número entero.
   ```
 
