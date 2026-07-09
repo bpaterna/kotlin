@@ -31,7 +31,7 @@ Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays e
 
 <span class="mi_h3">2.2. Tres formas de crear un array</span>
 
-**Ejemplo 1: Tres formas de crear un array**
+**Ejemplo 1: Tres formas de crear un array.**
 
 ```kotlin
 fun main() {
@@ -73,7 +73,7 @@ Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
 
 <span class="mi_h3">2.3. Operaciones comunes con Arrays</span>
 
-**Ejemplo 2: Operaciones comunes con Arrays**
+**Ejemplo 2: Operaciones comunes con Arrays.**
 
 ```kotlin
 fun main() {
@@ -140,7 +140,7 @@ val tareasFijas = listOf("Regar", "Abonar", "Revisar plagas")
 <span class="mi_h3">3.2. Lista Mutable (`MutableList`)</span>
 Creada con `mutableListOf()`, te permite gestionar libremente un inventario dinámico de elementos.
 
-**Ejemplo 3: Inventario de maceteros**
+**Ejemplo 3: Inventario de maceteros.**
 
 ```kotlin
 fun main() {
@@ -183,7 +183,7 @@ Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
 
 Un **Set** o **Conjunto** es una colección de elementos únicos **donde no se permiten duplicados** y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.
 
-**Ejemplo 4: Control de plagas activas en parcelas**
+**Ejemplo 4: Control de plagas activas en parcelas.**
 
 ```kotlin
 fun main() {
@@ -225,7 +225,7 @@ La mezcla contiene Potasio, es apta para la floración.
 
 Un **Map** o **Diccionario** es una colección de **pares clave $\rightarrow$ valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
 
-**Ejemplo 5: Registro de humedad ideal y pH por lote**
+**Ejemplo 5: Registro de humedad ideal y pH por lote.**
 
 ```kotlin
 fun main() {
@@ -281,9 +281,9 @@ Esta tabla resumen te servirá para repasar las diferencias estructurales de cad
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

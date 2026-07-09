@@ -39,7 +39,7 @@ Los condicionales te permiten ejecutar diferentes bloques de código en función
 
 <span class="mi_h3">3.1. Estructura `if` / `if-else`</span>
 
-**Ejemplo 1: Condicional simple (`if`)** Se ejecuta un bloque de código únicamente si la condición resulta verdadera.
+**Ejemplo 1: Condicional simple (`if`).** Se ejecuta un bloque de código únicamente si la condición resulta verdadera.
 
 ```kotlin
 fun main() {
@@ -60,7 +60,7 @@ Alerta: Humedad baja. Activando electroválvula de riego.
 ```
 
 
-**Ejemplo 2: Condicional doble (`if-else`)** Permite tomar un camino alternativo si la condición no se cumple.
+**Ejemplo 2: Condicional doble (`if-else`).** Permite tomar un camino alternativo si la condición no se cumple.
 
 ```kotlin
 fun main() {
@@ -83,7 +83,7 @@ Salida por consola:
 El sustrato es neutro o alcalino.
 ```
 
-**Ejemplo 3: Condicionales anidados** Puedes introducir condicionales dentro de otros condicionales para refinar la lógica de control.
+**Ejemplo 3: Condicionales anidados.** Puedes introducir condicionales dentro de otros condicionales para refinar la lógica de control.
 
 ```kotlin
 fun main() {
@@ -114,7 +114,7 @@ Condiciones ambientales base correctas.
 La planta está protegida adecuadamente en la sombra.
 ```
 
-**Ejemplo 4: `if` como expresión** En Kotlin, el `if` puede devolver un valor directamente. Esto te permite ahorrar líneas de código al asignar valores.
+**Ejemplo 4: `if` como expresión.** En Kotlin, el `if` puede devolver un valor directamente. Esto te permite ahorrar líneas de código al asignar valores.
 
 ```kotlin
 fun main() {
@@ -139,7 +139,7 @@ El riego de hoy ha sido: Insuficiente
 La estructura `when` sustituye al clásico `switch` de otros lenguajes. Es mucho más potente y legible cuando tienes múltiples caminos lógicos.
 
 
-**Ejemplo 5: `when` como selector directo** Evalúa una variable y toma una acción según su valor coincidente.
+**Ejemplo 5: `when` como selector directo.** Evalúa una variable y toma una acción según su valor coincidente.
 
 ```kotlin
 fun main() {
@@ -164,7 +164,7 @@ Salida por consola:
 Riego recomendado para Cactus: Muy poco frecuente (cada 15 días)
 ```
 
-**Ejemplo 6: `when` con condiciones complejas** Si no le pasas ningún parámetro entre paréntesis a `when`, puedes evaluar condiciones libres en cada rama (similar a una cadena de `if-else if`).
+**Ejemplo 6: `when` con condiciones complejas.** Si no le pasas ningún parámetro entre paréntesis a `when`, puedes evaluar condiciones libres en cada rama (similar a una cadena de `if-else if`).
 
 ```kotlin
 fun main() {
@@ -193,7 +193,7 @@ Informe del sensor: Humedad óptima
 
 Los bucles te permiten repetir la ejecución de un bloque de código. En Kotlin dispones de cuatro estructuras: `while`, `do-while`, `for` y `repeat`.
 
-**Ejemplo 7: Bucle `while`** Repite las instrucciones **mientras** la condición sea verdadera. Evalúa la condición **antes** de entrar al bucle; si es falsa desde el principio, el bloque nunca llega a ejecutarse.
+**Ejemplo 7: Bucle `while`.** Repite las instrucciones **mientras** la condición sea verdadera. Evalúa la condición **antes** de entrar al bucle; si es falsa desde el principio, el bloque nunca llega a ejecutarse.
 
 ```kotlin
 fun main() {
@@ -219,7 +219,7 @@ Día 5 sin lluvia: La reserva de agua disminuye.
 ```
 
 
-**Ejemplo 8: Bucle `do-while`** Es similar al anterior, pero con una diferencia clave: **evalúa la condición al final**. Esto garantiza que el bloque de código se ejecutará **al menos una vez**, sin importar si la condición es falsa desde el inicio.
+**Ejemplo 8: Bucle `do-while`.** Es similar al anterior, pero con una diferencia clave: **evalúa la condición al final**. Esto garantiza que el bloque de código se ejecutará **al menos una vez**, sin importar si la condición es falsa desde el inicio.
 
 ```kotlin
 fun main() {
@@ -245,7 +245,7 @@ Llenando regadera... Volumen actual: 5 litros
 ```
 
 
-**Ejemplo 9: Bucle `for`** Se utiliza para recorrer colecciones, listas o un **rango numérico definido**. Lo emplearás cuando sepas de antemano cuántas veces necesitas repetir una acción.
+**Ejemplo 9: Bucle `for`.** Se utiliza para recorrer colecciones, listas o un **rango numérico definido**. Lo emplearás cuando sepas de antemano cuántas veces necesitas repetir una acción.
 
 ```kotlin
 fun main() {
@@ -269,7 +269,7 @@ Día de germinación 5: La semilla absorbe humedad de la tierra.
 ```
 
 
-**Ejemplo 10: Bucle `repeat`** Es una función exclusiva de Kotlin para simplificar las repeticiones. Te permite ejecutar un bloque de instrucciones un número exacto de veces, sin necesidad de definir rangos ni variables contadoras adicionales.
+**Ejemplo 10: Bucle `repeat`.** Es una función exclusiva de Kotlin para simplificar las repeticiones. Te permite ejecutar un bloque de instrucciones un número exacto de veces, sin necesidad de definir rangos ni variables contadoras adicionales.
 
 ```kotlin
 fun main() {
@@ -304,9 +304,9 @@ Para ayudarte a decidir qué bucle utilizar en el desarrollo de tus aplicaciones
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

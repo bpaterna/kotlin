@@ -23,7 +23,7 @@ La sintaxis siempre va encerrada entre llaves `{}`. Se definen los parámetros d
 
 $$\{\text{parámetro1}, \text{parámetro2} \rightarrow \text{cuerpo de la función}\}$$
 
-**Ejemplo 1: Lambda básica con un parámetro**
+**Ejemplo 1: Lambda básica con un parámetro.**
 
 ```kotlin
 // Guardamos la lambda en la variable 'describirPlanta'
@@ -45,7 +45,7 @@ Especie catalogada: Monstera
 ```
 
 
-**Ejemplo 2: Lambda sin parámetros**
+**Ejemplo 2: Lambda sin parámetros.**
 
 ```kotlin
 val pulverizarAgua = { println("Acción: Pulverizando microgotas de agua...") }
@@ -63,7 +63,7 @@ Salida por consola:
 Acción: Pulverizando microgotas de agua...
 ```
 
-**Ejemplo 3: Lambda con múltiples parámetros**
+**Ejemplo 3: Lambda con múltiples parámetros.**
 
 ```kotlin
 val calcularCrecimiento = { inicial: Double, final: Double -> final - inicial }
@@ -82,7 +82,8 @@ Salida por consola:
 Crecimiento neto: 3.3000000000000007 cm
 ```
 
-**Comparativa: Funciones Tradicionales vs. Lambdas**
+
+<span class="mi_h3">Comparativa: Funciones Tradicionales vs. Lambdas</span>
 
 Esta tabla te ayuda a visualizar cómo se simplifica el código al transformar funciones tradicionales a su formato lambda equivalente:
 
@@ -116,9 +117,7 @@ A continuación tienes una tabla los operadores que utilizaremos en este curso:
 
 
 
-
-**Ejemplo 4: Operaciones avanzadas en colecciones mediante Lambdas**
-
+**Ejemplo 4: Operaciones avanzadas en colecciones mediante Lambdas.**
 
 ```kotlin
 fun main() {
@@ -174,7 +173,6 @@ fun main() {
     println("Inventario total final en el sistema: $inventarioTotal")
 }
 ```
-
 
 Salida por consola:
 
@@ -236,8 +234,7 @@ alturasCm.filter { it > 40 }
 * Si el bloque de código dentro de la lambda es excesivamente largo y anidado, es mejor nombrar la variable de forma explícita (por ejemplo, `altura ->`) para que sea más fácil de leer.
 
 
-
-**Tabla Resumen de operaciones con Lambdas**
+<span class="mi_h3">Tabla Resumen de operaciones con Lambdas</span>
 
 | Operación | Método en Kotlin | ¿Qué devuelve? |
 | :--- | :--- | :--- |
@@ -250,9 +247,9 @@ alturasCm.filter { it > 40 }
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

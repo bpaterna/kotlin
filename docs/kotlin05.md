@@ -28,7 +28,7 @@ Es común confundir estos términos al principio. Esta tabla te ayudará a difer
 | **Parámetro** | La variable que se define en la firma o declaración de la función. Actúa como un contenedor. | `fun regar(planta: String) { ... }`<br>*(aquí `planta` es el parámetro)* |
 | **Argumento** | El valor real que le envías a la función cuando la llamas. | `regar("Girasol")`<br>*(aquí `"Girasol"` es el argumento)* |
 
-**Ejemplo 1: Función simple sin parámetros ni retorno** Ideal para realizar acciones fijas, como imprimir una cabecera de informe.
+**Ejemplo 1: Función simple sin parámetros ni retorno.** Ideal para realizar acciones fijas, como imprimir una cabecera de informe.
 
 ```kotlin
 // Declaración de la función
@@ -59,7 +59,7 @@ Salida por consola:
 
 Las funciones suelen necesitar información del exterior para realizar su trabajo. Puedes pasarle una o varias variables indicando siempre su nombre y su tipo de dato.
 
-**Ejemplo 2: Función con un parámetro (sin retorno)**
+**Ejemplo 2: Función con un parámetro (sin retorno).**
 
 ```kotlin
 fun registrarRegado(especie: String) {
@@ -86,7 +86,7 @@ Acción: Se ha suministrado agua a la planta: Helecho
 
 Si necesitas que una función realice un cálculo y te devuelva el resultado para poder guardarlo en una variable u operar con él, debes indicar el **tipo de retorno** al final de la cabecera (usando dos puntos `:`) y emplear la palabra clave **`return`** dentro de la función.
 
-**Ejemplo 3: Calcular el consumo anual de agua**
+**Ejemplo 3: Calcular el consumo anual de agua.**
 
 ```kotlin
 // Indicamos con ': Double' al final que esta función devolverá un número decimal
@@ -115,7 +115,7 @@ Consumo anual estimado para el lote de macetas: 130.0 litros.
 
 Si una función tiene una sola línea de código que simplemente devuelve un valor, Kotlin te permite prescindir de las llaves `{}` y de la palabra `return`. En su lugar, puedes estructurarla utilizando el operador de asignación **`=`**.
 
-**Ejemplo 4: Formatear nombre familiar de una especie**
+**Ejemplo 4: Formatear nombre familiar de una especie.**
 
 ```kotlin
 // Función simplificada de expresión única (single-expression function)
@@ -140,7 +140,7 @@ Familia de las Rosáceas
 
 En Kotlin, puedes asignar valores predeterminados a los parámetros en la firma de la función. Si al llamar a la función decides no enviar ese argumento, el programa utilizará automáticamente el valor por defecto que hayas configurado. Esto evita tener que escribir múltiples funciones sobrecargadas.
 
-**Ejemplo 5: Registro de especies con ubicación predeterminada**
+**Ejemplo 5: Registro de especies con ubicación predeterminada.**
 
 ```kotlin
 // Por defecto, asumimos que las plantas se ubican en el 'Invernadero A'
@@ -171,7 +171,7 @@ Especie: Monstera deliciosa | Ubicación asignada: Sector Sombra
 
 Cuando llamas a una función que tiene muchos parámetros (algunos de ellos con valores por defecto), puede ser confuso recordar el orden exacto de las variables. Kotlin te permite solucionar esto indicando explícitamente el nombre del parámetro al que le estás asignando el valor. Además, te permite cambiar el orden de los argumentos en la llamada.
 
-**Ejemplo 6: Programación de tareas de abono**
+**Ejemplo 6: Programación de tareas de abono.**
 
 ```kotlin
 fun programarTratamiento(especie: String, mililitros: Double, repetirSemanas: Int = 1) {
@@ -219,7 +219,8 @@ Las **funciones de extensión** te permiten añadir nuevas funciones a clases ya
 
 Para definirlas, debes anteponer el nombre de la clase que quieres extender al nombre de tu nueva función, separado por un punto `.`. Dentro de la función, la palabra clave **`this`** hace referencia al objeto real sobre el que se hace la llamada.
 
-**Ejemplo 7: Extensión sobre la clase estándar `String`** Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
+
+**Ejemplo 7: Extensión sobre la clase estándar `String`.** Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:
 
 ```kotlin
 // Extendemos la clase estándar String
@@ -246,7 +247,7 @@ Monstera deliciosa
 ```
 
 
-**Ejemplo 8: Extensión sobre tu propia clase personalizada**
+**Ejemplo 8: Extensión sobre tu propia clase personalizada.**
 
 ```kotlin
 class Maceta(val material: String, val volumenLitros: Double)
@@ -277,7 +278,7 @@ A veces necesitas que una función pueda recibir un número indeterminado de arg
 
 Internamente, Kotlin tratará ese parámetro variable como si fuera un array, permitiéndote acceder a su tamaño (`.size`), recorrerlo o usar sus elementos.
 
-**Ejemplo 9: Registro por lotes de plantas de exterior**
+**Ejemplo 9: Registro por lotes de plantas de exterior.**
 
 ```kotlin
 // Declaramos un parámetro variable usando vararg
@@ -323,7 +324,7 @@ Una **función local** es una función que se declara **dentro de otra función*
 
 > **Regla de oro:** Las funciones locales tienen acceso a las variables locales y parámetros de la función principal que las envuelve.
 
-**Ejemplo 10: Registro de fichas botánicas con validación interna**
+**Ejemplo 10: Registro de fichas botánicas con validación interna.**
 
 ```kotlin
 fun registrarFichaBotanica(nombreComun: String, phSuelo: Double) {
@@ -358,7 +359,7 @@ Ficha generada -> [HORTENSIA AZUL] | Diagnóstico: Suelo ácido
 
 Una **función de orden superior** es aquella que **recibe otra función como parámetro** o que **devuelve una función** como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.
 
-**Ejemplo 11: Calculadora dinámica de dosificación de abono** Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
+**Ejemplo 11: Calculadora dinámica de dosificación de abono.** Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:
 
 ```kotlin
 // El tercer parámetro es una función 'operacion' que toma dos decimales y devuelve otro decimal
@@ -393,9 +394,9 @@ Dosificación intensiva: 3.0 mg/L
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

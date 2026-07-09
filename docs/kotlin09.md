@@ -25,7 +25,7 @@ Se utiliza cuando deseas ejecutar un bloque de código que es propenso a fallar 
 * **`catch`:** Captura el error y te permite manejarlo (mostrar un aviso, usar un valor por defecto, registrar el fallo, etc.). Puedes encadenar varios bloques `catch` para manejar diferentes tipos de errores.
 * **`finally`:** Contiene código que **se ejecutará siempre**, tanto si ha ocurrido un error como si no. Es opcional y se suele usar para tareas de limpieza.
 
-**Ejemplo 1: Dosificación de abono sin macetas registradas** Si intentamos dividir una dosis total de fertilizante entre cero macetas, el sistema lanzará un error matemático (`ArithmeticException`).
+**Ejemplo 1: Dosificación de abono sin macetas registradas.** Si intentamos dividir una dosis total de fertilizante entre cero macetas, el sistema lanzará un error matemático (`ArithmeticException`).
 
 ```kotlin
 fun main() {
@@ -80,7 +80,7 @@ Se puede aplicar sobre cualquier objeto que implemente la interfaz `Closeable` (
 
 
 
-**Ejemplo 2: Escribir el inventario del invernadero en un archivo** Utilizaremos `FileWriter` para guardar de forma persistente un listado de plantas en un archivo llamado `inventario_plantas.txt`.
+**Ejemplo 2: Escribir el inventario del invernadero en un archivo.** Utilizaremos `FileWriter` para guardar de forma persistente un listado de plantas en un archivo llamado `inventario_plantas.txt`.
 
 ```kotlin
 import java.io.FileWriter
@@ -110,7 +110,7 @@ Inventario botánico escrito en disco correctamente.
 ```
 
 
-**Ejemplo 3: Leer el archivo de inventario de forma segura** Ahora leeremos el archivo que acabamos de crear utilizando `BufferedReader`. Controlaremos de manera segura la posibilidad de que el archivo haya sido borrado o no exista.
+**Ejemplo 3: Leer el archivo de inventario de forma segura.** Ahora leeremos el archivo que acabamos de crear utilizando `BufferedReader`. Controlaremos de manera segura la posibilidad de que el archivo haya sido borrado o no exista.
 
 ```kotlin
 import java.io.File
@@ -149,9 +149,9 @@ ID: 3 | Helecho real       | Seccion Humedad
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

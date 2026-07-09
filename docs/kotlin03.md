@@ -24,9 +24,7 @@ Para enviar información y texto hacia la pantalla, Kotlin pone a tu disposició
 | **`print()`** | Imprime el texto tal cual, **sin añadir un salto de línea** al final. El siguiente texto se mostrará pegado a continuación. | `print("Rosa ")`<br>`print("roja")` | `Rosa roja` |
 | **`println()`** | Imprime el texto y **añade automáticamente un salto de línea** al final. El siguiente texto comenzará en la línea inferior. | `println("Rosa")`<br>`println("roja")` | `Rosa`<br>`roja` |
 
-**Ejemplo 1: Consola:**
-
-Imagina que quieres mostrar una pequeña ficha de registro de tareas de jardinería combinando ambas funciones:
+**Ejemplo 1: Consola.** Imagina que quieres mostrar una pequeña ficha de registro de tareas de jardinería combinando ambas funciones:
 
 ```kotlin
 fun main() {
@@ -71,8 +69,7 @@ Dado que intentar convertir un texto vacío o con letras (como `"mucho"`) a un n
 
 La forma correcta y segura de comprobar que la entrada de teclado no es nula ni está vacía antes de realizar cualquier conversión numérica es utilizando la función de validación `.isNotBlank()`.
 
-**Ejemplo 2: Cálculo de crecimiento estimado**
-Observa este programa que solicita la altura actual de un girasol y calcula cuánto medirá la próxima semana suponiendo un crecimiento estimado de 15 centímetros:
+**Ejemplo 2: Cálculo de crecimiento estimado.** Observa este programa que solicita la altura actual de un girasol y calcula cuánto medirá la próxima semana suponiendo un crecimiento estimado de 15 centímetros:
 
 ```kotlin
 fun main() {
@@ -112,9 +109,9 @@ Error: Altura introducida no válida. Asegúrate de escribir un número entero.
 
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---

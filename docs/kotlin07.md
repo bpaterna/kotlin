@@ -25,7 +25,7 @@ En la POO, utilizamos las **clases** como moldes o planos de diseño, y los **ob
 
 Kotlin simplifica enormemente la creación de clases en comparación con otros lenguajes. Dispones de tres formas de estructurar tus constructores según la complejidad que busques.
 
-**Ejemplo 1: Constructor primario (La forma recomendada)** Define las propiedades directamente en la cabecera de la clase.
+**Ejemplo 1: Constructor primario (La forma recomendada).** Define las propiedades directamente en la cabecera de la clase.
 
 ```kotlin
 class Planta(val especie: String, var alturaCm: Double) {
@@ -61,7 +61,7 @@ Especie: Monstera deliciosa | Altura: 45.0 cm
 ```
 
 
-**Ejemplo 2: Propiedades dentro del cuerpo** Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.
+**Ejemplo 2: Propiedades dentro del cuerpo.** Si quieres dar valores por defecto por omisión sin que se pasen obligatoriamente en el constructor.
 
 ```kotlin
 class Flor() {
@@ -95,7 +95,7 @@ Flor modificada -> Especie: Tulipán, Color: Rojo
 ```
 
 
-**Ejemplo 3: Constructor secundario** A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada `constructor` y este debe delegar en el constructor primario usando `: this(...)`.
+**Ejemplo 3: Constructor secundario.** A veces necesitas ofrecer varias formas de crear el objeto. Se utiliza la palabra reservada `constructor` y este debe delegar en el constructor primario usando `: this(...)`.
 
 ```kotlin
 class PlantaExotica(val especie: String, var alturaCm: Double, val paisOrigen: String) {
@@ -147,7 +147,7 @@ Planta 2 (Constructor Secundario):
 
 En Kotlin, todas las propiedades mutables (`var`) generan automáticamente un **getter** (para leer su valor) y un **setter** (para modificarlo) por detrás. Si necesitas aplicar lógica de negocio o validación al asignar o leer un dato, puedes personalizarlos usando la variable implícita `field` (que hace referencia al campo físico de memoria).
 
-**Ejemplo 4: Validación personalizada de humedad** Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.
+**Ejemplo 4: Validación personalizada de humedad.** Evitamos que se asigne un porcentaje de humedad que esté fuera del rango lógico del 0% al 100%.
 
 ```kotlin
 class SensorSuelo {
@@ -206,7 +206,7 @@ Intentando asignar -10% (Valor fuera de rango)...
 Humedad registrada: 50%
 ```
 
-**Ejemplo 5: Propiedad de solo lectura con cálculo automático** Si declaras una propiedad con `val`, solo tendrá *getter*. Es útil para campos calculados dinámicamente.
+**Ejemplo 5: Propiedad de solo lectura con cálculo automático.** Si declaras una propiedad con `val`, solo tendrá *getter*. Es útil para campos calculados dinámicamente.
 
 ```kotlin
 class Invernadero(val largoMetros: Double, val anchoMetros: Double) {
@@ -230,7 +230,7 @@ Salida por consola:
 Superficie útil: 40.0 m²
 ```
 
-**Ejemplo 6: Setter privado (Encapsulamiento)** Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que **solo pueda modificarse desde dentro de la propia clase**, puedes privatizar su *setter*.
+**Ejemplo 6: Setter privado (Encapsulamiento).** Si quieres que una propiedad pueda leerse públicamente desde cualquier parte de tu código, pero que **solo pueda modificarse desde dentro de la propia clase**, puedes privatizar su *setter*.
 
 * **Metáfora:** La edad en días de una planta solo debería incrementarse mediante un método controlado, nunca asignándole valores arbitrarios desde fuera.
 
@@ -296,7 +296,7 @@ IntelliJ mostrará el error: 'Cannot assign to 'edadDias': the setter is private
 
 En el mundo real, los objetos contienen otros objetos o se relacionan entre sí. La composición (o relación entre clases) consiste en definir propiedades dentro de una clase que son instancias de otra clase.
 
-**Ejemplo 7: Relación entre clases**
+**Ejemplo 7: Relación entre clases.**
 
 ```kotlin
 class Maceta(val material: String, val volumenLitros: Double)
@@ -340,7 +340,7 @@ En Kotlin, todo es público por defecto. No obstante, puedes restringir la visib
 
 En Kotlin, por seguridad, **todas las clases son cerradas (`final`) por defecto**, lo que significa que no se pueden heredar a menos que las marques explícitamente con la palabra reservada **`open`**. Los métodos que desees sobrescribir en las subclases también deben ser `open`.
 
-**Ejemplo 8: Jerarquía de plantas**
+**Ejemplo 8: Jerarquía de plantas.**
 
 ```kotlin
 // Clase base marcada como open
@@ -427,7 +427,7 @@ Regar Cactus de barril con muy poca agua, garantizando suelo seco entre riegos.
 ```
 
 
-**Ejemplo 9: Polimorfismo en colecciones de objetos** El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
+**Ejemplo 9: Polimorfismo en colecciones de objetos.** El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
 
 ```kotlin
 fun main() {
@@ -469,7 +469,7 @@ Las clases de datos (`data class`) son clases diseñadas específicamente para *
 * Generador de códigos únicos de dispersión (`hashCode()`).
 * Clonación del objeto permitiendo modificar propiedades específicas (`copy()`).
 
-**Ejemplo 10: Data classes**
+**Ejemplo 10: Data classes.**
 
 ```kotlin
 // Clase de datos para modelar semillas
@@ -509,7 +509,7 @@ Kotlin te permite personalizar el comportamiento de operadores matemáticos o l�
 
 * **Metáfora botánica:** Si sumas dos sacos de tierra con diferentes litros, el resultado debería ser un nuevo saco de tierra con la suma total del volumen.
 
-**Ejemplo 11: Sobrecarga de operadores**
+**Ejemplo 11: Sobrecarga de operadores.**
 
 ```kotlin
 data class SacoTierra(val volumenLitros: Double) {
@@ -545,7 +545,7 @@ Has combinado la tierra. El saco resultante tiene: 65.0 litros.
 
 En ocasiones, necesitas una estructura que actúe como un gestor o base de datos centralizada de la cual **solo debe existir una única instancia en toda tu aplicación**. En Kotlin, esto se resuelve de forma directa sin necesidad de configurar patrones complejos de diseño; simplemente declaras un **`object`** en lugar de una `class`.
 
-**Ejemplo 12: Objetos sin clases**
+**Ejemplo 12: Objetos sin clases.**
 
 ```kotlin
 data class FlorExotica(val nombre: String, val color: String)
@@ -619,7 +619,7 @@ class Arbol(nombre: String, val alturaMaxMetros: Double) : Vegetal(nombre) {
 }
 ```
 
-**Ejemplo 13: Array de objetos** En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.
+**Ejemplo 13: Array de objetos.** En este ejemplo verás cómo declarar un array de tamaño fijo que almacena diferentes tipos de vegetales, cómo recorrerlo aprovechando el polimorfismo, cómo modificar elementos por índice y cómo inicializar un array vacío para llenarlo más tarde.
 
 ```kotlin
 fun main() {
@@ -671,7 +671,7 @@ Se ha reemplazado la planta silvestre por un Roble.
 ```
 
 
-**Ejemplo 14: ArrayList de objetos y filtrado** En este ejemplo trabajarás con una lista dinámica (`MutableList`), que es el equivalente nativo en Kotlin al `ArrayList` de Java. Verás cómo llenarla y cómo utilizar la función **`filterIsInstance`** para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.
+**Ejemplo 14: ArrayList de objetos y filtrado.** En este ejemplo trabajarás con una lista dinámica (`MutableList`), que es el equivalente nativo en Kotlin al `ArrayList` de Java. Verás cómo llenarla y cómo utilizar la función **`filterIsInstance`** para extraer únicamente un tipo de objeto de la lista y ejecutar sus métodos específicos de clase.
 
 ```kotlin
 fun main() {
@@ -720,7 +720,7 @@ Poda estructural para el árbol 'Limonero' (Altura máxima esperada: 3.0 m).
 ```
 
 
-**Ejemplo 15: Operaciones funcionales adicionales en listas de objetos** Kotlin permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda.
+**Ejemplo 15: Operaciones funcionales adicionales en listas de objetos.** Kotlin permite simplificar el procesamiento de estas listas de objetos utilizando las expresiones lambda.
 
 ```kotlin
 fun main() {
@@ -754,9 +754,9 @@ Listado de especies: [Orquídea, Naranjo, Azalea]
 ```
 
 ---
-
 <span class="mi_h3">Autoría</span>
 
+<span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
-
+</span>
 ---
