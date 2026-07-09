@@ -223,7 +223,7 @@ La mezcla contiene Potasio, es apta para la floración.
 
 ## 5. Map
 
-Un **Map** o **Diccionario** es una colección de **pares clave $\rightarrow$ valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
+Un **Map** o **Diccionario** es una colección de **pares clave-valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
 
 **Ejemplo 5: Registro de humedad ideal y pH por lote.**
 

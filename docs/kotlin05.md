@@ -370,14 +370,10 @@ fun aplicarTratamiento(aguaLitros: Double, abonoMl: Double, formula: (Double, Do
 fun main() {
     println("=== EJEMPLO 11: Calculadora dinámica de dosificación de abono ===")
     // 1. Definimos una fórmula para un riego suave (concentración baja)
-    val concentracionSuave = aplicarTratamiento(5.0, 10.0) { agua, abono -> 
-        (abono / agua) * 0.8 
-    }
+    val concentracionSuave = aplicarTratamiento(5.0, 10.0) { agua, abono -> (abono / agua) * 0.8 }
     
     // 2. Definimos otra fórmula para un riego intensivo de choque
-    val concentracionIntensiva = aplicarTratamiento(5.0, 10.0) { agua, abono -> 
-        (abono / agua) * 1.5 
-    }
+    val concentracionIntensiva = aplicarTratamiento(5.0, 10.0) { agua, abono -> (abono / agua) * 1.5 }
 
     println("Dosificación suave: $concentracionSuave mg/L")
     println("Dosificación intensiva: $concentracionIntensiva mg/L")

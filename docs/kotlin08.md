@@ -71,7 +71,7 @@ val calcularCrecimiento = { inicial: Double, final: Double -> final - inicial }
 fun main() {
     println("=== EJEMPLO 3: Lambda con múltiples parámetros ===")
     val diferencia = calcularCrecimiento(15.2, 18.5)
-    println("Crecimiento neto: $diferencia cm") // 3.3 cm
+    println("Crecimiento neto: ${String.format("%.1f", diferencia)} cm")
 }
 ```
 
@@ -79,7 +79,7 @@ Salida por consola:
 
 ```text
 === EJEMPLO 3: Lambda con múltiples parámetros ===
-Crecimiento neto: 3.3000000000000007 cm
+Crecimiento neto: 3,3 cm
 ```
 
 

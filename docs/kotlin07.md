@@ -429,6 +429,8 @@ Regar Cactus de barril con muy poca agua, garantizando suelo seco entre riegos.
 
 **Ejemplo 9: Polimorfismo en colecciones de objetos.** El polimorfismo te permite tratar objetos de diferentes subclases como si fueran del tipo de la clase base común, ejecutando el método correcto correspondiente a cada instancia en tiempo de ejecución.
 
+En el ejemplo anterior demostramos el polimorfismo usando una lista dinámica (List). A continuación, veremos que el comportamiento polimórfico es idéntico si agrupamos los objetos en un array de tamaño fijo.
+
 ```kotlin
 fun main() {
     println("=== EJEMPLO 9: POLIMORFISMO EN COLECCIONES DE OBJETOS ===")
@@ -452,12 +454,12 @@ Salida por consola:
 
 ```text
 === EJEMPLO 9: POLIMORFISMO EN COLECCIONES DE OBJETOS ===
-Regando Helecho espada de manera est�ndar.
+Regando Helecho espada de manera estándar.
 - Cuidado extra: Pulverizar agua sobre las frondas para emular humedad alta.
 -----------------------------------
 Regar Cactus de barril con muy poca agua, garantizando suelo seco entre riegos.
 -----------------------------------
-Regando Planta gen�rica de manera est�ndar.
+Regando Planta genérica de manera estándar.
 -----------------------------------
 ```
 
@@ -482,7 +484,7 @@ fun main() {
     val lote2 = LoteSemillas("Girasol gigante", 150, 2025)
 
     // 1. toString() automático
-    println(lote1) // Salida legible: LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, añoCosecha=2025)
+    println(lote1) // Salida legible: LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, anyoCosecha=2025)
 
     // 2. equals() automático (compara valores, no referencias de memoria)
     println("¿Son lotes idénticos? ${lote1 == lote2}") // Salida: true

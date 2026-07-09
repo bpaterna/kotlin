@@ -14,7 +14,7 @@
 Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **Community Edition**.
 
 
-<span class="mi_h3">1.1. Instalación en el ordenadores de clase</span>
+<span class="mi_h3">1.1. Instalación en los ordenadores de clase</span>
 
 Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
@@ -30,7 +30,7 @@ Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
 Para realizar la instalación en tu equipo personal con Windows:
 
-1. **Descargar el instalador:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la Version 2025.2 Community Edition para Windows, luego descarga el archivo `.exe`.
+1. **Descargar el instalador:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la Versión 2025.2 Community Edition para Windows, luego descarga el archivo `.exe`.
 2. **Asistente de instalación:** Ejecuta el instalador descargado y sigue los pasos indicados en pantalla:
     * **Directorio de destino:** Por defecto se instalará en `C:\Program Files\JetBrains\...` (requiere aproximadamente 3.2 GB de espacio en disco).
     * **Opciones de instalación:** Se recomienda marcar la opción para crear un acceso directo en el escritorio y, opcionalmente, asociar las extensiones de archivo `.kt` (Kotlin).
@@ -54,7 +54,7 @@ Para crear tu primer proyecto en Kotlin:
 
 1. Abre IntelliJ IDEA y haz clic en **New Project** en la ventana de inicio.
 2. Configura los parámetros en la ventana de configuración:
-    * **Name:** Indica el nombre de tu ptoyecto (en el caso del ejemplo es `control_plantas`)
+    * **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `control_plantas`)
     * **Location:** Selecciona tu directorio de trabajo (por ejemplo, `F:\kot` o la ruta de tu carpeta de usuario).
     * **Language:** Asegúrate de marcar **Kotlin** en la columna de la izquierda.
     * **Build system:** Selecciona el sistema nativo de **IntelliJ**.
@@ -78,7 +78,7 @@ Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue est
 * Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (File, Class, Interface, etc.).
 
 
-<span class="mi_h3">2.4. Primer programa y su jecución</span>
+<span class="mi_h3">2.4. Primer programa y su ejecución</span>
 
 Para que un proyecto en Kotlin pueda ejecutarse, requiere como mínimo tener un punto de entrada definido por una función llamada `main`. Kotlin utiliza la palabra reservada `fun` para declarar funciones.
 
@@ -90,7 +90,7 @@ fun main() {
     println("¡Bienvenido al sistema de control botánico!")
     println("Planta seleccionada en el sistema: $planta")
 
-    // Simulación del registro de crecimiento diario (5 días)
+    // Simulación del riego diario (5 días)
     for (dia in 1..5) {
         println("Día $dia: La planta '$planta' ha sido regada correctamente.")
     }
@@ -138,14 +138,14 @@ Un **package** es una forma de agrupar clases, funciones, objetos y otras estruc
 **Reglas clave de los paquetes:**
 
 * La declaración del paquete debe ir en la **primera línea de tu archivo de código**, antes de cualquier otra cosa.
-* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package botanica.util`.
+* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package util`.
 * Los nombres de los paquetes se escriben siempre en minúsculas y se separan por puntos `.`.
 
 **Ejemplo de archivo dentro de un paquete:**
 
 ```kotlin
 // Archivo: src/botanica/util/MisCalculos.kt
-package botanica.util
+package util
 
 fun calcularConsumo(dias: Int) = dias * 1.5
 ```
@@ -157,14 +157,14 @@ La palabra clave **`import`** se utiliza para poder acceder y utilizar clases o 
 
 **Ejemplo de uso básico:**
 
-Si tu archivo principal está en el paquete `botanica.app` y deseas utilizar la función `calcularConsumo` que está en `botanica.util`:
+Si tu archivo principal está en el paquete `botanica.app` y deseas utilizar la función `calcularConsumo` que está en `util`:
 
 ```kotlin
 // Archivo: src/botanica/app/Main.kt
 package botanica.app
 
 // Importamos la función específica indicando su paquete de origen
-import botanica.util.calcularConsumo
+import util.calcularConsumo
 
 fun main() {
     val consumoTotal = calcularConsumo(7) // Podemos usar la función directamente
@@ -179,8 +179,8 @@ fun main() {
 A veces puede ocurrir que necesites importar dos clases o funciones de diferentes paquetes que se llaman exactamente igual. Para evitar conflictos, puedes renombrar una de ellas de manera temporal en tu archivo actual utilizando la palabra clave **`as`** (alias).
 
 ```kotlin
-import botanica.util.saludarJardinero as saludarBreve
-import botanica.administracion.saludarJardinero as saludarCompleto
+import util.saludarJardinero as saludarBreve
+import administracion.saludarJardinero as saludarCompleto
 
 fun main() {
     saludarBreve("Pol")     // Llama a la función del paquete util
@@ -196,7 +196,7 @@ Si un paquete contiene muchas funciones u objetos y necesitas utilizarlos casi t
 
 ```kotlin
 // Importa absolutamente todas las funciones y clases públicas del paquete util
-import botanica.util.*
+import util.*
 ```
 
 <span class="mi_h3">3.3. Tabla resumen de organización</span>
@@ -204,8 +204,8 @@ import botanica.util.*
 | Término | ¿Qué hace? | Ejemplo de uso |
 | :--- | :--- | :--- |
 | **`package`** | Define el espacio lógico y la ubicación del archivo actual. | `package botanica.modelo` |
-| **`import`** | Trae una herramienta (clase o función) de otro paquete para poder usarla. | `import botanica.util.evaluarHumedad` |
-| **`import ... as`**| Trae una herramienta y le asigna un nombre temporal para evitar conflictos. | `import botanica.util.regar as regadoAutomatico` |
+| **`import`** | Trae una herramienta (clase o función) de otro paquete para poder usarla. | `import util.evaluarHumedad` |
+| **`import ... as`**| Trae una herramienta y le asigna un nombre temporal para evitar conflictos. | `import util.regar as regadoAutomatico` |
 
 
 <span class="mi_h3">3.4. Ejemplo completo multiarchivo</span>

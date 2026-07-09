@@ -61,13 +61,34 @@ Para que tus programas no sean estáticos y puedan reaccionar a lo que decida el
 2. **Control del botón "Enter":** Si el usuario simplemente pulsa la tecla *Enter* sin escribir absolutamente nada, `readLine()` no devolverá un valor nulo (`null`), sino una **cadena vacía** (`""`).
 3. **Conversión necesaria:** Si necesitas operar matemáticamente con el dato que introduce el usuario (por ejemplo, para realizar cálculos de crecimiento), tendrás que transformar ese texto al tipo de dato numérico correspondiente (`toInt()`, `toDouble()`, etc.).
 
----
 
-## 4. Comprobaciones de seguridad
+
+## 4. Formateo de la salida de datos
+
+Los ordenadores operan en binario (base 2) y solo pueden representar de forma exacta fracciones que son potencias de dos (como $0.5$ o $0.25$), por lo que otros números decimales se convierten en binario en fracciones periódicas infinitas, del mismo modo que nos ocurre al intentar escribir un tercio ($\frac{1}{3}$) en nuestro sistema decimal tradicional. Como la memoria física de la CPU es limitada (un `Double` dispone de 64 bits), el procesador se ve obligado a recortar y redondear ese número infinito, acumulando una pérdida microscópica de precisión que se hace visible tras realizar cálculos matemáticos en forma de decimales "fantasma" como `3.3000000000000007`.
+
+Para dar formato a los datos de manera rápida y elegante en tus clases de Kotlin, la forma más cómoda es usar la función de extensión **`.format()`** (que por debajo utiliza los mismos especificadores clásicos de `printf` de Java/C).
+
+Aquí tienes una tabla resumen con las opciones de formateo más útiles y algunos ejemplos:
+
+### Tabla de Formateo de Datos en Kotlin
+
+| Tipo de Dato | Objetivo del Formateo | Especificador de Formato | Código de Ejemplo en Kotlin | Salida en Consola |
+| :--- | :--- | :---: | :--- | :--- |
+| **Decimal (`Double` / `Float`)** | Limitar a $N$ decimales (ej. 2) | **`%.Nf`** | `"%.2f cm".format(3.30000007)` | `3,30 cm` *(o `3.30` según el idioma del sistema)* |
+| **Decimal (`Double` / `Float`)** | Separador de miles y decimales | **`%,.Nf`** | `"%,.1f L".format(1250.75)` | `1.250,8 L` *(en configuración regional de España)* |
+| **Entero (`Int` / `Long`)** | Rellenar con ceros a la izquierda | **`%0Nd`** | `"ID-%04d".format(28)` | `ID-0028` |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la izquierda | **`%-Ns`** | `println("%-12s \| %s".format("Helecho", "Ok"))` | `Helecho      \| Ok` *(útil para alinear tablas)* |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la derecha | **`%Ns`** | `println("%12s \| %s".format("Helecho", "Ok"))` | `     Helecho \| Ok` |
+| **Porcentaje** | Mostrar símbolo `%` sin decimales | **`%.0f%%`** | `"Humedad: %.0f%%".format(65.8)` | `Humedad: 66%` *(el doble `%%` escapa el símbolo)* |
+
+
+## 5. Comprobaciones de seguridad
 
 Dado que intentar convertir un texto vacío o con letras (como `"mucho"`) a un número entero provocará que tu programa falle y se detenga con un error, **siempre debes realizar una comprobación previa de seguridad**.
 
-La forma correcta y segura de comprobar que la entrada de teclado no es nula ni está vacía antes de realizar cualquier conversión numérica es utilizando la función de validación `.isNotBlank()`.
+La forma segura de realizar esta conversión es utilizando la función toIntOrNull(). Esta función intenta transformar el texto a número: si lo consigue, nos devuelve el valor entero; pero si el usuario introduce letras, espacios en blanco o pulsa Enter directamente, nos devolverá un valor null.
+
 
 **Ejemplo 2: Cálculo de crecimiento estimado.** Observa este programa que solicita la altura actual de un girasol y calcula cuánto medirá la próxima semana suponiendo un crecimiento estimado de 15 centímetros:
 
@@ -86,7 +107,7 @@ fun main() {
         println("La próxima semana tu girasol medirá aproximadamente $alturaEstimada cm.")
     } else {
         // Este mensaje ahora cubre tanto si pulsan Enter vacío como si escriben letras o decimales
-        println("Error: Altura introducida no válida. Asegúrate de escribir un número entero.")
+        println("Altura introducida no válida. Asegúrate de escribir un número entero.")
     }
 }
 ```
@@ -104,7 +125,7 @@ Salida por consola (Entrada vacía o incorrecta):
 ```text
 === EJEMPLO 2: Cálculo de crecimiento estimado ===
 Introduce la altura actual del girasol (en cm): g
-Error: Altura introducida no válida. Asegúrate de escribir un número entero.
+Altura introducida no válida. Asegúrate de escribir un número entero.
 ```
 
 
