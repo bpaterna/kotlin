@@ -145,7 +145,7 @@ fun main() {
 }
 ```
 
-Salida por consola de la lectura del archivo:
+Salida por consola:
 
 ```text
 === EJEMPLO 3: Leer el archivo de inventario de forma segura ===
@@ -155,84 +155,54 @@ ID: 3 | Helecho real       | Seccion Humedad
 ```
 
 
+## 4. Comportamiento de la consola de IntelliJ
 
----
+Cuando haces pruebas por consola, la forma en que el IDE (IntelliJ) y su motor de construcción (Gradle) interpretan tus textos puede alterar lo que ves en pantalla. 
 
-por revisar
+Si utilizas en tus mensajes una línea de texto plano que comienza con la palabra `"Error:"` el plugin de Gradle en IntelliJ puede asumir que la ejecución del código ha fallado y el resultado en consola será unicamente la línea con ese texto en color rojo (como cuando el programa se detiene inesperadamente).
 
-
-> 💡 **Nota de depuración: ¿Qué pasa si tu consola de IntelliJ oculta líneas?**
->
-> Si al ejecutar este ejemplo con `cantidadMacetas = 0` notas que solo se imprime la línea del error y desaparecen tanto la cabecera del `try` como el bloque `finally`, no te preocupes, tu código está bien. Se debe a un comportamiento del IDE por dos posibles razones:
->
-> 1. **Filtro de búsqueda activo:** Comprueba que no tengas escrita la palabra *"Error"* en la barra de búsqueda (icono de la lupa) de la consola de ejecución de IntelliJ. Si está puesta, el IDE ocultará automáticamente cualquier línea que no contenga esa palabra.
-> 2. **Ocultación automática de Gradle:** Si tu proyecto usa Gradle, el compilador puede "inteligir" que al imprimir un texto que empieza por `"Error:"` ha ocurrido un fallo de sistema y agrupará (plegará) de forma automática todas las líneas exitosas anteriores para limpiar la pantalla. Puedes desplegarlas manualmente en la consola o evitar empezar tus mensajes de texto plano con la palabra exacta `"Error:"`.
+Esto ocurre porque, para ahorrar espacio en pantalla, Gradle recoge en un desplegable todas las líneas que considera informativas o exitosas (en este caso, los `println` anteriores y posteriores a nuestro mensaje de error).
 
 
-
-
-
-Aquí tienes una propuesta de contenido estructurado en Markdown (`.md`) para colocar al final del **Bloque 11: Gestión de errores**, diseñado como un subapartado independiente.
-
-Está redactado dirigiéndose al alumno de **tú** e incluye dos ejemplos sencillos y específicos para que ellos mismos fuercen este comportamiento en su IntelliJ y aprendan a identificarlo.
-
-***
-
-## 4. Nota técnica: Comportamiento y filtros de la consola de IntelliJ
-
-Cuando programas y haces pruebas por consola, la forma en que el IDE (IntelliJ) y su motor de construcción (Gradle) interpretan tus textos puede alterar lo que ves en pantalla. Si utilizas palabras clave como `"Error:"` o `"Exception:"` en tus mensajes, es muy común que ocurran dos fenómenos visuales que conviene que conozcas para no pensar que tu código está fallando.
-
----
-
-### 4.1. El Filtro de Búsqueda Activo (Ocultación de líneas)
-
-La consola de ejecución de IntelliJ incluye una barra de búsqueda rápida (un icono de lupa). Si dejas cualquier texto escrito en ella, el IDE aplicará un filtro en tiempo real.
-
-#### Ejemplo independiente para probar en clase:
-Escribe y ejecuta este código sencillo:
+**Ejemplo 4: Con palabra reservada `Error:` en el mensaje.** 
 
 ```kotlin
 fun main() {
     println("--- ESTADO DEL SENSOR ---")
-    println("Sensor de humedad encharcado conectado.")
-    println("Error: Conexión intermitente en el Sector Sombra.")
+    println("Sensor de humedad conectado.")
+    println("Error: Fallo en el sensor de luz.")
     println("Chequeo del sistema de riego finalizado.")
 }
 ```
 
-#### ¿Qué debes observar?
-1. Ejecuta el programa normalmente. Verás las **4 líneas** en tu consola.
-2. Ahora, busca la pequeña **lupa de búsqueda** en la esquina superior derecha del panel de la consola de IntelliJ y escribe la palabra **"Error"**.
-3. Verás que, al instante, las líneas 1, 2 y 4 **desaparecen de la pantalla**, quedando únicamente visible la línea del error.
-4. **La lección:** Si alguna vez ejecutas un bloque `try-catch` y notas que solo ves el mensaje del `catch` omitiendo la cabecera y el `finally`, comprueba siempre que no tengas ningún texto escrito en la barra de búsqueda de la consola de IntelliJ [25].
+Salida por consola (en color rojo):
 
----
+```text
+Error: Fallo en el sensor de luz.
+```
 
-### 4.2. El Plegado Automático de Gradle (*Console Folding*)
+Para que tus mensajes de control de errores no confundan al motor de Gradle, una buena práctica es redactar tus advertencias sin utilizar `Error:` al inicio del mensaje. Puedes utilizar cualquier otro caracter que llame la atención.
 
-Si creaste tu proyecto en IntelliJ utilizando **Gradle** (el sistema de construcción estándar en el desarrollo moderno de Kotlin), el IDE analiza activamente el texto de tus impresiones en busca de problemas lógicos de compilación o ejecución [10].
 
-#### Ejemplo independiente para probar en clase:
-Crea un archivo nuevo y ejecuta el siguiente código:
+**Ejemplo 5: Sin palabra reservada `Error:` en el mensaje.**
 
 ```kotlin
 fun main() {
-    println("Paso 1: Abriendo electroválvulas principales...")
-    println("Paso 2: Comprobando caudalímetro...")
-    // Al empezar el texto estrictamente por "Error:", Gradle puede clasificar el proceso como fallido
-    println("Error: Caudal de agua por debajo del umbral mínimo.")
-    println("Paso 3: Cerrando sistema por seguridad.")
+    println("--- ESTADO DEL SENSOR ---")
+    println("Sensor de humedad conectado.")
+    println("**** Fallo en el sensor de luz.")
+    println("Chequeo del sistema de riego finalizado.")
 }
 ```
 
-#### ¿Qué debes observar?
-* Al detectar una línea de texto plano que comienza de forma estricta con la palabra `"Error:"` (o `"Exception:"`), el plugin de Gradle en IntelliJ puede asumir de manera automática que esa tarea ha fallado o tiene un reporte crítico.
-* Para ahorrar espacio en pantallas con mucho texto, Gradle tiende a **plegar y colapsar (*folding*)** bajo un desplegable gris todas las líneas previas que considera informativas o exitosas (en este caso, los "Paso 1" y "Paso 2").
-* **Cómo evitarlo:** Si quieres que tus mensajes de control de errores no se plieguen ni confundan al motor de Gradle, una buena práctica es redactar tus advertencias de forma más narrativa (por ejemplo, omitiendo los dos puntos pegados a la palabra: `"No se pudo conectar el sensor..."`) o utilizar herramientas específicas de traza de logs.
+Salida por consola:
 
-
-
-
+```text
+--- ESTADO DEL SENSOR ---
+Sensor de humedad conectado.
+**** Fallo en el sensor de luz.
+Chequeo del sistema de riego finalizado.
+```
 
 
 

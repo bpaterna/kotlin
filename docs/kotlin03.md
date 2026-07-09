@@ -50,6 +50,23 @@ Especie: Lavanda
 Ubicación: Sector Sur
 ```
 
+<span class="mi_h3">Formateo de la salida de datos</span>
+
+Los ordenadores operan en binario (base 2) y solo pueden representar de forma exacta fracciones que son potencias de dos (como $0.5$ o $0.25$), por lo que otros números decimales se convierten en binario en fracciones periódicas infinitas, del mismo modo que nos ocurre al intentar escribir un tercio ($\frac{1}{3}$) en nuestro sistema decimal tradicional. Como la memoria física de la CPU es limitada (un `Double` dispone de 64 bits), el procesador se ve obligado a recortar y redondear ese número infinito, acumulando una pérdida microscópica de precisión que se hace visible tras realizar cálculos matemáticos en forma de decimales "fantasma" como `3.3000000000000007`.
+
+Para dar formato a los datos de manera rápida y elegante en tus clases de Kotlin, la forma más cómoda es usar la función de extensión **`.format()`** (que por debajo utiliza los mismos especificadores clásicos de `printf` de Java/C).
+
+Aquí tienes una tabla resumen con las opciones de formateo más útiles y algunos ejemplos:
+
+| Tipo de Dato | Objetivo del Formateo | Especificador de Formato | Código de Ejemplo en Kotlin | Salida en Consola |
+| :--- | :--- | :---: | :--- | :--- |
+| **Decimal (`Double` / `Float`)** | Limitar a $N$ decimales (ej. 2) | **`%.Nf`** | `"%.2f cm".format(3.30000007)` | `3,30 cm` *(o `3.30` según el idioma del sistema)* |
+| **Decimal (`Double` / `Float`)** | Separador de miles y decimales | **`%,.Nf`** | `"%,.1f L".format(1250.75)` | `1.250,8 L` *(en configuración regional de España)* |
+| **Entero (`Int` / `Long`)** | Rellenar con ceros a la izquierda | **`%0Nd`** | `"ID-%04d".format(28)` | `ID-0028` |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la izquierda | **`%-Ns`** | `println("%-12s \| %s".format("Helecho", "Ok"))` | `Helecho      \| Ok` *(útil para alinear tablas)* |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la derecha | **`%Ns`** | `println("%12s \| %s".format("Helecho", "Ok"))` | `     Helecho \| Ok` |
+| **Porcentaje** | Mostrar símbolo `%` sin decimales | **`%.0f%%`** | `"Humedad: %.0f%%".format(65.8)` | `Humedad: 66%` *(el doble `%%` escapa el símbolo)* |
+
 
 ## 3. Entrada de datos por teclado
 
@@ -63,27 +80,7 @@ Para que tus programas no sean estáticos y puedan reaccionar a lo que decida el
 
 
 
-## 4. Formateo de la salida de datos
-
-Los ordenadores operan en binario (base 2) y solo pueden representar de forma exacta fracciones que son potencias de dos (como $0.5$ o $0.25$), por lo que otros números decimales se convierten en binario en fracciones periódicas infinitas, del mismo modo que nos ocurre al intentar escribir un tercio ($\frac{1}{3}$) en nuestro sistema decimal tradicional. Como la memoria física de la CPU es limitada (un `Double` dispone de 64 bits), el procesador se ve obligado a recortar y redondear ese número infinito, acumulando una pérdida microscópica de precisión que se hace visible tras realizar cálculos matemáticos en forma de decimales "fantasma" como `3.3000000000000007`.
-
-Para dar formato a los datos de manera rápida y elegante en tus clases de Kotlin, la forma más cómoda es usar la función de extensión **`.format()`** (que por debajo utiliza los mismos especificadores clásicos de `printf` de Java/C).
-
-Aquí tienes una tabla resumen con las opciones de formateo más útiles y algunos ejemplos:
-
-### Tabla de Formateo de Datos en Kotlin
-
-| Tipo de Dato | Objetivo del Formateo | Especificador de Formato | Código de Ejemplo en Kotlin | Salida en Consola |
-| :--- | :--- | :---: | :--- | :--- |
-| **Decimal (`Double` / `Float`)** | Limitar a $N$ decimales (ej. 2) | **`%.Nf`** | `"%.2f cm".format(3.30000007)` | `3,30 cm` *(o `3.30` según el idioma del sistema)* |
-| **Decimal (`Double` / `Float`)** | Separador de miles y decimales | **`%,.Nf`** | `"%,.1f L".format(1250.75)` | `1.250,8 L` *(en configuración regional de España)* |
-| **Entero (`Int` / `Long`)** | Rellenar con ceros a la izquierda | **`%0Nd`** | `"ID-%04d".format(28)` | `ID-0028` |
-| **Texto (`String`)** | Forzar ancho fijo alineado a la izquierda | **`%-Ns`** | `println("%-12s \| %s".format("Helecho", "Ok"))` | `Helecho      \| Ok` *(útil para alinear tablas)* |
-| **Texto (`String`)** | Forzar ancho fijo alineado a la derecha | **`%Ns`** | `println("%12s \| %s".format("Helecho", "Ok"))` | `     Helecho \| Ok` |
-| **Porcentaje** | Mostrar símbolo `%` sin decimales | **`%.0f%%`** | `"Humedad: %.0f%%".format(65.8)` | `Humedad: 66%` *(el doble `%%` escapa el símbolo)* |
-
-
-## 5. Comprobaciones de seguridad
+<span class="mi_h3">Comprobaciones de seguridad</span> 
 
 Dado que intentar convertir un texto vacío o con letras (como `"mucho"`) a un número entero provocará que tu programa falle y se detenga con un error, **siempre debes realizar una comprobación previa de seguridad**.
 
