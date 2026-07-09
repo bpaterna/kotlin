@@ -30,6 +30,7 @@ Imagina que quieres mostrar una pequeña ficha de registro de tareas de jardiner
 
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 1: Consola ===")
     print("Estado del riego: ")
     print("COMPLETADO") // Se muestra en la misma línea
     
@@ -41,6 +42,15 @@ fun main() {
 }
 ```
 
+Salida por consola:
+
+```text
+=== EJEMPLO 1: Consola ===
+Estado del riego: COMPLETADO
+--- Datos de la parcela ---
+Especie: Lavanda
+Ubicación: Sector Sur
+```
 
 
 ## 3. Entrada de datos por teclado
@@ -66,6 +76,7 @@ Observa este programa que solicita la altura actual de un girasol y calcula cuá
 
 ```kotlin
 fun main() {
+    println("=== EJEMPLO 2: Cálculo de crecimiento estimado ===")
     print("Introduce la altura actual del girasol (en cm): ")
     val entrada = readLine()
 
@@ -78,24 +89,26 @@ fun main() {
         println("La próxima semana tu girasol medirá aproximadamente $alturaEstimada cm.")
     } else {
         // Este mensaje ahora cubre tanto si pulsan Enter vacío como si escriben letras o decimales
-        println("Error: Altura introducida no válida. Asegúrate de escribir un número entero (sin letras).")
+        println("Error: Altura introducida no válida. Asegúrate de escribir un número entero.")
     }
 }
 ```
 
-**¿Qué ocurre bajo la superficie al ejecutar este programa?**
+Salida por consola (Entrada válida):
 
-* Caso 1 (Entrada válida):
-  ```text
-  Introduce la altura actual del girasol (en cm): 45
-  La próxima semana tu girasol medirá aproximadamente 60 cm.
-  ```
-* Caso 2 (Entrada vacía o incorrecta):
-  ```text
-  Introduce la altura actual del girasol (en cm): g
-  Error: Altura introducida no válida. Asegúrate de escribir un número entero.
-  ```
+```text
+=== EJEMPLO 2: Cálculo de crecimiento estimado ===
+Introduce la altura actual del girasol (en cm): 45
+La próxima semana tu girasol medirá aproximadamente 60 cm.
+```
 
+Salida por consola (Entrada vacía o incorrecta):
+
+```text
+=== EJEMPLO 2: Cálculo de crecimiento estimado ===
+Introduce la altura actual del girasol (en cm): g
+Error: Altura introducida no válida. Asegúrate de escribir un número entero.
+```
 
 
 ---

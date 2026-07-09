@@ -16,10 +16,9 @@ Kotlin es un lenguaje de programación moderno, conciso y seguro diseñado por J
 * **Multiuso:** Se utiliza para desarrollo móvil (Android), aplicaciones de escritorio (Swing, JavaFX o Compose Desktop), backends web (Ktor o Spring) y desarrollo multiplataforma (Kotlin Multiplatform).
 
 
-
 ---
-
 <span class="mi_h3">Autoría</span>
+
 <span class="mi_autoria">
 Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia [Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/)
 </span>
