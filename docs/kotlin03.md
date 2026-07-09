@@ -63,8 +63,8 @@ Aquí tienes una tabla resumen con las opciones de formateo más útiles y algun
 | **Decimal (`Double` / `Float`)** | Limitar a $N$ decimales (ej. 2) | **`%.Nf`** | `"%.2f cm".format(3.30000007)` | `3,30 cm` *(o `3.30` según el idioma del sistema)* |
 | **Decimal (`Double` / `Float`)** | Separador de miles y decimales | **`%,.Nf`** | `"%,.1f L".format(1250.75)` | `1.250,8 L` *(en configuración regional de España)* |
 | **Entero (`Int` / `Long`)** | Rellenar con ceros a la izquierda | **`%0Nd`** | `"ID-%04d".format(28)` | `ID-0028` |
-| **Texto (`String`)** | Forzar ancho fijo alineado a la izquierda | **`%-Ns`** | `println("%-12s \| %s".format("Helecho", "Ok"))` | `Helecho      \| Ok` *(útil para alinear tablas)* |
-| **Texto (`String`)** | Forzar ancho fijo alineado a la derecha | **`%Ns`** | `println("%12s \| %s".format("Helecho", "Ok"))` | `     Helecho \| Ok` |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la izquierda | **`%-Ns`** | `println("%-12s %s".format("Helecho", "Ok"))` | `Helecho Ok` *(útil para alinear tablas)* |
+| **Texto (`String`)** | Forzar ancho fijo alineado a la derecha | **`%Ns`** | `println("%12s %s".format("Helecho", "Ok"))` | `     Helecho Ok` |
 | **Porcentaje** | Mostrar símbolo `%` sin decimales | **`%.0f%%`** | `"Humedad: %.0f%%".format(65.8)` | `Humedad: 66%` *(el doble `%%` escapa el símbolo)* |
 
 
