@@ -53,11 +53,15 @@ img {border:#767676 solid 2px;}
   display: block;
 }
 
+.mi_autoria {font-size:10pt;}
+
+
 .mi_sombreado {
 background: #f7a7a5;
 }
 
-/*para la impresión del pdf*/
+/*para la impresión del pdf
 .md-typeset .admonition-title::before {
   left: 0.5rem;
 }
+*/
