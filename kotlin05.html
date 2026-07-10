@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Begoña Paterna">
+      
+      
+        <link rel="canonical" href="https://bpaterna.github.io/kotlin/kotlin05.html">
+      
+      
+        <link rel="prev" href="kotlin04.html">
+      
+      
+        <link rel="next" href="kotlin06.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>5. Funciones - Kotlin</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-funciones" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="Kotlin" class="md-header__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kotlin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Funciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Kotlin" class="md-nav__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kotlin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Estructuras de control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kotlin05.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-definicion-y-sintaxis-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Definición y sintaxis básica
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-funciones-con-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Funciones con parámetros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-funciones-que-devuelven-un-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4. Funciones que devuelven un valor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-funciones-simplificadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5. Funciones simplificadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-parametros-con-valores-por-defecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6. Parámetros con valores por defecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-argumentos-nombrados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7. Argumentos nombrados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-funciones-de-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8. Funciones de extensión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-funciones-con-cantidad-variable-de-argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9. Funciones con cantidad variable de argumentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-funciones-locales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10. Funciones locales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511-funciones-de-orden-superior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11. Funciones de orden superior
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación funcional y expresiones Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Gestión de errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-funciones">5. Funciones<a class="headerlink" href="#5-funciones" title="Permanent link">&para;</a></h1>
+<p><span class="mi_h3">Revisiones</span></p>
+<table>
+<thead>
+<tr>
+<th>Revisión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>29-06-2026</td>
+<td>Adaptación de los materiales a markdown</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>10-07-2026</td>
+<td>Renumeración de apartados</td>
+</tr>
+</tbody>
+</table>
+<h2 id="51-introduccion">5.1. Introducción<a class="headerlink" href="#51-introduccion" title="Permanent link">&para;</a></h2>
+<p>Las <strong>funciones</strong> (conocidas como <em>métodos</em> en lenguajes como Java) son bloques de código independientes diseñados para realizar una tarea específica. Te sirven para organizar tu código, evitar la duplicación de instrucciones (principio <em>DRY - Don't Repeat Yourself</em>) y hacer que tus programas sean mucho más legibles y fáciles de mantener.</p>
+<h2 id="52-definicion-y-sintaxis-basica">5.2. Definición y sintaxis básica<a class="headerlink" href="#52-definicion-y-sintaxis-basica" title="Permanent link">&para;</a></h2>
+<p>Para declarar una función en Kotlin, debes utilizar la palabra reservada <strong><code>fun</code></strong>, seguida del nombre de la función (en camello o <em>camelCase</em>), paréntesis para los parámetros (si los tiene) y llaves <code>{}</code> que delimitan las instrucciones de la función.</p>
+<p><strong>Parámetro vs. Argumento</strong></p>
+<p>Es común confundir estos términos al principio. Esta tabla te ayudará a diferenciarlos claramente:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Concepto</th>
+<th style="text-align: left;">¿Qué es?</th>
+<th style="text-align: left;">Ejemplo botánico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Parámetro</strong></td>
+<td style="text-align: left;">La variable que se define en la firma o declaración de la función. Actúa como un contenedor.</td>
+<td style="text-align: left;"><code>fun regar(planta: String) { ... }</code><br><em>(aquí <code>planta</code> es el parámetro)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Argumento</strong></td>
+<td style="text-align: left;">El valor real que le envías a la función cuando la llamas.</td>
+<td style="text-align: left;"><code>regar("Girasol")</code><br><em>(aquí <code>"Girasol"</code> es el argumento)</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo 1: Función simple sin parámetros ni retorno.</strong> Ideal para realizar acciones fijas, como imprimir una cabecera de informe.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Declaración de la función</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">mostrarCabeceraInvernadero</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=====================================&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;   SISTEMA DE CONTROL BOTÁNICO v2   &quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=====================================&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 1: Función simple sin parámetros ni retorno ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Llamada a la función</span>
+<span class="w">    </span><span class="n">mostrarCabeceraInvernadero</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 1: Función simple sin parámetros ni retorno ===
+=====================================
+   SISTEMA DE CONTROL BOTÁNICO v2   
+=====================================
+</code></pre></div>
+<h2 id="53-funciones-con-parametros">5.3. Funciones con parámetros<a class="headerlink" href="#53-funciones-con-parametros" title="Permanent link">&para;</a></h2>
+<p>Las funciones suelen necesitar información del exterior para realizar su trabajo. Puedes pasarle una o varias variables indicando siempre su nombre y su tipo de dato.</p>
+<p><strong>Ejemplo 2: Función con un parámetro (sin retorno).</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">registrarRegado</span><span class="p">(</span><span class="n">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Acción: Se ha suministrado agua a la planta: </span><span class="si">$</span><span class="n">especie</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 2: Función con un parámetro (sin retorno) ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Al llamar a la función, le enviamos un argumento de tipo String</span>
+<span class="w">    </span><span class="n">registrarRegado</span><span class="p">(</span><span class="s">&quot;Orquídea&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">registrarRegado</span><span class="p">(</span><span class="s">&quot;Helecho&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 2: Función con un parámetro (sin retorno) ===
+Acción: Se ha suministrado agua a la planta: Orquídea
+Acción: Se ha suministrado agua a la planta: Helecho
+</code></pre></div>
+<h2 id="54-funciones-que-devuelven-un-valor">5.4. Funciones que devuelven un valor<a class="headerlink" href="#54-funciones-que-devuelven-un-valor" title="Permanent link">&para;</a></h2>
+<p>Si necesitas que una función realice un cálculo y te devuelva el resultado para poder guardarlo en una variable u operar con él, debes indicar el <strong>tipo de retorno</strong> al final de la cabecera (usando dos puntos <code>:</code>) y emplear la palabra clave <strong><code>return</code></strong> dentro de la función.</p>
+<p><strong>Ejemplo 3: Calcular el consumo anual de agua.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Indicamos con &#39;: Double&#39; al final que esta función devolverá un número decimal</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">calcularConsumoAnual</span><span class="p">(</span><span class="n">litrosSemanales</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">):</span><span class="w"> </span><span class="kt">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">semanasAño</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">52.0</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">totalConsumo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">litrosSemanales</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">semanasAño</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">totalConsumo</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 3: Calcular el consumo anual de agua ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">consumoMacetas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calcularConsumoAnual</span><span class="p">(</span><span class="m">2.5</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Consumo anual estimado para el lote de macetas: </span><span class="si">$</span><span class="n">consumoMacetas</span><span class="s"> litros.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 3: Calcular el consumo anual de agua ===
+Consumo anual estimado para el lote de macetas: 130.0 litros.
+</code></pre></div>
+<h2 id="55-funciones-simplificadas">5.5. Funciones simplificadas<a class="headerlink" href="#55-funciones-simplificadas" title="Permanent link">&para;</a></h2>
+<p>Si una función tiene una sola línea de código que simplemente devuelve un valor, Kotlin te permite prescindir de las llaves <code>{}</code> y de la palabra <code>return</code>. En su lugar, puedes estructurarla utilizando el operador de asignación <strong><code>=</code></strong>.</p>
+<p><strong>Ejemplo 4: Formatear nombre familiar de una especie.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Función simplificada de expresión única (single-expression function)</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">obtenerNombreFamiliar</span><span class="p">(</span><span class="n">nombreComun</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Familia de las </span><span class="si">$</span><span class="n">nombreComun</span><span class="s">&quot;</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 4: Formatear nombre familiar de una especie ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">texto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obtenerNombreFamiliar</span><span class="p">(</span><span class="s">&quot;Rosáceas&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: Familia de las Rosáceas</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 4: Formatear nombre familiar de una especie ===
+Familia de las Rosáceas
+</code></pre></div>
+<h2 id="56-parametros-con-valores-por-defecto">5.6. Parámetros con valores por defecto<a class="headerlink" href="#56-parametros-con-valores-por-defecto" title="Permanent link">&para;</a></h2>
+<p>En Kotlin, puedes asignar valores predeterminados a los parámetros en la firma de la función. Si al llamar a la función decides no enviar ese argumento, el programa utilizará automáticamente el valor por defecto que hayas configurado. Esto evita tener que escribir múltiples funciones sobrecargadas.</p>
+<p><strong>Ejemplo 5: Registro de especies con ubicación predeterminada.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Por defecto, asumimos que las plantas se ubican en el &#39;Invernadero A&#39;</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">registrarEspecie</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">ubicacion</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Invernadero A&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Especie: </span><span class="si">$</span><span class="n">nombre</span><span class="s"> | Ubicación asignada: </span><span class="si">$</span><span class="n">ubicacion</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 5: Registro de especies con ubicación predeterminada ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Llamada usando el valor por defecto de la ubicación</span>
+<span class="w">    </span><span class="n">registrarEspecie</span><span class="p">(</span><span class="s">&quot;Cactus de Navidad&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: Ubicación asignada: Invernadero A</span>
+
+<span class="w">    </span><span class="c1">// Llamada especificando una ubicación diferente</span>
+<span class="w">    </span><span class="n">registrarEspecie</span><span class="p">(</span><span class="s">&quot;Monstera deliciosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sector Sombra&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: Ubicación asignada: Sector Sombra</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 5: Registro de especies con ubicación predeterminada ===
+Especie: Cactus de Navidad | Ubicación asignada: Invernadero A
+Especie: Monstera deliciosa | Ubicación asignada: Sector Sombra
+</code></pre></div>
+<h2 id="57-argumentos-nombrados">5.7. Argumentos nombrados<a class="headerlink" href="#57-argumentos-nombrados" title="Permanent link">&para;</a></h2>
+<p>Cuando llamas a una función que tiene muchos parámetros (algunos de ellos con valores por defecto), puede ser confuso recordar el orden exacto de las variables. Kotlin te permite solucionar esto indicando explícitamente el nombre del parámetro al que le estás asignando el valor. Además, te permite cambiar el orden de los argumentos en la llamada.</p>
+<p><strong>Ejemplo 6: Programación de tareas de abono.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">programarTratamiento</span><span class="p">(</span><span class="n">especie</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">mililitros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="n">repetirSemanas</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Tratamiento programado para &#39;</span><span class="si">$</span><span class="n">especie</span><span class="s">&#39;:&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- Cantidad: </span><span class="si">$</span><span class="n">mililitros</span><span class="s"> ml&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- Duración: </span><span class="si">$</span><span class="n">repetirSemanas</span><span class="s"> semana(s)&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 6: Programación de tareas de abono ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 1. Llamada tradicional (respetando el orden estricto de los parámetros)</span>
+<span class="w">    </span><span class="n">programarTratamiento</span><span class="p">(</span><span class="s">&quot;Bonsái Ficus&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">15.0</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 2. Llamada utilizando argumentos nombrados en desorden (facilita la legibilidad)</span>
+<span class="w">    </span><span class="n">programarTratamiento</span><span class="p">(</span>
+<span class="w">        </span><span class="n">mililitros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25.5</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">especie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hiedra inglesa&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">repetirSemanas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 3. Llamada combinando argumentos nombrados y valores por defecto</span>
+<span class="w">    </span><span class="n">programarTratamiento</span><span class="p">(</span><span class="s">&quot;Sansevieria&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mililitros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10.0</span><span class="p">)</span><span class="w"> </span><span class="c1">// Utiliza el valor por defecto: 1 semana</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 6: Programación de tareas de abono ===
+Tratamiento programado para &#39;Bonsái Ficus&#39;:
+- Cantidad: 15.0 ml
+- Duración: 4 semana(s)
+Tratamiento programado para &#39;Hiedra inglesa&#39;:
+- Cantidad: 25.5 ml
+- Duración: 2 semana(s)
+Tratamiento programado para &#39;Sansevieria&#39;:
+- Cantidad: 10.0 ml
+- Duración: 1 semana(s)
+</code></pre></div>
+<h2 id="58-funciones-de-extension">5.8. Funciones de extensión<a class="headerlink" href="#58-funciones-de-extension" title="Permanent link">&para;</a></h2>
+<p>Las <strong>funciones de extensión</strong> te permiten añadir nuevas funciones a clases ya existentes (sean clases tuyas, de librerías de terceros, o clases estándar de Kotlin como <code>String</code>, <code>Int</code> o <code>Double</code>) <strong>sin necesidad de heredar de ellas ni modificar su código original</strong>.</p>
+<p>Para definirlas, debes anteponer el nombre de la clase que quieres extender al nombre de tu nueva función, separado por un punto <code>.</code>. Dentro de la función, la palabra clave <strong><code>this</code></strong> hace referencia al objeto real sobre el que se hace la llamada.</p>
+<p><strong>Ejemplo 7: Extensión sobre la clase estándar <code>String</code>.</strong> Vamos a crear una función para formatear los nombres de las especies eliminando espacios innecesarios y poniendo la primera letra en mayúscula de forma segura:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Extendemos la clase estándar String</span>
+<span class="kd">fun</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="nf">formatoEspecie</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// &#39;this&#39; es el String original sobre el que aplicamos la función</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">lowercase</span><span class="p">().</span><span class="na">replaceFirstChar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 7: Extensión sobre la clase estándar `String` ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">entradaSucia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;  mOnStErA dElIcIoSa  &quot;</span>
+<span class="w">    </span><span class="c1">// Usamos nuestra nueva función como si siempre hubiera existido en los Strings</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">especieLimpia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entradaSucia</span><span class="p">.</span><span class="na">formatoEspecie</span><span class="p">()</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">especieLimpia</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: Monstera deliciosa</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 7: Extensión sobre la clase estándar `String` ===
+Monstera deliciosa
+</code></pre></div>
+<p><strong>Ejemplo 8: Extensión sobre tu propia clase personalizada.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Maceta</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">material</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">volumenLitros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span>
+
+<span class="c1">// Añadimos una función de extensión a nuestra clase Maceta</span>
+<span class="kd">fun</span><span class="w"> </span><span class="n">Maceta</span><span class="p">.</span><span class="nf">mostrarDetalles</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Contenedor de </span><span class="si">$</span><span class="n">material</span><span class="s"> con capacidad de </span><span class="si">$</span><span class="n">volumenLitros</span><span class="s"> litros de sustrato.&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 8: Extensión sobre tu propia clase personalizada ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">miMaceta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Maceta</span><span class="p">(</span><span class="s">&quot;Terracota&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">12.5</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">miMaceta</span><span class="p">.</span><span class="na">mostrarDetalles</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 8: Extensión sobre tu propia clase personalizada ===
+Contenedor de Terracota con capacidad de 12.5 litros de sustrato.
+</code></pre></div>
+<h2 id="59-funciones-con-cantidad-variable-de-argumentos">5.9. Funciones con cantidad variable de argumentos<a class="headerlink" href="#59-funciones-con-cantidad-variable-de-argumentos" title="Permanent link">&para;</a></h2>
+<p>A veces necesitas que una función pueda recibir un número indeterminado de argumentos del mismo tipo (por ejemplo, registrar tres plantas en una tanda, o registrar diez). Para no verte obligado a crear una lista o un array previamente, puedes usar la palabra reservada <strong><code>vararg</code></strong> en la definición del parámetro.</p>
+<p>Internamente, Kotlin tratará ese parámetro variable como si fuera un array, permitiéndote acceder a su tamaño (<code>.size</code>), recorrerlo o usar sus elementos.</p>
+<p><strong>Ejemplo 9: Registro por lotes de plantas de exterior.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Declaramos un parámetro variable usando vararg</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">registrarLoteExteriores</span><span class="p">(</span><span class="k">vararg</span><span class="w"> </span><span class="n">plantas</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;--- REGISTRO DE PARCELA (Total: </span><span class="si">${</span><span class="n">plantas</span><span class="p">.</span><span class="na">size</span><span class="si">}</span><span class="s"> especies) ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">planta</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">plantas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- Especie anyadida: </span><span class="si">$</span><span class="n">planta</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 9: Registro por lotes de plantas de exterior ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 1. Llamada pasando argumentos individuales directamente</span>
+<span class="w">    </span><span class="n">registrarLoteExteriores</span><span class="p">(</span><span class="s">&quot;Lavanda&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Romero&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tomillo&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 2. Pasar un array existente usando el OPERADOR SPREAD (*)</span>
+<span class="w">    </span><span class="c1">// El asterisco &#39;*&#39; indica a Kotlin que debe &quot;descomprimir&quot; el array en argumentos individuales</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">plantasSocio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;Menta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Albahaca&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">registrarLoteExteriores</span><span class="p">(</span><span class="o">*</span><span class="n">plantasSocio</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 9: Registro por lotes de plantas de exterior ===
+--- REGISTRO DE PARCELA (Total: 3 especies) ---
+- Especie anyadida: Lavanda
+- Especie anyadida: Romero
+- Especie anyadida: Tomillo
+--- REGISTRO DE PARCELA (Total: 2 especies) ---
+- Especie anyadida: Menta
+- Especie anyadida: Albahaca
+</code></pre></div>
+<h2 id="510-funciones-locales">5.10. Funciones locales<a class="headerlink" href="#510-funciones-locales" title="Permanent link">&para;</a></h2>
+<p>Una <strong>función local</strong> es una función que se declara <strong>dentro de otra función</strong>. Solo es visible y utilizable de manera interna por la función que la rodea. Te sirve para:
+* Organizar y dividir el código de funciones excesivamente largas.
+* Evitar la repetición de lógica que solo tiene sentido dentro de ese bloque concreto.
+* Encapsular operaciones de validación de manera limpia.</p>
+<blockquote>
+<p><strong>Regla de oro:</strong> Las funciones locales tienen acceso a las variables locales y parámetros de la función principal que las envuelve.</p>
+</blockquote>
+<p><strong>Ejemplo 10: Registro de fichas botánicas con validación interna.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">registrarFichaBotanica</span><span class="p">(</span><span class="n">nombreComun</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">phSuelo</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Función local para validar que los nombres no tengan espacios de más</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">limpiarTexto</span><span class="p">(</span><span class="n">texto</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">texto</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">uppercase</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">nombreLimpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">limpiarTexto</span><span class="p">(</span><span class="n">nombreComun</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">estadoPh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">phSuelo</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">7.0</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;Suelo ácido&quot;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s">&quot;Suelo alcalino/Neutro&quot;</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ficha generada -&gt; [</span><span class="si">$</span><span class="n">nombreLimpio</span><span class="s">] | Diagnóstico: </span><span class="si">$</span><span class="n">estadoPh</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 10: Registro de fichas botánicas con validación interna ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">registrarFichaBotanica</span><span class="p">(</span><span class="s">&quot;   Hortensia azul  &quot;</span><span class="p">,</span><span class="w"> </span><span class="m">5.2</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// limpiarTexto(&quot;Test&quot;) // ¡Error! No puedes llamar a la función local desde aquí</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 10: Registro de fichas botánicas con validación interna ===
+Ficha generada -&gt; [HORTENSIA AZUL] | Diagnóstico: Suelo ácido
+</code></pre></div>
+<h2 id="511-funciones-de-orden-superior">5.11. Funciones de orden superior<a class="headerlink" href="#511-funciones-de-orden-superior" title="Permanent link">&para;</a></h2>
+<p>Una <strong>función de orden superior</strong> es aquella que <strong>recibe otra función como parámetro</strong> o que <strong>devuelve una función</strong> como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.</p>
+<p><strong>Ejemplo 11: Calculadora dinámica de dosificación de abono.</strong> Vamos a crear una función que aplica una mezcla de agua y abono líquido, pero delega la fórmula matemática exacta a una función lambda externa que recibe como parámetro:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// El tercer parámetro es una función &#39;operacion&#39; que toma dos decimales y devuelve otro decimal</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">aplicarTratamiento</span><span class="p">(</span><span class="n">aguaLitros</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="n">abonoMl</span><span class="p">:</span><span class="w"> </span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="n">formula</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="kt">Double</span><span class="p">,</span><span class="w"> </span><span class="kt">Double</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Double</span><span class="p">):</span><span class="w"> </span><span class="kt">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">formula</span><span class="p">(</span><span class="n">aguaLitros</span><span class="p">,</span><span class="w"> </span><span class="n">abonoMl</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 11: Calculadora dinámica de dosificación de abono ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// 1. Definimos una fórmula para un riego suave (concentración baja)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">concentracionSuave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aplicarTratamiento</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span><span class="w"> </span><span class="m">10.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">agua</span><span class="p">,</span><span class="w"> </span><span class="n">abono</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">abono</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">agua</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">0.8</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 2. Definimos otra fórmula para un riego intensivo de choque</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">concentracionIntensiva</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aplicarTratamiento</span><span class="p">(</span><span class="m">5.0</span><span class="p">,</span><span class="w"> </span><span class="m">10.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">agua</span><span class="p">,</span><span class="w"> </span><span class="n">abono</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">abono</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">agua</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Dosificación suave: </span><span class="si">$</span><span class="n">concentracionSuave</span><span class="s"> mg/L&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Dosificación intensiva: </span><span class="si">$</span><span class="n">concentracionIntensiva</span><span class="s"> mg/L&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 11: Calculadora dinámica de dosificación de abono ===
+Dosificación suave: 1.6 mg/L
+Dosificación intensiva: 3.0 mg/L
+</code></pre></div>
+<hr />
+<p><span class="mi_h3">Autoría</span></p>
+<p><span class="mi_autoria">
+Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional</a>
+</span></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,850 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Begoña Paterna">
+      
+      
+        <link rel="canonical" href="https://bpaterna.github.io/kotlin/kotlin02.html">
+      
+      
+        <link rel="prev" href="kotlin01.html">
+      
+      
+        <link rel="next" href="kotlin03.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>2. Variables y tipos de datos - Kotlin</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-variables-y-tipos-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="Kotlin" class="md-header__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kotlin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Variables y tipos de datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Kotlin" class="md-nav__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kotlin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kotlin02.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-que-es-una-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. ¿Qué es una variable?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-tipos-de-datos-en-kotlin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Tipos de datos en Kotlin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-operadores-aritmeticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Operadores aritméticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-control-de-nulos-null-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Control de nulos (Null Safety)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Estructuras de control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación funcional y expresiones Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Gestión de errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2-variables-y-tipos-de-datos">2. Variables y tipos de datos<a class="headerlink" href="#2-variables-y-tipos-de-datos" title="Permanent link">&para;</a></h1>
+<p><span class="mi_h3">Revisiones</span></p>
+<table>
+<thead>
+<tr>
+<th>Revisión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>29-06-2026</td>
+<td>Adaptación de los materiales a markdown</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>10-07-2026</td>
+<td>Renumeración de apartados</td>
+</tr>
+</tbody>
+</table>
+<h2 id="21-que-es-una-variable">2.1. ¿Qué es una variable?<a class="headerlink" href="#21-que-es-una-variable" title="Permanent link">&para;</a></h2>
+<p>Una <strong>variable</strong> es un espacio en la memoria de tu ordenador destinado a guardar un dato específico (un número, un fragmento de texto, el estado de un sensor, etc.). En Kotlin, a diferencia de otros lenguajes tradicionales, dispones de dos formas principales para declarar variables según necesites que su valor cambie o permanezca constante.</p>
+<p><span class="mi_h3"><code>val</code> – Inmutable (No se puede modificar)</span></p>
+<p>Se comporta como una constante. Una vez que le asignas un valor por primera vez, <strong>no puedes volver a cambiarlo</strong> en todo el programa. Es la opción recomendada por defecto para escribir código más seguro y evitar errores accidentales. Por ejemplo, en botánica, el nombre científico de una planta no suele cambiar nunca.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Declaración de un valor inmutable</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">nombreCientifico</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Helianthus annuus&quot;</span><span class="w"> </span>
+
+<span class="w">    </span><span class="c1">// nombreCientifico = &quot;Rosa canina&quot; // ¡Error de compilación! No se puede reasignar.</span>
+
+<span class="w">    </span><span class="c1">// Uso de plantillas de texto (String templates) con el símbolo $</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;El nombre científico del Girasol es </span><span class="si">$</span><span class="n">nombreCientifico</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><span class="mi_h3"><code>var</code> – Mutable (Se puede modificar)</span></p>
+<p>Es una variable normal. Puedes declarar su valor inicial y <strong>modificarlo más adelante</strong> tantas veces como necesites a lo largo de la ejecución de tu código. Por ejemplo, en botánica, la altura de una flor es un dato que cambia constantemente a medida que crece la planta.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Declaración de una variable mutable</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">alturaTalloCm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15.0</span><span class="w"> </span>
+
+<span class="w">    </span><span class="c1">// La planta crece 2.5 centímetros tras el riego</span>
+<span class="w">    </span><span class="n">alturaTalloCm</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">2.5</span><span class="w"> </span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La altura actual de la planta es de </span><span class="si">$</span><span class="n">alturaTalloCm</span><span class="s"> cm&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: 17.5 cm</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="22-tipos-de-datos-en-kotlin">2.2. Tipos de datos en Kotlin<a class="headerlink" href="#22-tipos-de-datos-en-kotlin" title="Permanent link">&para;</a></h2>
+<p>En Kotlin <strong>no es estrictamente obligatorio declarar el tipo de una variable</strong>, ya que el compilador es capaz de deducirlo automáticamente según el valor que le asignes (a esto se le llama <em>inferencia de tipos</em>). No obstante, puedes especificarlo de forma explícita escribiendo <code>:</code> seguido del tipo de dato. A continuación tienes los tipos de datos más comunes que necesitarás durante este curso:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Ejemplo de declaración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Byte</strong></td>
+<td style="text-align: left;">Entero muy pequeño (8 bits). Rango de -128 a 127.</td>
+<td style="text-align: left;"><code>val macetasPorFila: Byte = 12</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short</strong></td>
+<td style="text-align: left;">Entero corto (16 bits). Rango de -32.768 a 32.767.</td>
+<td style="text-align: left;"><code>val semillasEnBolsa: Short = 350</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Int</strong></td>
+<td style="text-align: left;">Entero estándar (32 bits). El más común para contar.</td>
+<td style="text-align: left;"><code>val totalHojas: Int = 12000</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Long</strong></td>
+<td style="text-align: left;">Entero largo (64 bits). Se debe añadir una <code>L</code> al final.</td>
+<td style="text-align: left;"><code>val celulasEstimadas: Long = 9500000000L</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Float</strong></td>
+<td style="text-align: left;">Decimal de precisión simple (32 bits). Añade una <code>f</code> al final.</td>
+<td style="text-align: left;"><code>val litrosRiego: Float = 2.5f</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Double</strong></td>
+<td style="text-align: left;">Decimal de precisión doble (64 bits). Tipo por defecto.</td>
+<td style="text-align: left;"><code>val phTierra: Double = 6.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Char</strong></td>
+<td style="text-align: left;">Un único carácter individual, encerrado en comillas simples.</td>
+<td style="text-align: left;"><code>val zonaInvernadero: Char = 'A'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>String</strong></td>
+<td style="text-align: left;">Texto o cadena de caracteres (comillas dobles).</td>
+<td style="text-align: left;"><code>val familiaBotanica: String = "Cactaceae"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Boolean</strong></td>
+<td style="text-align: left;">Valor lógico: verdadero (<code>true</code>) o falso (<code>false</code>).</td>
+<td style="text-align: left;"><code>val esPlantaExterior: Boolean = false</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota sobre Strings:</strong> En Kotlin puedes acceder a caracteres individuales de un texto como si fuera un array utilizando corchetes.
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">especie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Orquídea&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">primeraLetra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">especie</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="c1">// Obtiene el carácter &#39;O&#39;</span>
+</code></pre></div></p>
+</blockquote>
+<h2 id="23-operadores-aritmeticos">2.3. Operadores aritméticos<a class="headerlink" href="#23-operadores-aritmeticos" title="Permanent link">&para;</a></h2>
+<p>Kotlin utiliza los operadores matemáticos estándar para realizar cálculos sobre tus variables numéricas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Operador</th>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: center;">Ejemplo</th>
+<th style="text-align: center;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong><code>+</code></strong></td>
+<td style="text-align: left;">Suma</td>
+<td style="text-align: center;"><code>5 + 3</code></td>
+<td style="text-align: center;"><code>8</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>-</code></strong></td>
+<td style="text-align: left;">Resta</td>
+<td style="text-align: center;"><code>10 - 4</code></td>
+<td style="text-align: center;"><code>6</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>*</code></strong></td>
+<td style="text-align: left;">Multiplicación</td>
+<td style="text-align: center;"><code>6 * 2</code></td>
+<td style="text-align: center;"><code>12</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>/</code></strong></td>
+<td style="text-align: left;">División (entera o real)</td>
+<td style="text-align: center;"><code>9 / 3</code></td>
+<td style="text-align: center;"><code>3</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><code>%</code></strong></td>
+<td style="text-align: left;">Módulo (resto de la división)</td>
+<td style="text-align: center;"><code>10 % 3</code></td>
+<td style="text-align: center;"><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Comportamiento de la división</strong></p>
+<ul>
+<li><strong>División entre enteros:</strong> Si divides dos números enteros, Kotlin descartará los decimales y te devolverá otro número entero.
+  <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">mlPorMaceta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// El resultado será 3, no 3.5</span>
+</code></pre></div></li>
+<li><strong>División con decimales:</strong> Para obtener un resultado con decimales, al menos uno de los valores que utilices debe ser de tipo <code>Double</code> o <code>Float</code>.
+  <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">mlPorMacetaExacto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// El resultado será 3.5</span>
+</code></pre></div></li>
+</ul>
+<h2 id="24-control-de-nulos-null-safety">2.4. Control de nulos (<em>Null Safety</em>)<a class="headerlink" href="#24-control-de-nulos-null-safety" title="Permanent link">&para;</a></h2>
+<p>Uno de los principales problemas en lenguajes como Java es el famoso error <code>NullPointerException</code> (cuando intentas acceder a algo que apunta a la nada, es decir, a un valor <code>null</code>). Kotlin está diseñado específicamente para evitar este problema obligándote a controlar los nulos de forma explícita desde el código.</p>
+<p><span class="mi_h3">Variables no anulables (Por defecto)</span></p>
+<p>En Kotlin, por defecto, <strong>las variables no pueden contener valores nulos</strong>. Si intentas asignar <code>null</code> a una variable estándar, tu programa no llegará a compilar.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">nombreFlor</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rosa&quot;</span>
+<span class="c1">// nombreFlor = null // ¡Error de compilación! No se permite asignar null.</span>
+</code></pre></div>
+<p><span class="mi_h3">Variables anulables (Símbolo <code>?</code>)</span></p>
+<p>Si necesitas que una propiedad pueda estar vacía o no definida (por ejemplo, si una planta aún no ha florecido y su color de flor es desconocido), debes decírselo al compilador añadiendo el signo de interrogación <code>?</code> al final del tipo de dato.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">colorFloracion</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Amarillo&quot;</span>
+<span class="n">colorFloracion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// ¡Correcto! Ahora sí se permite almacenar null.</span>
+</code></pre></div>
+<p><span class="mi_h3">Operadores para trabajar con valores nulos</span></p>
+<p>Cuando trabajas con variables que pueden ser nulas, Kotlin te obliga a proteger tu código antes de interactuar con ellas. Dispones de tres operadores principales para gestionarlo de manera limpia:</p>
+<p><strong>Llamada segura (<code>?.</code>)</strong> Ejecuta la acción o método <strong>solo si la variable no es nula</strong>. Si la variable es <code>null</code>, la operación se ignora y devuelve <code>null</code> sin colgar la aplicación.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">variedadHibrido</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="c1">// Intenta calcular la longitud del texto. Al ser null, no rompe el programa y devuelve null.</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">variedadHibrido</span><span class="o">?.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: null</span>
+
+<span class="w">    </span><span class="n">variedadHibrido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;F1-Golden&quot;</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">variedadHibrido</span><span class="o">?.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: 9</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Operador Elvis (<code>?:</code>)</strong> Te permite definir un <strong>valor de respaldo o por defecto</strong> en caso de que la variable que estés evaluando resulte ser nula.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tipoSustrato</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="c1">// Si tipoSustrato es null, se asigna el valor &quot;Universal&quot;</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">sustratoFinal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tipoSustrato</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="s">&quot;Universal&quot;</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Sustrato a utilizar: </span><span class="si">$</span><span class="n">sustratoFinal</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: Sustrato a utilizar: Universal</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Afirmación no nula (<code>!!</code>)</strong> Fuerza al compilador a tratar la variable como si estuviera 100% seguro de que no es nula. <strong>Ten mucho cuidado con este operador</strong>: si la variable resulta ser nula en tiempo de ejecución, tu aplicación fallará inmediatamente lanzando una excepción.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">codigoPlanta</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+
+<span class="w">    </span><span class="c1">// Solo debes usar &#39;!!&#39; si estás completamente seguro de que no es null</span>
+<span class="w">    </span><span class="c1">// println(codigoPlanta!!.uppercase()) // ¡Lanzará NullPointerException y detendrá el programa!</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><span class="mi_h3">Estructura alternativa usando condicionales (<code>if</code>)</span></p>
+<p>También puedes controlar los valores nulos utilizando una estructura condicional clásica <code>if-else</code>. Esto le indica de manera lógica a Kotlin que estás verificando la seguridad de la variable antes de utilizarla:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">insecticidaRecomendado</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Aceite de Neem&quot;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">insecticidaRecomendado</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Dentro de este bloque, Kotlin sabe que la variable NO es nula y te deja usarla sin operadores adicionales.</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Aplicando tratamiento: </span><span class="si">${</span><span class="n">insecticidaRecomendado</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Tratamiento ecológico por defecto: Agua jabonosa.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><span class="mi_h3">Autoría</span></p>
+<p><span class="mi_autoria">
+Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional</a>
+</span></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

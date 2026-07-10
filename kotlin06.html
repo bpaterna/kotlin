@@ -1,0 +1,920 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Begoña Paterna">
+      
+      
+        <link rel="canonical" href="https://bpaterna.github.io/kotlin/kotlin06.html">
+      
+      
+        <link rel="prev" href="kotlin05.html">
+      
+      
+        <link rel="next" href="kotlin07.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>6. Estructuras de datos - Kotlin</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-estructuras-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="Kotlin" class="md-header__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kotlin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Estructuras de datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Kotlin" class="md-nav__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kotlin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin03.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Estructuras de control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kotlin06.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Array
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4. Set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-comparativa-array-list-set-y-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Comparativa: Array, list, set y map
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación funcional y expresiones Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Gestión de errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-estructuras-de-datos">6. Estructuras de datos<a class="headerlink" href="#6-estructuras-de-datos" title="Permanent link">&para;</a></h1>
+<p><span class="mi_h3">Revisiones</span></p>
+<table>
+<thead>
+<tr>
+<th>Revisión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>29-06-2026</td>
+<td>Adaptación de los materiales a markdown</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>10-07-2026</td>
+<td>Renumeración de apartados</td>
+</tr>
+</tbody>
+</table>
+<h2 id="61-introduccion">6.1. Introducción<a class="headerlink" href="#61-introduccion" title="Permanent link">&para;</a></h2>
+<p>Las estructuras de datos te permiten organizar, almacenar y manipular grupos de información de manera eficiente. Imagina que en lugar de declarar una variable para el pH de cada maceta de tu invernadero, puedes agruparlos todos en una sola estructura para analizarlos o modificarlos masivamente en segundos.</p>
+<h2 id="62-array">6.2. Array<a class="headerlink" href="#62-array" title="Permanent link">&para;</a></h2>
+<p>Un <strong>Array</strong> también conocido como <strong>Vector</strong> o <strong>Arreglo</strong> es una colección ordenada de elementos con un <strong>tamaño fijo</strong> que no puede cambiar una vez creado. Todos los elementos almacenados deben ser del mismo tipo de dato y se accede a ellos a través de un índice numérico (que empieza siempre en <code>0</code>).</p>
+<p><span class="mi_h3">Arrays especializados para tipos primitivos</span></p>
+<p>Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays específicas para tipos numéricos o booleanos:</p>
+<ul>
+<li><code>IntArray</code>, <code>ByteArray</code>, <code>ShortArray</code>, <code>LongArray</code></li>
+<li><code>FloatArray</code>, <code>DoubleArray</code></li>
+<li><code>BooleanArray</code>, <code>CharArray</code></li>
+</ul>
+<p><span class="mi_h3">Tres formas de crear un array</span></p>
+<p><strong>Ejemplo 1: Tres formas de crear un array.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 1: Tres formas de crear un array ===&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 1. Crear un array vacío indicando el tamaño fijo (lleno de 0.0 por defecto)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">phParcelas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DoubleArray</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
+<span class="w">    </span><span class="n">phParcelas</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6.5</span>
+<span class="w">    </span><span class="n">phParcelas</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7.2</span>
+<span class="w">    </span><span class="n">phParcelas</span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6.0</span>
+<span class="w">    </span><span class="n">phParcelas</span><span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.8</span>
+
+<span class="w">    </span><span class="c1">// 2. Asignar los valores directamente al crearlo</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">phZonas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">doubleArrayOf</span><span class="p">(</span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">6.8</span><span class="p">,</span><span class="w"> </span><span class="m">7.1</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 3. Utilizar arrayOf para tipos genéricos (como Strings, que no tienen clase optimizada)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">plantasSocio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;Ajo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Zanahoria&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lechuga&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Acceso por índice y uso de .size para conocer el tamaño</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;pH de la primera parcela: </span><span class="si">${</span><span class="n">phParcelas</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="si">}</span><span class="s"> (Total de parcelas registradas: </span><span class="si">${</span><span class="n">phParcelas</span><span class="p">.</span><span class="na">size</span><span class="si">}</span><span class="s">)&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Acceso a un elemento del segundo array</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;pH en la segunda zona de cultivo: </span><span class="si">${</span><span class="n">phZonas</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Uso de .joinToString() para mostrar todos los elementos de un array de forma legible</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Plantas asociadas seleccionadas para el huerto: </span><span class="si">${</span><span class="n">plantasSocio</span><span class="p">.</span><span class="na">joinToString</span><span class="p">(</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="p">)</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 1: Tres formas de crear un array ===
+pH de la primera parcela: 6.5 (Total de parcelas registradas: 4)
+pH en la segunda zona de cultivo: 6.8
+Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
+</code></pre></div>
+<p><span class="mi_h3">Operaciones comunes con Arrays</span></p>
+<p><strong>Ejemplo 2: Operaciones comunes con Arrays.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 2: Operaciones comunes con Arrays ===&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">floresInvernadero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span><span class="s">&quot;Rosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tulipán&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lirio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Girasol&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Acceder a un elemento por su índice</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La primera flor del catálogo es: </span><span class="si">${</span><span class="n">floresInvernadero</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Rosa</span>
+
+<span class="w">    </span><span class="c1">// Cambiar el valor de un elemento</span>
+<span class="w">    </span><span class="n">floresInvernadero</span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lirio blanco&quot;</span>
+
+<span class="w">    </span><span class="c1">// Consultar el tamaño total del array</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Total flores registradas: </span><span class="si">${</span><span class="n">floresInvernadero</span><span class="p">.</span><span class="na">size</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// 4</span>
+
+<span class="w">    </span><span class="c1">// RECORRER UN ARRAY (2 formas de hacerlo con un bucle &#39;for&#39;)</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\n--- Método 1: Recorrido directo por elementos ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">flor</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">floresInvernadero</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;- Especie: </span><span class="si">$</span><span class="n">flor</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;\n--- Método 2: Recorrido por índices ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="na">floresInvernadero</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Posición </span><span class="si">$</span><span class="n">i</span><span class="s"> en el estante: </span><span class="si">${</span><span class="n">floresInvernadero</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 2: Operaciones comunes con Arrays ===
+La primera flor del catálogo es: Rosa
+Total flores registradas: 4
+
+--- Método 1: Recorrido directo por elementos ---
+- Especie: Rosa
+- Especie: Tulipán
+- Especie: Lirio blanco
+- Especie: Girasol
+
+--- Método 2: Recorrido por índices ---
+Posición 0 en el estante: Rosa
+Posición 1 en el estante: Tulipán
+Posición 2 en el estante: Lirio blanco
+Posición 3 en el estante: Girasol
+</code></pre></div>
+<h2 id="63-list">6.3. List<a class="headerlink" href="#63-list" title="Permanent link">&para;</a></h2>
+<p>A diferencia de los Arrays, las <strong>listas</strong> son colecciones ordenadas cuyo tamaño puede ser dinámico. Además, permiten almacenar elementos duplicados. En Kotlin existen dos variantes fundamentales de listas:</p>
+<p><span class="mi_h3">Lista Inmutable (<code>List</code>)</span>
+Una vez creada con la función <code>listOf()</code>, <strong>no se puede modificar</strong> (no puedes añadir, eliminar ni cambiar sus elementos).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">tareasFijas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;Regar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Abonar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Revisar plagas&quot;</span><span class="p">)</span>
+<span class="c1">// tareasFijas.add(&quot;Podar&quot;) // ¡Error de compilación! Es inmutable.</span>
+</code></pre></div>
+<p><span class="mi_h3">Lista Mutable (<code>MutableList</code>)</span>
+Creada con <code>mutableListOf()</code>, te permite gestionar libremente un inventario dinámico de elementos.</p>
+<p><strong>Ejemplo 3: Inventario de maceteros.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 3: Inventario de maceteros ===&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Declaración de una lista de macetas mutable</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">maceteros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span><span class="s">&quot;Maceta Barro&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Maceta Plástico&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Añadir elementos al final de la lista</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Maceta Cerámica&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Ahora contiene 3 elementos</span>
+
+<span class="w">    </span><span class="c1">// Añadir un elemento en una posición o índice específico</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Maceta Biodegradable&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Se introduce entre la de barro y la de plástico</span>
+
+<span class="w">    </span><span class="c1">// Modificar un elemento mediante su índice</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Maceta Fibra de Coco&quot;</span><span class="w"> </span><span class="c1">// Reemplaza &quot;Maceta Plástico&quot;</span>
+
+<span class="w">    </span><span class="c1">// Eliminar por valor exacto</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Maceta Barro&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Eliminar por índice</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// Elimina el elemento en la posición 0 (&quot;Maceta Biodegradable&quot;)</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Inventario final de maceteros: </span><span class="si">$</span><span class="n">maceteros</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Limpiar toda la lista por completo</span>
+<span class="w">    </span><span class="n">maceteros</span><span class="p">.</span><span class="na">clear</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 3: Inventario de maceteros ===
+Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
+</code></pre></div>
+<h2 id="64-set">6.4. Set<a class="headerlink" href="#64-set" title="Permanent link">&para;</a></h2>
+<p>Un <strong>Set</strong> o <strong>Conjunto</strong> es una colección de elementos únicos <strong>donde no se permiten duplicados</strong> y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.</p>
+<p><strong>Ejemplo 4: Control de plagas activas en parcelas.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 4: Control de plagas activas en parcelas ===&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 1. Set Inmutable: &quot;Pulgón&quot; solo se registrará una vez</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">plagasDetectadas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">setOf</span><span class="p">(</span><span class="s">&quot;Pulgón&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Araña roja&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pulgón&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Plagas bajo control: </span><span class="si">$</span><span class="n">plagasDetectadas</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Salida: [Pulgón, Araña roja]</span>
+
+<span class="w">    </span><span class="c1">// 2. Set Mutable: Añadir nutrientes garantizando que sean únicos</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">abonoMezcla</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableSetOf</span><span class="p">(</span><span class="s">&quot;Nitrógeno&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fósforo&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">abonoMezcla</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Potasio&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">abonoMezcla</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Nitrógeno&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Se ignora silenciosamente porque ya existe</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Composición química del abono: </span><span class="si">$</span><span class="n">abonoMezcla</span><span class="s">&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// [Nitrógeno, Fósforo, Potasio]</span>
+
+<span class="w">    </span><span class="c1">// Verificar si un elemento existe en el conjunto de forma ultra rápida (operador &#39;in&#39;)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Potasio&quot;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">abonoMezcla</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La mezcla contiene Potasio, es apta para la floración.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Eliminar un elemento</span>
+<span class="w">    </span><span class="n">abonoMezcla</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Nitrógeno&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 4: Control de plagas activas en parcelas ===
+Plagas bajo control: [Pulgón, Araña roja]
+Composición química del abono: [Nitrógeno, Fósforo, Potasio]
+La mezcla contiene Potasio, es apta para la floración.
+</code></pre></div>
+<h2 id="65-map">6.5. Map<a class="headerlink" href="#65-map" title="Permanent link">&para;</a></h2>
+<p>Un <strong>Map</strong> o <strong>Diccionario</strong> es una colección de <strong>pares clave-valor</strong>. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.</p>
+<p><strong>Ejemplo 5: Registro de humedad ideal y pH por lote.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 5: Registro de humedad ideal y pH por lote ===&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 1. Map Inmutable: Asociar planta con su humedad ideal (%)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">humedadIdeal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;Helecho&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">80</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Cactus&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">20</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Orquídea&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">60</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Acceder al valor asociado a una clave</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La humedad ideal para el Helecho es del </span><span class="si">${</span><span class="n">humedadIdeal</span><span class="o">[</span><span class="s">&quot;</span><span class="n">Helecho</span><span class="s">&quot;</span><span class="o">]</span><span class="si">}</span><span class="s">%&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// 2. Map Mutable: Registro de pH de la tierra por lote de cultivo</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">registroPhLotes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableMapOf</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kt">Double</span><span class="o">&gt;</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Añadir o actualizar claves con sus valores correspondientes</span>
+<span class="w">    </span><span class="n">registroPhLotes</span><span class="o">[</span><span class="s">&quot;Lote A-Girasol&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6.8</span>
+<span class="w">    </span><span class="n">registroPhLotes</span><span class="o">[</span><span class="s">&quot;Lote B-Hortensia&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5.5</span>
+<span class="w">    </span><span class="n">registroPhLotes</span><span class="o">[</span><span class="s">&quot;Lote A-Girasol&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6.5</span><span class="w"> </span><span class="c1">// Sobrescribe el valor anterior</span>
+
+<span class="w">    </span><span class="c1">// Acceder a los datos de forma segura</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;pH Hortensias: </span><span class="si">${</span><span class="n">registroPhLotes</span><span class="o">[</span><span class="s">&quot;</span><span class="n">Lote</span><span class="w"> </span><span class="n">B</span><span class="o">-</span><span class="n">Hortensia</span><span class="s">&quot;</span><span class="o">]</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Eliminar un registro</span>
+<span class="w">    </span><span class="n">registroPhLotes</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Lote B-Hortensia&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 5: Registro de humedad ideal y pH por lote ===
+La humedad ideal para el Helecho es del 80%
+pH Hortensias: 5.5
+</code></pre></div>
+<h2 id="66-comparativa-array-list-set-y-map">6.6. Comparativa: Array, list, set y map<a class="headerlink" href="#66-comparativa-array-list-set-y-map" title="Permanent link">&para;</a></h2>
+<p>Esta tabla resumen te servirá para repasar las diferencias estructurales de cada una de las colecciones que has aprendido:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Estructura</th>
+<th style="text-align: center;">¿Mantiene el orden?</th>
+<th style="text-align: center;">¿Permite duplicados?</th>
+<th style="text-align: center;">¿Claves únicas?</th>
+<th style="text-align: left;">¿Es modificable su tamaño?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Array</strong></td>
+<td style="text-align: center;">Sí</td>
+<td style="text-align: center;">Sí</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;"><strong>No</strong> (tamaño fijo al crearse)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>List</strong></td>
+<td style="text-align: center;">Sí</td>
+<td style="text-align: center;">Sí</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;"><strong>Sí</strong> (siempre que sea <code>MutableList</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Set</strong></td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;">Sí (los elementos actúan como claves únicas)</td>
+<td style="text-align: left;"><strong>Sí</strong> (siempre que sea <code>MutableSet</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Map</strong></td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">En los valores (no en las claves)</td>
+<td style="text-align: center;"><strong>Sí</strong> (las claves deben ser únicas)</td>
+<td style="text-align: left;"><strong>Sí</strong> (siempre que sea <code>MutableMap</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><span class="mi_h3">Autoría</span></p>
+<p><span class="mi_autoria">
+Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional</a>
+</span></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

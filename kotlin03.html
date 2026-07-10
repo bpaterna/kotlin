@@ -1,0 +1,790 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Begoña Paterna">
+      
+      
+        <link rel="canonical" href="https://bpaterna.github.io/kotlin/kotlin03.html">
+      
+      
+        <link rel="prev" href="kotlin02.html">
+      
+      
+        <link rel="next" href="kotlin04.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>3. Entrada y salida estándar - Kotlin</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-entrada-y-salida-estandar" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="." title="Kotlin" class="md-header__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kotlin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Entrada y salida estándar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Kotlin" class="md-nav__button md-logo" aria-label="Kotlin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kotlin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin01.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Entorno de desarrollo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin02.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Variables y tipos de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kotlin03.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entrada y salida estándar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-salida-de-datos-por-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Salida de datos por consola
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-entrada-de-datos-por-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Entrada de datos por teclado
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin04.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Estructuras de control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin05.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Funciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin06.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Estructuras de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin07.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Programación Orientada a Objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin08.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Programación funcional y expresiones Lambda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kotlin09.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Gestión de errores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-entrada-y-salida-estandar">3. Entrada y salida estándar<a class="headerlink" href="#3-entrada-y-salida-estandar" title="Permanent link">&para;</a></h1>
+<p><span class="mi_h3">Revisiones</span></p>
+<table>
+<thead>
+<tr>
+<th>Revisión</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>29-06-2026</td>
+<td>Adaptación de los materiales a markdown</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>10-07-2026</td>
+<td>Renumeración de apartados</td>
+</tr>
+</tbody>
+</table>
+<h2 id="31-introduccion">3.1. Introducción<a class="headerlink" href="#31-introduccion" title="Permanent link">&para;</a></h2>
+<p>En programación, la <strong>entrada y salida estándar</strong> representa el canal de comunicación directo entre tu programa y la persona que lo está utilizando. A través de la consola, podrás mostrar informes sobre el estado del invernadero (salida) o solicitar que se introduzcan nuevos datos de catalogación de plantas (entrada).</p>
+<h2 id="32-salida-de-datos-por-consola">3.2. Salida de datos por consola<a class="headerlink" href="#32-salida-de-datos-por-consola" title="Permanent link">&para;</a></h2>
+<p>Para enviar información y texto hacia la pantalla, Kotlin pone a tu disposición dos funciones muy similares pero con un comportamiento diferente respecto al salto de línea (<code>print</code> y <code>println</code>).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Ejemplo de uso</th>
+<th style="text-align: left;">Resultado en consola</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>print()</code></strong></td>
+<td style="text-align: left;">Imprime el texto tal cual, <strong>sin añadir un salto de línea</strong> al final. El siguiente texto se mostrará pegado a continuación.</td>
+<td style="text-align: left;"><code>print("Rosa ")</code><br><code>print("roja")</code></td>
+<td style="text-align: left;"><code>Rosa roja</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>println()</code></strong></td>
+<td style="text-align: left;">Imprime el texto y <strong>añade automáticamente un salto de línea</strong> al final. El siguiente texto comenzará en la línea inferior.</td>
+<td style="text-align: left;"><code>println("Rosa")</code><br><code>println("roja")</code></td>
+<td style="text-align: left;"><code>Rosa</code><br><code>roja</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo 1: Consola.</strong> Imagina que quieres mostrar una pequeña ficha de registro de tareas de jardinería combinando ambas funciones:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 1: Consola ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Estado del riego: &quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;COMPLETADO&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Se muestra en la misma línea</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">()</span><span class="w"> </span><span class="c1">// Esto genera un salto de línea vacío</span>
+
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;--- Datos de la parcela ---&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Especie: Lavanda&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ubicación: Sector Sur&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola:</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 1: Consola ===
+Estado del riego: COMPLETADO
+--- Datos de la parcela ---
+Especie: Lavanda
+Ubicación: Sector Sur
+</code></pre></div>
+<p><span class="mi_h3">Formateo de la salida de datos</span></p>
+<p>Los ordenadores operan en binario (base 2) y solo pueden representar de forma exacta fracciones que son potencias de dos (como 0.5 o 0.25), por lo que otros números decimales se convierten en binario en fracciones periódicas infinitas, del mismo modo que nos ocurre al intentar escribir un tercio (1/3) en nuestro sistema decimal tradicional. Como la memoria física de la CPU es limitada (un <code>Double</code> dispone de 64 bits), el procesador se ve obligado a recortar y redondear ese número infinito, acumulando una pérdida microscópica de precisión que se hace visible tras realizar cálculos matemáticos en forma de decimales "fantasma" como <code>3.3000000000000007</code>.</p>
+<p>Para dar formato a los datos de manera rápida y elegante en tus clases de Kotlin, la forma más cómoda es usar la función de extensión <strong><code>.format()</code></strong> (que por debajo utiliza los mismos especificadores clásicos de <code>printf</code> de Java/C).</p>
+<p>Aquí tienes una tabla resumen con las opciones de formateo más útiles y algunos ejemplos:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo de Dato</th>
+<th style="text-align: left;">Objetivo del Formateo</th>
+<th style="text-align: center;">Especificador de Formato</th>
+<th style="text-align: left;">Código de Ejemplo en Kotlin</th>
+<th style="text-align: left;">Salida en Consola</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Decimal (<code>Double</code> / <code>Float</code>)</strong></td>
+<td style="text-align: left;">Limitar a N decimales (ej. 2)</td>
+<td style="text-align: center;"><strong><code>%.Nf</code></strong></td>
+<td style="text-align: left;"><code>"%.2f cm".format(3.30000007)</code></td>
+<td style="text-align: left;"><code>3,30 cm</code> <em>(o <code>3.30</code> según el idioma del sistema)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Decimal (<code>Double</code> / <code>Float</code>)</strong></td>
+<td style="text-align: left;">Separador de miles y decimales</td>
+<td style="text-align: center;"><strong><code>%,.Nf</code></strong></td>
+<td style="text-align: left;"><code>"%,.1f L".format(1250.75)</code></td>
+<td style="text-align: left;"><code>1.250,8 L</code> <em>(en configuración regional de España)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entero (<code>Int</code> / <code>Long</code>)</strong></td>
+<td style="text-align: left;">Rellenar con ceros a la izquierda</td>
+<td style="text-align: center;"><strong><code>%0Nd</code></strong></td>
+<td style="text-align: left;"><code>"ID-%04d".format(28)</code></td>
+<td style="text-align: left;"><code>ID-0028</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Texto (<code>String</code>)</strong></td>
+<td style="text-align: left;">Forzar ancho fijo alineado a la izquierda</td>
+<td style="text-align: center;"><strong><code>%-Ns</code></strong></td>
+<td style="text-align: left;"><code>println("%-12s %s".format("Helecho", "Ok"))</code></td>
+<td style="text-align: left;"><code>Helecho Ok</code> <em>(útil para alinear tablas)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Texto (<code>String</code>)</strong></td>
+<td style="text-align: left;">Forzar ancho fijo alineado a la derecha</td>
+<td style="text-align: center;"><strong><code>%Ns</code></strong></td>
+<td style="text-align: left;"><code>println("%12s %s".format("Helecho", "Ok"))</code></td>
+<td style="text-align: left;"><code>Helecho Ok</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Porcentaje</strong></td>
+<td style="text-align: left;">Mostrar símbolo <code>%</code> sin decimales</td>
+<td style="text-align: center;"><strong><code>%.0f%%</code></strong></td>
+<td style="text-align: left;"><code>"Humedad: %.0f%%".format(65.8)</code></td>
+<td style="text-align: left;"><code>Humedad: 66%</code> <em>(el doble <code>%%</code> escapa el símbolo)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="33-entrada-de-datos-por-teclado">3.3. Entrada de datos por teclado<a class="headerlink" href="#33-entrada-de-datos-por-teclado" title="Permanent link">&para;</a></h2>
+<p>Para que tus programas no sean estáticos y puedan reaccionar a lo que decida el usuario, necesitas capturar lo que se escribe desde el teclado. Para ello se utiliza la función <strong><code>readLine()</code></strong>.</p>
+<p><strong>Características clave de <code>readLine()</code>:</strong></p>
+<ol>
+<li><strong>Siempre devuelve texto:</strong> Aunque el usuario introduzca un número (como un <code>5</code>), la función lo capturará como un texto (<code>"5"</code>). Su tipo de retorno es <strong><code>String?</code></strong> (una cadena de texto que puede ser nula).</li>
+<li><strong>Control del botón "Enter":</strong> Si el usuario simplemente pulsa la tecla <em>Enter</em> sin escribir absolutamente nada, <code>readLine()</code> no devolverá un valor nulo (<code>null</code>), sino una <strong>cadena vacía</strong> (<code>""</code>).</li>
+<li><strong>Conversión necesaria:</strong> Si necesitas operar matemáticamente con el dato que introduce el usuario (por ejemplo, para realizar cálculos de crecimiento), tendrás que transformar ese texto al tipo de dato numérico correspondiente (<code>toInt()</code>, <code>toDouble()</code>, etc.).</li>
+</ol>
+<p><span class="mi_h3">Comprobaciones de seguridad</span> </p>
+<p>Dado que intentar convertir un texto vacío o con letras (como <code>"mucho"</code>) a un número entero provocará que tu programa falle y se detenga con un error, <strong>siempre debes realizar una comprobación previa de seguridad</strong>.</p>
+<p>La forma segura de realizar esta conversión es utilizando la función toIntOrNull(). Esta función intenta transformar el texto a número: si lo consigue, nos devuelve el valor entero; pero si el usuario introduce letras, espacios en blanco o pulsa Enter directamente, nos devolverá un valor null.</p>
+<p><strong>Ejemplo 2: Cálculo de crecimiento estimado.</strong> Observa este programa que solicita la altura actual de un girasol y calcula cuánto medirá la próxima semana suponiendo un crecimiento estimado de 15 centímetros:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;=== EJEMPLO 2: Cálculo de crecimiento estimado ===&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Introduce la altura actual del girasol (en cm): &quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">entrada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readLine</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Intentamos la conversión de forma segura. Si introducen &#39;p&#39;, &#39;alturaActual&#39; será null.</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">alturaActual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entrada</span><span class="o">?.</span><span class="na">toIntOrNull</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Ahora solo tenemos que validar que el resultado no sea nulo</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alturaActual</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">alturaEstimada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alturaActual</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">15</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;La próxima semana tu girasol medirá aproximadamente </span><span class="si">$</span><span class="n">alturaEstimada</span><span class="s"> cm.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Este mensaje ahora cubre tanto si pulsan Enter vacío como si escriben letras o decimales</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Altura introducida no válida. Asegúrate de escribir un número entero.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Salida por consola (Entrada válida):</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 2: Cálculo de crecimiento estimado ===
+Introduce la altura actual del girasol (en cm): 45
+La próxima semana tu girasol medirá aproximadamente 60 cm.
+</code></pre></div>
+<p>Salida por consola (Entrada vacía o incorrecta):</p>
+<div class="highlight"><pre><span></span><code>=== EJEMPLO 2: Cálculo de crecimiento estimado ===
+Introduce la altura actual del girasol (en cm): g
+Altura introducida no válida. Asegúrate de escribir un número entero.
+</code></pre></div>
+<hr />
+<p><span class="mi_h3">Autoría</span></p>
+<p><span class="mi_autoria">
+Obra realizada por Begoña Paterna Lluch. Publicada bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribución/Reconocimiento-CompartirIgual 4.0 Internacional</a>
+</span></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.tabs.link", "navigation.instant", "navigation.top", "navigation.sections", "search.highlight", "search.suggest", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
