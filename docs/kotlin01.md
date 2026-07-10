@@ -11,7 +11,7 @@
 
 ## 1. Instalación de IntelliJ IDEA Community
 
-Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **Community Edition**.
+Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **2025.2 Community Edition**.
 
 
 <span class="mi_h3">1.1. Instalación en los ordenadores de clase</span>
@@ -50,32 +50,34 @@ Antes de empezar a crear programas, es importante que mantengas tu espacio de tr
 
 <span class="mi_h3">2.2. Creación de un nuevo proyecto</span>
 
-Para crear tu primer proyecto en Kotlin:
+Antes de crear nuestro primer programa, es importante introducir un concepto clave: **Gradle**. Gradle es un sistema de gestión y construcción de proyectos (denominado build system). Aunque al principio realizaremos programas sencillos, utilizar Gradle desde el primer día nos permitirá estructurar el proyecto bajo un estándar profesional y nos facilitará la tarea de añadir librerías externas o dependencias más adelante sin tener que configurar todo manualmente.
+
+Para crear tu primer proyecto en Kotlin utilizando este sistema, sigue estos pasos:
 
 1. Abre IntelliJ IDEA y haz clic en **New Project** en la ventana de inicio.
 2. Configura los parámetros en la ventana de configuración:
     * **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `control_plantas`)
     * **Location:** Selecciona tu directorio de trabajo (por ejemplo, `F:\kot` o la ruta de tu carpeta de usuario).
     * **Language:** Asegúrate de marcar **Kotlin** en la columna de la izquierda.
-    * **Build system:** Selecciona el sistema nativo de **IntelliJ**.
+    * **Build system:** Selecciona **Gradle**.
     * **JDK:** Selecciona la versión disponible de Java instalada en el sistema (por ejemplo, JDK 24 o la versión del aula).
     * **Opciones adicionales:** Asegúrate de tener activada la opción **Add sample code** (para disponer de un archivo inicial de ejemplo) y **Use compact project structure**.
-3. Haz clic en **Create**.
+3. Haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes la primera vez).
 
 <span class="mi_h3">2.3. Estructura del proyecto y creación de archivos</span>
 
-Al crearse el proyecto, la interfaz mostrará una estructura de carpetas en el margen izquierdo:
+Al crearse el proyecto bajo el sistema de Gradle, la interfaz de IntelliJ mostrará una estructura de carpetas en el margen izquierdo diseñada para proyectos profesionales:
 
-* **`.idea` / `out`:** Carpetas de configuración interna del IDE y de compilación (no debes modificarlas manualmente).
-* **`src` (Source):** Es la carpeta más importante. Aquí se almacena todo el código fuente de nuestra aplicación.
-* **`Main.kt`:** Archivo que contiene el punto de entrada de nuestro programa.
-
+* **`.idea` / `.gradle` / `build`**: Carpetas de configuración interna de IntelliJ, de Gradle y del proceso de compilación. No deben modificarse manualmente.
+* **`build.gradle.kts`**: Es el archivo de configuración de Gradle. En él definiremos el comportamiento del proyecto y las librerías o dependencias externas que queramos descargar de forma automática.
+* **`src/main/kotlin`**: Es el directorio raíz donde se almacena todo el código fuente de nuestra aplicación. Es la carpeta más importante del proyecto.
+* **`Main.kt`**: Archivo autogenerado (gracias a la opción *Add sample code*) que se encuentra dentro de la ruta de código fuente y que contiene el punto de entrada de nuestro programa.
 
 Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue estos pasos: 
 
-* Haz clic derecho sobre la carpeta **`src`**. 
+* Haz clic derecho sobre la carpeta raíz de código: **`src/main/kotlin`** (o sobre el paquete específico que hayas creado dentro de ella).
 * Selecciona **New > Kotlin File/Class**. 
-* Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (File, Class, Interface, etc.).
+* Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (*File*, *Class*, *Interface*, etc.).
 
 
 <span class="mi_h3">2.4. Primer programa y su ejecución</span>
@@ -128,93 +130,12 @@ Cuando debas entregar una tarea de programación o compartir un proyecto con el 
 
 ## 3. Organización del código (Packages e Imports)
 
-A medida que tus proyectos crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve insostenible. En Kotlin, para mantener el proyecto limpio, ordenado y escalable, dividimos nuestro código en diferentes carpetas utilizando los conceptos de **package** (paquete) e **import** (importación).
+A medida que nuestros programas crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve difícil de mantener y de leer. En proyectos reales, el código se divide en diferentes archivos y carpetas. Para entender cómo se comunican estos archivos entre sí, primero veremos un proyecto completo distribuido en varias carpetas y luego explicaremos detalladamente cada uno de los conceptos que lo hacen posible.
 
 
-<span class="mi_h3">3.1. ¿Qué es un Package (Paquete)?</span>
+<span class="mi_h3">3.1. Ejemplo del asistente de control botánico</span>
 
-Un **package** es una forma de agrupar clases, funciones, objetos y otras estructuras relacionadas bajo un mismo espacio de nombres físico y lógico. Sirve para organizar tus archivos y evitar conflictos en caso de que declares dos funciones con el mismo nombre.
-
-**Reglas clave de los paquetes:**
-
-* La declaración del paquete debe ir en la **primera línea de tu archivo de código**, antes de cualquier otra cosa.
-* Su sintaxis utiliza la palabra reservada `package` seguida de la ruta lógica de la carpeta, por ejemplo: `package util`.
-* Los nombres de los paquetes se escriben siempre en minúsculas y se separan por puntos `.`.
-
-**Ejemplo de archivo dentro de un paquete:**
-
-```kotlin
-// Archivo: src/botanica/util/MisCalculos.kt
-package util
-
-fun calcularConsumo(dias: Int) = dias * 1.5
-```
-
-
-<span class="mi_h3">3.2. ¿Qué es un Import?</span>
-
-La palabra clave **`import`** se utiliza para poder acceder y utilizar clases o funciones que están guardadas en otros paquetes diferentes, sin necesidad de escribir la ruta completa de carpetas cada vez que las uses.
-
-**Ejemplo de uso básico:**
-
-Si tu archivo principal está en el paquete `botanica.app` y deseas utilizar la función `calcularConsumo` que está en `util`:
-
-```kotlin
-// Archivo: src/botanica/app/Main.kt
-package botanica.app
-
-// Importamos la función específica indicando su paquete de origen
-import util.calcularConsumo
-
-fun main() {
-    val consumoTotal = calcularConsumo(7) // Podemos usar la función directamente
-    println("Consumo acumulado: $consumoTotal litros.")
-}
-```
-
-
-
-**Alias en importaciones**
-
-A veces puede ocurrir que necesites importar dos clases o funciones de diferentes paquetes que se llaman exactamente igual. Para evitar conflictos, puedes renombrar una de ellas de manera temporal en tu archivo actual utilizando la palabra clave **`as`** (alias).
-
-```kotlin
-import util.saludarJardinero as saludarBreve
-import administracion.saludarJardinero as saludarCompleto
-
-fun main() {
-    saludarBreve("Pol")     // Llama a la función del paquete util
-    saludarCompleto("Pol")  // Llama a la función del paquete administracion
-}
-```
-
-
-
-**Importaciones con comodín**
-
-Si un paquete contiene muchas funciones u objetos y necesitas utilizarlos casi todos en un mismo archivo, puedes evitar escribir una línea de importación para cada uno de ellos utilizando el comodín asterisco (`*`).
-
-```kotlin
-// Importa absolutamente todas las funciones y clases públicas del paquete util
-import util.*
-```
-
-<span class="mi_h3">3.3. Tabla resumen de organización</span>
-
-| Término | ¿Qué hace? | Ejemplo de uso |
-| :--- | :--- | :--- |
-| **`package`** | Define el espacio lógico y la ubicación del archivo actual. | `package botanica.modelo` |
-| **`import`** | Trae una herramienta (clase o función) de otro paquete para poder usarla. | `import util.evaluarHumedad` |
-| **`import ... as`**| Trae una herramienta y le asigna un nombre temporal para evitar conflictos. | `import util.regar as regadoAutomatico` |
-
-
-<span class="mi_h3">3.4. Ejemplo completo multiarchivo</span>
-
-Para entender cómo encaja todo esto de manera profesional en un proyecto de software, vamos a estructurar un asistente de control de humedad multiarchivo utilizando tres paquetes separados: `modelo`, `util` y `app`.
-
-En la raíz del proyecto, el compilador de Kotlin toma la carpeta `kotlin` como el punto de inicio para los paquetes. Por tanto, las carpetas de paquetes (`modelo`, `util`, `app`) se crean dentro de ella.
-
-**Estructura de carpetas en IntelliJ:**
+Imagina que estamos desarrollando un asistente para controlar el riego y la humedad de un invernadero. En lugar de tener un solo archivo, hemos estructurado nuestro proyecto de Gradle en tres carpetas (*paquetes*): **`modelo`**, **`util`** y **`app`**. La estructura de archivos en el panel izquierdo de IntelliJ se ve así:
 
 ```text
 control_botanico/
@@ -222,32 +143,26 @@ control_botanico/
     └── main/
         └── kotlin/
             ├── app/
-            │   └── Main.kt
+            │   └── Main.kt           <-- Coordinador de la aplicación
             ├── modelo/
-            │   └── Planta.kt
+            │   └── Planta.kt         <-- Define qué es una planta
             └── util/
-                └── AsistenteRiego.kt
+                └── AsistenteRiego.kt <-- Lógica de cálculo y ayuda
 ```
 
-*(En tu panel izquierdo de IntelliJ, verás la ruta completa como `src/main/kotlin` y dentro de ella las carpetas de tus paquetes).*
+A continuación, se muestra el código de cada uno de los tres archivos:
 
-
-
-**Archivo 1: `src/main/kotlin/modelo/Planta.kt`** Este archivo define la estructura de datos base para nuestras plantas.
+**Archivo 1: `src/main/kotlin/modelo/Planta.kt`.** Este archivo define la estructura de datos básica de nuestras plantas.
 
 ```kotlin
-// src/main/kotlin/modelo/Planta.kt
 package modelo
 
 data class Planta(val especie: String, val humedadIdeal: Int)
 ```
 
-
-
-**Archivo 2: `src/main/kotlin/util/AsistenteRiego.kt`** Este archivo contiene la lógica de asistencia y cálculo para el invernadero.
+**Archivo 2: `src/main/kotlin/util/AsistenteRiego.kt`.** Este archivo contiene la lógica de cálculo para evaluar si una planta necesita agua o no.
 
 ```kotlin
-// src/main/kotlin/util/AsistenteRiego.kt
 package util
 
 fun evaluarHumedad(actual: Int, ideal: Int): String {
@@ -263,41 +178,40 @@ fun bienvenida(nombreJardinero: String): String {
 }
 ```
 
-
-**Archivo 3: `src/main/kotlin/app/Main.kt`** Este es el archivo principal que coordina toda la aplicación e importa las clases y funciones de los otros dos paquetes.
+**Archivo 3: `src/main/kotlin/app/Main.kt`.** Este es el archivo principal que coordina el programa. Para poder usar lo que hemos programado en los otros archivos, tenemos que "traerlo" (importarlo) aquí.
 
 ```kotlin
-// src/main/kotlin/app/Main.kt
 package app
 
-// Importa la data class desde el paquete modelo
+// 1. Importamos la plantilla 'Planta' desde el paquete modelo
 import modelo.Planta
 
-// Importa la función de evaluación desde el paquete util
+// 2. Importamos la función de diagnóstico desde el paquete util
 import util.evaluarHumedad
 
-// Importa la función de bienvenida usando un alias
+// 3. Importamos la función de bienvenida y le damos un "apodo" o alias
 import util.bienvenida as saludar
 
 fun main() {
+    // Usamos la función de bienvenida mediante su alias
     println(saludar("Pol"))
     println("----------------------------------------")
-
+    
     // Creamos un objeto Planta
     val miHelecho = Planta("Helecho real", 75)
     
-    // Evaluamos la humedad actual (sensor a 50%) frente a la ideal (75%)
+    // Simulamos la lectura de humedad de un sensor (al 50%)
     val lecturaSensor = 50
     val diagnostico = evaluarHumedad(lecturaSensor, miHelecho.humedadIdeal)
-
+    
+    // Mostramos los resultados
     println("Planta: ${miHelecho.especie}")
     println("Humedad registrada: $lecturaSensor% (Humedad objetivo: ${miHelecho.humedadIdeal}%)")
     println("Diagnóstico del sistema: $diagnostico")
 }
 ```
 
-
-Salida por consola:
+Salida por consola al ejecutar `Main.kt`:
 
 ```text
 ¡Hola, Pol! Iniciando asistente de control...
@@ -306,6 +220,47 @@ Planta: Helecho real
 Humedad registrada: 50% (Humedad objetivo: 75%)
 Diagnóstico del sistema: Urgente: Requiere riego inmediato.
 ```
+
+
+<span class="mi_h3">Explicación del ejemplo</span>   
+
+
+**¿Qué es un `package` (Paquete)?**
+
+Si observas la primera línea de cada uno de los tres archivos anteriores, verás la palabra reservada `package` (`package modelo`, `package util`, `package app`). Un **package (paquete)** es un contenedor lógico y físico (una carpeta) que sirve para organizar y agrupar archivos relacionados y así evitar conflictos de nombres. Por ejemplo, podrías tener una función llamada `guardar()` en un paquete de base de datos y otra función `guardar()` en un paquete de interfaz gráfica sin que el compilador se confunda.
+
+> **Reglas clave de los paquetes:**
+>   * La declaración `package` debe ser **la primera línea de código** de tu archivo.
+>   * Por convención, los nombres de los paquetes se escriben siempre en **minúsculas** y, si tienen varios niveles, se separan por puntos (ej. `package botanica.modelo`).
+
+
+**¿Qué es un `import` (Importación)?**
+
+Por defecto, un archivo de Kotlin no puede ver lo que hay dentro de carpetas o paquetes distintos al suyo. Para solucionar esto y conectar los archivos de nuestro ejemplo, utilizamos la palabra clave `import`. Un **import (importación)** le dice al compilador dónde encontrar una clase, función o variable que reside en otro paquete para poder usarla en el archivo actual.
+
+* En `Main.kt` (que pertenece al paquete `app`), usamos `import modelo.Planta` para poder declarar una variable de tipo `Planta`.
+
+
+A veces importamos herramientas que tienen nombres muy largos o que coinciden con el nombre de otra función del proyecto. Para evitar conflictos, podemos renombrarlas temporalmente (darles un alias) con la palabra `as`.
+
+* *En nuestro ejemplo:* `import util.bienvenida as saludar` nos permite llamar a la función escribiendo simplemente `saludar("Pol")`.
+
+Si el paquete `util` tuviera 20 funciones diferentes y quisiéramos usarlas todas en `Main.kt`, escribir 20 líneas de importación sería molesto. Podemos importar absolutamente todo lo que contenga un paquete utilizando un asterisco:
+
+  ```kotlin
+  import util.* // Trae todas las funciones y clases públicas de 'util'
+  ```
+
+
+<span class="mi_h3">Tabla resumen de organización</span>
+
+| Palabra clave | ¿Qué hace? | Ejemplo en el proyecto |
+| :--- | :--- | :--- |
+| **`package`** | Define el espacio lógico y la carpeta en la que se encuentra el archivo actual. | `package modelo` |
+| **`import`** | Trae una herramienta específica (clase o función) de otro paquete para poder utilizarla. | `import modelo.Planta` |
+| **`import ... as`** | Trae una herramienta y le asigna un nombre temporal (alias) para facilitar su uso o evitar conflictos. | `import util.bienvenida as saludar` |
+| **`import ... *`** | Importa todos los elementos públicos de un paquete de golpe. | `import util.*` |
+
 
 
 

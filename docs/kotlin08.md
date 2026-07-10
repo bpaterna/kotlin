@@ -21,7 +21,7 @@ Su uso principal es lograr que tu código sea mucho más limpio, legible y expre
 
 La sintaxis siempre va encerrada entre llaves `{}`. Se definen los parámetros de entrada, seguidos de una flecha `->` y, a continuación, el cuerpo o comportamiento de la función:
 
-$$\{\text{parámetro1}, \text{parámetro2} \rightarrow \text{cuerpo de la función}\}$$
+{ parametro1, parametro2 -> cuerpo_de_la_funcion }
 
 **Ejemplo 1: Lambda básica con un parámetro.**
 
