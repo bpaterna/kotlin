@@ -230,8 +230,13 @@ Diagnóstico del sistema: Urgente: Requiere riego inmediato.
 Si observas la primera línea de cada uno de los tres archivos anteriores, verás la palabra reservada `package` (`package modelo`, `package util`, `package app`). Un **package (paquete)** es un contenedor lógico y físico (una carpeta) que sirve para organizar y agrupar archivos relacionados y así evitar conflictos de nombres. Por ejemplo, podrías tener una función llamada `guardar()` en un paquete de base de datos y otra función `guardar()` en un paquete de interfaz gráfica sin que el compilador se confunda.
 
 > **Reglas clave de los paquetes:**
+> 
 >   * La declaración `package` debe ser **la primera línea de código** de tu archivo.
->   * Por convención, los nombres de los paquetes se escriben siempre en **minúsculas** y, si tienen varios niveles, se separan por puntos (ej. `package botanica.modelo`).
+>   * Por convención, los nombres de los paquetes se escriben siempre en **minúsculas**.
+>   * Si los paquetes tienen varios niveles (subcarpetas), en el código los separamos por un punto. *Por ejemplo:* Si dentro de la carpeta `modelo` decidiéramos crear una subcarpeta llamada `tipos` para organizar mejor las plantas, la ruta física sería `modelo/tipos/` y en el código escribiríamos:
+>       ```kotlin
+>       package modelo.tipos
+>       ```
 
 
 **¿Qué es un `import` (Importación)?**
