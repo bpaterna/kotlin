@@ -38,7 +38,7 @@ Para realizar la instalación en tu equipo personal con Windows:
 
 
 
-## 1.2. Gestión y configuración de proyectos
+## 1.2. Proyectos
 
 <span class="mi_h3">Organización del espacio de trabajo</span>
 
