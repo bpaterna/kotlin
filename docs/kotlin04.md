@@ -33,7 +33,7 @@ Puedes combinar varias condiciones utilizando **operadores lógicos**:
 * **`||` (OR):** Devuelve `true` si al menos **una** de las condiciones es verdadera.
 * **`!` (NOT):** Invierte el valor lógico (lo que es `true` pasa a ser `false`).
 
-## 3. Estructuras condicionales
+## 4.3. Estructuras condicionales
 
 Los condicionales te permiten ejecutar diferentes bloques de código en función de si se cumplen o no determinadas condiciones.
 
@@ -189,7 +189,7 @@ Salida por consola:
 Informe del sensor: Humedad óptima
 ```
 
-## 4. Estructuras repetitivas (bucles)
+## 4.4. Estructuras repetitivas (bucles)
 
 Los bucles te permiten repetir la ejecución de un bloque de código. En Kotlin dispones de cuatro estructuras: `while`, `do-while`, `for` y `repeat`.
 

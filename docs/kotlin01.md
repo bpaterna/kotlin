@@ -76,10 +76,10 @@ Puedes ver toda esta información en la siguiente imagen:
 
 Ua vez tengas todos los datos, haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes). Cuando termine de preparar el proyecto se habrá creado la carpeta `jardin` dentro de la carpeta `kot` y dentro de `jardin` la estructura de carpetas siguiente:
 
-* **`.idea` / `.gradle` / `build`**: Carpetas de configuración interna de IntelliJ, de Gradle y del proceso de compilación. No deben modificarse manualmente.
+* **`.idea` / `.gradle`**: Carpetas de configuración interna. No deben modificarse manualmente.
 * **`build.gradle.kts`**: Es el archivo de configuración de Gradle. En él definiremos el comportamiento del proyecto y las librerías o dependencias externas que queramos descargar de forma automática.
 * **`src/main/kotlin`**: Es el directorio raíz donde se almacena todo el código fuente de nuestra aplicación. Es la carpeta más importante del proyecto.
-* **`Main.kt`**: Archivo autogenerado (gracias a la opción *Add sample code*) que se encuentra dentro de la ruta de código fuente y que contiene el punto de entrada de nuestro programa.
+* **`Main.kt`**: Archivo autogenerado (gracias a la opción *Add sample code*) que contiene el punto de entrada de nuestro programa.
 
 
 Puedes ver esta información en la siguiente imagen:
@@ -123,9 +123,9 @@ Process finished with exit code 0
 
 Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue estos pasos:
 
-* Haz clic derecho sobre la carpeta raíz de código: **`src/main/kotlin`** (o sobre el paquete específico que hayas creado dentro de ella).
+* Haz clic derecho sobre la carpeta donde quieras crear el nuevo archivo.
 * Selecciona **New > Kotlin File/Class**.
-* Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (*File*, *Class*, *Interface*, etc.).
+* Escribe el nombre para el archivo y selecciona el tipo (*File*, *Class*, *Interface*, etc.).
 
 
 <span class="mi_h3">Compartir y entregar proyectos</span>
