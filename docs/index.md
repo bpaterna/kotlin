@@ -1,4 +1,4 @@
-# 1. Kotlin
+# Kotlin
 
 
 <span class="mi_h3">Revisiones</span>

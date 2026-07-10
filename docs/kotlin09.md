@@ -9,15 +9,14 @@
 
 
 
-## 1. Introducción
+## 9.1. Introducción
 
 Una **excepción** es un error que ocurre en tiempo de ejecución (mientras el programa se está ejecutando) e interrumpe el flujo normal de tu aplicación. Ejemplos típicos son intentar dividir un número entre cero (como repartir abono entre cero macetas) o intentar abrir un archivo de registros del invernadero que no existe en el disco.
 
 La gestión de errores consiste en detectar, capturar y recuperarse de estos fallos para evitar que la aplicación se cuelgue. En Kotlin dispones de dos herramientas fundamentales para lograrlo.
 
----
 
-## 2. Captura explícita de errores: `try-catch-finally`
+## 9.2. Captura explícita de errores: `try-catch-finally`
 
 Se utiliza cuando deseas ejecutar un bloque de código que es propenso a fallar y quieres definir de manera controlada qué debe hacer el programa si el error ocurre.
 
@@ -78,7 +77,7 @@ Fin del chequeo de dosificación de nutrientes.
 ```
 
 
-## 3. Gestión automática de recursos con `use`
+## 9.3. Gestión automática de recursos con `use`
 
 Cuando trabajas con recursos externos del sistema operativo (como archivos de texto en el disco, sensores físicos o flujos de red), estás obligado a **abrirlos, utilizarlos y, al finalizar, cerrarlos obligatoriamente**. Si olvidas cerrarlos, esos archivos o recursos quedan bloqueados en memoria, provocando fugas de rendimiento.
 
@@ -155,7 +154,7 @@ ID: 3 | Helecho real       | Seccion Humedad
 ```
 
 
-## 4. Comportamiento de la consola de IntelliJ
+## 9.4. Comportamiento de la consola de IntelliJ
 
 Cuando haces pruebas por consola, la forma en que el IDE (IntelliJ) y su motor de construcción (Gradle) interpretan tus textos puede alterar lo que ves en pantalla. 
 

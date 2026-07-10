@@ -9,13 +9,13 @@
 
 
 
-## 1. Introducción
+## 5.1. Introducción
 
 Las **funciones** (conocidas como *métodos* en lenguajes como Java) son bloques de código independientes diseñados para realizar una tarea específica. Te sirven para organizar tu código, evitar la duplicación de instrucciones (principio *DRY - Don't Repeat Yourself*) y hacer que tus programas sean mucho más legibles y fáciles de mantener.
 
 
 
-## 2. Definición y sintaxis básica
+## 5.2. Definición y sintaxis básica
 
 Para declarar una función en Kotlin, debes utilizar la palabra reservada **`fun`**, seguida del nombre de la función (en camello o *camelCase*), paréntesis para los parámetros (si los tiene) y llaves `{}` que delimitan las instrucciones de la función.
 
@@ -55,7 +55,7 @@ Salida por consola:
 ```
 
 
-## 3. Funciones con parámetros
+## 5.3. Funciones con parámetros
 
 Las funciones suelen necesitar información del exterior para realizar su trabajo. Puedes pasarle una o varias variables indicando siempre su nombre y su tipo de dato.
 
@@ -82,7 +82,7 @@ Acción: Se ha suministrado agua a la planta: Orquídea
 Acción: Se ha suministrado agua a la planta: Helecho
 ```
 
-## 4. Funciones que devuelven un valor
+## 5.4. Funciones que devuelven un valor
 
 Si necesitas que una función realice un cálculo y te devuelva el resultado para poder guardarlo en una variable u operar con él, debes indicar el **tipo de retorno** al final de la cabecera (usando dos puntos `:`) y emplear la palabra clave **`return`** dentro de la función.
 
@@ -111,7 +111,7 @@ Consumo anual estimado para el lote de macetas: 130.0 litros.
 ```
 
 
-## 5. Funciones simplificadas
+## 5.5. Funciones simplificadas
 
 Si una función tiene una sola línea de código que simplemente devuelve un valor, Kotlin te permite prescindir de las llaves `{}` y de la palabra `return`. En su lugar, puedes estructurarla utilizando el operador de asignación **`=`**.
 
@@ -136,7 +136,7 @@ Familia de las Rosáceas
 ```
 
 
-## 6. Parámetros con valores por defecto
+## 5.6. Parámetros con valores por defecto
 
 En Kotlin, puedes asignar valores predeterminados a los parámetros en la firma de la función. Si al llamar a la función decides no enviar ese argumento, el programa utilizará automáticamente el valor por defecto que hayas configurado. Esto evita tener que escribir múltiples funciones sobrecargadas.
 
@@ -167,7 +167,7 @@ Especie: Monstera deliciosa | Ubicación asignada: Sector Sombra
 ```
 
 
-## 7. Argumentos nombrados
+## 5.7. Argumentos nombrados
 
 Cuando llamas a una función que tiene muchos parámetros (algunos de ellos con valores por defecto), puede ser confuso recordar el orden exacto de las variables. Kotlin te permite solucionar esto indicando explícitamente el nombre del parámetro al que le estás asignando el valor. Además, te permite cambiar el orden de los argumentos en la llamada.
 
@@ -213,7 +213,7 @@ Tratamiento programado para 'Sansevieria':
 ```
 
 
-## 8. Funciones de extensión
+## 5.8. Funciones de extensión
 
 Las **funciones de extensión** te permiten añadir nuevas funciones a clases ya existentes (sean clases tuyas, de librerías de terceros, o clases estándar de Kotlin como `String`, `Int` o `Double`) **sin necesidad de heredar de ellas ni modificar su código original**.
 
@@ -272,7 +272,7 @@ Contenedor de Terracota con capacidad de 12.5 litros de sustrato.
 ```
 
 
-## 9. Funciones con cantidad variable de argumentos
+## 5.9. Funciones con cantidad variable de argumentos
 
 A veces necesitas que una función pueda recibir un número indeterminado de argumentos del mismo tipo (por ejemplo, registrar tres plantas en una tanda, o registrar diez). Para no verte obligado a crear una lista o un array previamente, puedes usar la palabra reservada **`vararg`** en la definición del parámetro.
 
@@ -315,7 +315,7 @@ Salida por consola:
 ```
 
 
-## 10. Funciones locales
+## 5.10. Funciones locales
 
 Una **función local** es una función que se declara **dentro de otra función**. Solo es visible y utilizable de manera interna por la función que la rodea. Te sirve para:
 * Organizar y dividir el código de funciones excesivamente largas.
@@ -355,7 +355,7 @@ Ficha generada -> [HORTENSIA AZUL] | Diagnóstico: Suelo ácido
 ```
 
 
-## 11. Funciones de orden superior
+## 5.11. Funciones de orden superior
 
 Una **función de orden superior** es aquella que **recibe otra función como parámetro** o que **devuelve una función** como resultado. Es un concepto clave de la programación funcional que ya has estado utilizando de manera indirecta en el Bloque 9 al trabajar con colecciones.
 

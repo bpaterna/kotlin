@@ -9,7 +9,7 @@
 
 
 
-## 1. Introducción
+## 7.1. Introducción
 
 La **Programación Orientada a Objetos** es un paradigma que te permite estructurar tus programas simulando elementos del mundo real.
 
@@ -21,7 +21,7 @@ En la POO, utilizamos las **clases** como moldes o planos de diseño, y los **ob
 
 
 
-## 2. Clases, constructores y atributos
+## 7.2. Clases, constructores y atributos
 
 Kotlin simplifica enormemente la creación de clases en comparación con otros lenguajes. Dispones de tres formas de estructurar tus constructores según la complejidad que busques.
 
@@ -143,7 +143,7 @@ Planta 2 (Constructor Secundario):
 - Origen: Desconocido
 ```
 
-## 3. Propiedades, getters y setters
+## 7.3. Propiedades, getters y setters
 
 En Kotlin, todas las propiedades mutables (`var`) generan automáticamente un **getter** (para leer su valor) y un **setter** (para modificarlo) por detrás. Si necesitas aplicar lógica de negocio o validación al asignar o leer un dato, puedes personalizarlos usando la variable implícita `field` (que hace referencia al campo físico de memoria).
 
@@ -292,7 +292,7 @@ IntelliJ mostrará el error: 'Cannot assign to 'edadDias': the setter is private
 
 
 
-## 4. Relación entre clases
+## 7.4. Relación entre clases
 
 En el mundo real, los objetos contienen otros objetos o se relacionan entre sí. La composición (o relación entre clases) consiste en definir propiedades dentro de una clase que son instancias de otra clase.
 
@@ -323,7 +323,7 @@ La planta 'Helecho real' está plantada en una maceta de Barro cocido de 5.0 lit
 ```
 
 
-## 5. Modificadores de acceso
+## 7.5. Modificadores de acceso
 
 En Kotlin, todo es público por defecto. No obstante, puedes restringir la visibilidad de tus clases, métodos y propiedades para proteger la integridad de tus datos.
 
@@ -336,7 +336,7 @@ En Kotlin, todo es público por defecto. No obstante, puedes restringir la visib
 
 
 
-## 6. Herencia y polimorfismo
+## 7.6. Herencia y polimorfismo
 
 En Kotlin, por seguridad, **todas las clases son cerradas (`final`) por defecto**, lo que significa que no se pueden heredar a menos que las marques explícitamente con la palabra reservada **`open`**. Los métodos que desees sobrescribir en las subclases también deben ser `open`.
 
@@ -463,7 +463,7 @@ Regando Planta genérica de manera estándar.
 -----------------------------------
 ```
 
-## 7. Data classes
+## 7.7. Data classes
 
 Las clases de datos (`data class`) son clases diseñadas específicamente para **almacenar información**. Al anteponer la palabra `data` a una clase, el compilador de Kotlin genera automáticamente por detrás una serie de funciones de utilidad:
 * Un formato de texto legible para consola (`toString()`).
@@ -505,7 +505,7 @@ LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, anyoCosecha=2025)
 LoteSemillas(variedad=Girasol gigante, cantidadSemillas=150, anyoCosecha=2026)
 ```
 
-## 8. Sobrecarga de operadores
+## 7.8. Sobrecarga de operadores
 
 Kotlin te permite personalizar el comportamiento de operadores matemáticos o lógicos (`+`, `-`, `*`, `==`) cuando interactúan con tus propios objetos. Para ello, debes definir funciones utilizando la palabra clave **`operator`**.
 
@@ -543,7 +543,7 @@ Has combinado la tierra. El saco resultante tiene: 65.0 litros.
 ```
 
 
-## 9. Objetos sin clases
+## 7.9. Objetos sin clases
 
 En ocasiones, necesitas una estructura que actúe como un gestor o base de datos centralizada de la cual **solo debe existir una única instancia en toda tu aplicación**. En Kotlin, esto se resuelve de forma directa sin necesidad de configurar patrones complejos de diseño; simplemente declaras un **`object`** en lugar de una `class`.
 
@@ -589,7 +589,7 @@ Flor 'Flor de Jade' anyadida al herbario nacional.
 - Flor de Jade (Turquesa)
 ```
 
-## 10. Jerarquía de clases y arrays de objetos
+## 7.10. Jerarquía de clases y arrays de objetos
 
 Utilizaremos esta jerarquía de clases base para los ejemplos:
 

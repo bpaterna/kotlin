@@ -9,12 +9,12 @@
 
 
 
-## 1. Introducción
+## 4.1. Introducción
 
 Las estructuras de control permiten romper la ejecución secuencial (de arriba a abajo) de los programas. Con ellas, podrás tomar decisiones lógicas (condicionales) o repetir ciertas acciones varias veces (bucles).
 
 
-## 2. Operadores relacionales y lógicos
+## 4.2. Operadores relacionales y lógicos
 
 Para establecer condiciones o realizar repeticiones, necesitas comparar valores. Estos son los operadores relacionales que utilizarás en Kotlin:
 
@@ -37,7 +37,7 @@ Puedes combinar varias condiciones utilizando **operadores lógicos**:
 
 Los condicionales te permiten ejecutar diferentes bloques de código en función de si se cumplen o no determinadas condiciones.
 
-<span class="mi_h3">3.1. Estructura `if` / `if-else`</span>
+<span class="mi_h3">Estructura `if` / `if-else`</span>
 
 **Ejemplo 1: Condicional simple (`if`).** Se ejecuta un bloque de código únicamente si la condición resulta verdadera.
 
@@ -134,7 +134,7 @@ Salida por consola:
 El riego de hoy ha sido: Insuficiente
 ```
 
-<span class="mi_h3">3.2. La estructura `when`</span>
+<span class="mi_h3">La estructura `when`</span>
 
 La estructura `when` sustituye al clásico `switch` de otros lenguajes. Es mucho más potente y legible cuando tienes múltiples caminos lógicos.
 

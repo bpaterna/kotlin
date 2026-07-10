@@ -9,13 +9,13 @@
 
 
 
-## 1. Introducción
+## 3.1. Introducción
 
 En programación, la **entrada y salida estándar** representa el canal de comunicación directo entre tu programa y la persona que lo está utilizando. A través de la consola, podrás mostrar informes sobre el estado del invernadero (salida) o solicitar que se introduzcan nuevos datos de catalogación de plantas (entrada).
 
 
 
-## 2. Salida de datos por consola
+## 3.2. Salida de datos por consola
 
 Para enviar información y texto hacia la pantalla, Kotlin pone a tu disposición dos funciones muy similares pero con un comportamiento diferente respecto al salto de línea (`print` y `println`).
 
@@ -68,7 +68,7 @@ Aquí tienes una tabla resumen con las opciones de formateo más útiles y algun
 | **Porcentaje** | Mostrar símbolo `%` sin decimales | **`%.0f%%`** | `"Humedad: %.0f%%".format(65.8)` | `Humedad: 66%` *(el doble `%%` escapa el símbolo)* |
 
 
-## 3. Entrada de datos por teclado
+## 3.3. Entrada de datos por teclado
 
 Para que tus programas no sean estáticos y puedan reaccionar a lo que decida el usuario, necesitas capturar lo que se escribe desde el teclado. Para ello se utiliza la función **`readLine()`**.
 

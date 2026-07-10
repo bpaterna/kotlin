@@ -9,18 +9,18 @@
 
 
 
-## 1. Introducción
+## 6.1. Introducción
 
 Las estructuras de datos te permiten organizar, almacenar y manipular grupos de información de manera eficiente. Imagina que en lugar de declarar una variable para el pH de cada maceta de tu invernadero, puedes agruparlos todos en una sola estructura para analizarlos o modificarlos masivamente en segundos.
 
 
 
-## 2. Array
+## 6.2. Array
 
 Un **Array** también conocido como **Vector** o **Arreglo** es una colección ordenada de elementos con un **tamaño fijo** que no puede cambiar una vez creado. Todos los elementos almacenados deben ser del mismo tipo de dato y se accede a ellos a través de un índice numérico (que empieza siempre en `0`).
 
 
-<span class="mi_h3">2.1. Arrays especializados para tipos primitivos</span>
+<span class="mi_h3">Arrays especializados para tipos primitivos</span>
 
 Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays específicas para tipos numéricos o booleanos:
 
@@ -29,7 +29,7 @@ Para optimizar el rendimiento y la memoria, Kotlin dispone de clases de arrays e
 * `BooleanArray`, `CharArray`
 
 
-<span class="mi_h3">2.2. Tres formas de crear un array</span>
+<span class="mi_h3">Tres formas de crear un array</span>
 
 **Ejemplo 1: Tres formas de crear un array.**
 
@@ -71,7 +71,7 @@ Plantas asociadas seleccionadas para el huerto: Ajo, Zanahoria, Lechuga
 ```
 
 
-<span class="mi_h3">2.3. Operaciones comunes con Arrays</span>
+<span class="mi_h3">Operaciones comunes con Arrays</span>
 
 **Ejemplo 2: Operaciones comunes con Arrays.**
 
@@ -125,11 +125,11 @@ Posición 3 en el estante: Girasol
 ```
 
 
-## 3. List
+## 6.3. List
 
 A diferencia de los Arrays, las **listas** son colecciones ordenadas cuyo tamaño puede ser dinámico. Además, permiten almacenar elementos duplicados. En Kotlin existen dos variantes fundamentales de listas:
 
-<span class="mi_h3">3.1. Lista Inmutable (`List`)</span>
+<span class="mi_h3">Lista Inmutable (`List`)</span>
 Una vez creada con la función `listOf()`, **no se puede modificar** (no puedes añadir, eliminar ni cambiar sus elementos).
 
 ```kotlin
@@ -137,7 +137,7 @@ val tareasFijas = listOf("Regar", "Abonar", "Revisar plagas")
 // tareasFijas.add("Podar") // ¡Error de compilación! Es inmutable.
 ```
 
-<span class="mi_h3">3.2. Lista Mutable (`MutableList`)</span>
+<span class="mi_h3">Lista Mutable (`MutableList`)</span>
 Creada con `mutableListOf()`, te permite gestionar libremente un inventario dinámico de elementos.
 
 **Ejemplo 3: Inventario de maceteros.**
@@ -179,7 +179,7 @@ Inventario final de maceteros: [Maceta Fibra de Coco, Maceta Cerámica]
 ```
 
 
-## 4. Set
+## 6.4. Set
 
 Un **Set** o **Conjunto** es una colección de elementos únicos **donde no se permiten duplicados** y donde el orden de los elementos no está garantizado. Se utiliza principalmente cuando quieres asegurarte de que una lista de datos no contenga elementos repetidos.
 
@@ -221,7 +221,7 @@ La mezcla contiene Potasio, es apta para la floración.
 ```
 
 
-## 5. Map
+## 6.5. Map
 
 Un **Map** o **Diccionario** es una colección de **pares clave-valor**. Cada clave es única (no puede repetirse), pero los valores sí pueden duplicarse. Es la estructura ideal cuando necesitas asociar un identificador (como el nombre de una planta o un código de lote) con un valor o dato asociado.
 
@@ -267,7 +267,7 @@ pH Hortensias: 5.5
 
 
 
-## 6. Comparativa: Array, list, set y map
+## 6.6. Comparativa: Array, list, set y map
 
 Esta tabla resumen te servirá para repasar las diferencias estructurales de cada una de las colecciones que has aprendido:
 

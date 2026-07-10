@@ -9,12 +9,12 @@
 
 
 
-## 1. ¿Qué es una variable?
+## 2.1. ¿Qué es una variable?
 
 Una **variable** es un espacio en la memoria de tu ordenador destinado a guardar un dato específico (un número, un fragmento de texto, el estado de un sensor, etc.). En Kotlin, a diferencia de otros lenguajes tradicionales, dispones de dos formas principales para declarar variables según necesites que su valor cambie o permanezca constante.
 
 
-<span class="mi_h3">1.1. `val` – Inmutable (No se puede modificar)</span>
+<span class="mi_h3">`val` – Inmutable (No se puede modificar)</span>
 
 Se comporta como una constante. Una vez que le asignas un valor por primera vez, **no puedes volver a cambiarlo** en todo el programa. Es la opción recomendada por defecto para escribir código más seguro y evitar errores accidentales. Por ejemplo, en botánica, el nombre científico de una planta no suele cambiar nunca.
 
@@ -30,7 +30,7 @@ fun main() {
 }
 ```
 
-<span class="mi_h3">1.2. `var` – Mutable (Se puede modificar)</span>
+<span class="mi_h3">`var` – Mutable (Se puede modificar)</span>
 
 Es una variable normal. Puedes declarar su valor inicial y **modificarlo más adelante** tantas veces como necesites a lo largo de la ejecución de tu código. Por ejemplo, en botánica, la altura de una flor es un dato que cambia constantemente a medida que crece la planta.
 
@@ -47,7 +47,7 @@ fun main() {
 ```
 
 
-## 2. Tipos de datos en Kotlin
+## 2.2. Tipos de datos en Kotlin
 
 En Kotlin **no es estrictamente obligatorio declarar el tipo de una variable**, ya que el compilador es capaz de deducirlo automáticamente según el valor que le asignes (a esto se le llama *inferencia de tipos*). No obstante, puedes especificarlo de forma explícita escribiendo `:` seguido del tipo de dato. A continuación tienes los tipos de datos más comunes que necesitarás durante este curso:
 
@@ -71,7 +71,7 @@ En Kotlin **no es estrictamente obligatorio declarar el tipo de una variable**, 
 
 
 
-## 3. Operadores aritméticos
+## 2.3. Operadores aritméticos
 
 Kotlin utiliza los operadores matemáticos estándar para realizar cálculos sobre tus variables numéricas.
 
@@ -98,12 +98,12 @@ Kotlin utiliza los operadores matemáticos estándar para realizar cálculos sob
 
 
 
-## 4. Control de nulos (*Null Safety*)
+## 2.4. Control de nulos (*Null Safety*)
 
 Uno de los principales problemas en lenguajes como Java es el famoso error `NullPointerException` (cuando intentas acceder a algo que apunta a la nada, es decir, a un valor `null`). Kotlin está diseñado específicamente para evitar este problema obligándote a controlar los nulos de forma explícita desde el código.
 
 
-<span class="mi_h3">4.1. Variables no anulables (Por defecto)</span>
+<span class="mi_h3">Variables no anulables (Por defecto)</span>
 
 En Kotlin, por defecto, **las variables no pueden contener valores nulos**. Si intentas asignar `null` a una variable estándar, tu programa no llegará a compilar.
 
@@ -112,7 +112,7 @@ var nombreFlor: String = "Rosa"
 // nombreFlor = null // ¡Error de compilación! No se permite asignar null.
 ```
 
-<span class="mi_h3">4.2. Variables anulables (Símbolo `?`)</span>
+<span class="mi_h3">Variables anulables (Símbolo `?`)</span>
 
 Si necesitas que una propiedad pueda estar vacía o no definida (por ejemplo, si una planta aún no ha florecido y su color de flor es desconocido), debes decírselo al compilador añadiendo el signo de interrogación `?` al final del tipo de dato.
 
@@ -123,7 +123,7 @@ colorFloracion = null // ¡Correcto! Ahora sí se permite almacenar null.
 
 
 
-<span class="mi_h3">4.3. Operadores para trabajar con valores nulos</span>
+<span class="mi_h3">Operadores para trabajar con valores nulos</span>
 
 Cuando trabajas con variables que pueden ser nulas, Kotlin te obliga a proteger tu código antes de interactuar con ellas. Dispones de tres operadores principales para gestionarlo de manera limpia:
 
@@ -164,7 +164,7 @@ fun main() {
 
 
 
-<span class="mi_h3">4.4. Estructura alternativa usando condicionales (`if`)</span>
+<span class="mi_h3">Estructura alternativa usando condicionales (`if`)</span>
 
 También puedes controlar los valores nulos utilizando una estructura condicional clásica `if-else`. Esto le indica de manera lógica a Kotlin que estás verificando la seguridad de la variable antes de utilizarla:
 

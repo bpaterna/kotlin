@@ -9,7 +9,7 @@
 
 
 
-## 1. Introducción
+## 8.1. Introducción
 
 Las **expresiones lambda** (o funciones lambda) son funciones anónimas, es decir, funciones que se definen sin un nombre. En Kotlin, puedes tratarlas como si fueran valores comunes: guardarlas en variables, pasarlas como argumentos a otras funciones o hacer que una función las devuelva.
 
@@ -17,7 +17,7 @@ Su uso principal es lograr que tu código sea mucho más limpio, legible y expre
 
 
 
-## 2. Sintaxis Básica de una Lambda
+## 8.2. Sintaxis Básica de una Lambda
 
 La sintaxis siempre va encerrada entre llaves `{}`. Se definen los parámetros de entrada, seguidos de una flecha `->` y, a continuación, el cuerpo o comportamiento de la función:
 
@@ -95,7 +95,7 @@ Esta tabla te ayuda a visualizar cómo se simplifica el código al transformar f
 
 
 
-## 3. Operaciones avanzadas en colecciones mediante Lambdas
+## 8.3. Operaciones avanzadas en colecciones mediante Lambdas
 
 El verdadero potencial de las expresiones lambda en Kotlin se libera cuando las utilizas junto con colecciones utilizando funciones de orden superior del sistema.
 
@@ -214,7 +214,7 @@ Inventario total final en el sistema: 125
 ```
 
 
-## 4. ¿Qué es exactamente la palabra reservada `it`?
+## 8.4. ¿Qué es exactamente la palabra reservada `it`?
 
 En Kotlin, si tu expresión lambda tiene **un único parámetro de entrada**, no es necesario que declares su nombre de forma explícita seguido de la flecha `->`. Kotlin te proporciona automáticamente la variable implícita **`it`** para representar a ese único parámetro.
 

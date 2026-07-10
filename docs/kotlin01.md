@@ -9,12 +9,12 @@
 
 
 
-## 1. Instalación de IntelliJ IDEA Community
+## 1.1. Instalación de IntelliJ IDEA Community
 
 Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA**. Para la creación de estos apuntes se ha utilizado la versión **2025.2.6.2 Community Edition**.
 
 
-<span class="mi_h3">1.1. Instalación en los ordenadores de clase</span>
+<span class="mi_h3">Instalación en los ordenadores de clase</span>
 
 Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
@@ -26,7 +26,7 @@ Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
     * Haz clic derecho sobre él, selecciona **Propiedades > Permisos** y asegúrate de que la opción **Permitir ejecutar el archivo como un programa** (o *Permet executar*) esté marcada.
     * Ejecuta el archivo desde la terminal o haciendo doble clic sobre él.
 
-<span class="mi_h3">1.2. Instalación en Windows</span>
+<span class="mi_h3">Instalación en Windows</span>
 
 Para realizar la instalación en tu equipo personal con Windows:
 
@@ -39,20 +39,21 @@ Para realizar la instalación en tu equipo personal con Windows:
 
 
 
-## 2. Gestión y configuración de proyectos
+## 1.2. Gestión y configuración de proyectos
 
-<span class="mi_h3">2.1. Organización del espacio de trabajo</span>
+<span class="mi_h3">Organización del espacio de trabajo</span>
 
 Antes de empezar a crear programas, es importante que mantengas tu espacio de trabajo organizado. Es recomendable que crees una carpeta raíz en tu unidad de almacenamiento (por ejemplo, una carpeta llamada `kot` dentro de tu unidad de trabajo) donde guardar de forma ordenada los proyectos del curso.
 
-> **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*).
+> **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. 
 
 
 ![Imagen Kotlin 1](img/kotlin01.jpg){ width="600" }
 
+Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*).
 
 
-<span class="mi_h3">2.2. Creación de un nuevo proyecto</span>
+<span class="mi_h3">Primer programa y su ejecución</span>
 
 Antes de crear nuestro primer programa, es importante introducir un concepto clave: **Gradle**. Gradle es un sistema de gestión y construcción de proyectos (denominado build system). Aunque al principio realizaremos programas sencillos, utilizar Gradle desde el primer día nos permitirá estructurar el proyecto bajo un estándar profesional y nos facilitará la tarea de añadir librerías externas o dependencias más adelante sin tener que configurar todo manualmente.
 
@@ -62,7 +63,7 @@ Para crear tu primer proyecto en Kotlin utilizando este sistema, sigue estos pas
 
 ![Imagen Kotlin 2](img/kotlin02.jpg){ width="600" }
 
-También puedes crear un proyecto nuevo desde el menú $File > New > Project$. Elijas el camino que elijas, en ambos casos aparecerá la ventana en la que indicar los datos de tu nuevo proyecto:
+También puedes crear un proyecto nuevo desde el menú `File > New > Project`. Elijas el camino que elijas, en ambos casos aparecerá la ventana en la que indicar los datos de tu nuevo proyecto:
 
 ![Imagen Kotlin 3](img/kotlin03.jpg){ width="600" }
 
@@ -79,7 +80,12 @@ También puedes crear un proyecto nuevo desde el menú $File > New > Project$. E
 
 3. Haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes la primera vez).
 
-<span class="mi_h3">2.3. Estructura del proyecto y creación de archivos</span>
+
+Verás lo siguiente:
+
+![Imagen Kotlin 4](img/kotlin04.jpg){ width="600" }
+
+Si vas a tu unidad de trabajo verás que se ha creado la carpeta `jardin` dentro de la carpeta `kot`. 
 
 Al crearse el proyecto bajo el sistema de Gradle, la interfaz de IntelliJ mostrará una estructura de carpetas en el margen izquierdo diseñada para proyectos profesionales:
 
@@ -87,15 +93,6 @@ Al crearse el proyecto bajo el sistema de Gradle, la interfaz de IntelliJ mostra
 * **`build.gradle.kts`**: Es el archivo de configuración de Gradle. En él definiremos el comportamiento del proyecto y las librerías o dependencias externas que queramos descargar de forma automática.
 * **`src/main/kotlin`**: Es el directorio raíz donde se almacena todo el código fuente de nuestra aplicación. Es la carpeta más importante del proyecto.
 * **`Main.kt`**: Archivo autogenerado (gracias a la opción *Add sample code*) que se encuentra dentro de la ruta de código fuente y que contiene el punto de entrada de nuestro programa.
-
-Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue estos pasos: 
-
-* Haz clic derecho sobre la carpeta raíz de código: **`src/main/kotlin`** (o sobre el paquete específico que hayas creado dentro de ella).
-* Selecciona **New > Kotlin File/Class**. 
-* Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (*File*, *Class*, *Interface*, etc.).
-
-
-<span class="mi_h3">2.4. Primer programa y su ejecución</span>
 
 Para que un proyecto en Kotlin pueda ejecutarse, requiere como mínimo tener un punto de entrada definido por una función llamada `main`. Kotlin utiliza la palabra reservada `fun` para declarar funciones.
 
@@ -131,19 +128,26 @@ Día 5: La planta 'Orquídea' ha sido regada correctamente.
 Process finished with exit code 0
 ```
 
-<span class="mi_h3">2.5. Compartir y entregar proyectos</span>
+Si necesitas crear una clase o un nuevo archivo de Kotlin en el futuro sigue estos pasos:
+
+* Haz clic derecho sobre la carpeta raíz de código: **`src/main/kotlin`** (o sobre el paquete específico que hayas creado dentro de ella).
+* Selecciona **New > Kotlin File/Class**.
+* Escribe el nombre deseado para el archivo y selecciona el tipo correspondiente (*File*, *Class*, *Interface*, etc.).
+
+
+<span class="mi_h3">Compartir y entregar proyectos</span>
 
 Cuando debas entregar una tarea de programación o compartir un proyecto con el profesor, evita subir archivos sueltos. El procedimiento correcto se realiza desde el explorador de archivos de tu sistema operativo:
 
 1. Cierra el IDE IntelliJ IDEA para asegurarte de que no haya procesos de escritura activos.
-2. Localiza la carpeta de tu proyecto (por ejemplo, la carpeta `control_plantas` que se encuentra dentro de tu espacio de trabajo `kot`).
+2. Localiza la carpeta de tu proyecto (por ejemplo, la carpeta `jardin` que se encuentra dentro de tu espacio de trabajo `kot`).
 3. Comprime la carpeta del proyecto en un único archivo comprimido:
     * **En Windows:** Haz clic derecho sobre la carpeta del proyecto y haz clic en  **Enviar a carpeta comprimida (en zip)**.
     * **En Ubuntu:** Haz clic derecho sobre la carpeta y haz clic en **Comprimir... Seleccionar formato .zip**.
 4. Envía o sube a la plataforma del aula el archivo `.zip` resultante.
 
 
-## 3. Organización del código (Packages e Imports)
+## 1.3. Organización del código (Packages e Imports)
 
 A medida que nuestros programas crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve difícil de mantener y de leer. En proyectos reales, el código se divide en diferentes archivos y carpetas. Para entender cómo se comunican estos archivos entre sí, primero veremos un proyecto completo distribuido en varias carpetas y luego explicaremos detalladamente cada uno de los conceptos que lo hacen posible.
 
