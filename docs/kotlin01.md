@@ -48,6 +48,10 @@ Antes de empezar a crear programas, es importante que mantengas tu espacio de tr
 > **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*).
 
 
+![Imagen Kotlin 1](img/kotlin01.jpg){ width="600" }
+
+
+
 <span class="mi_h3">2.2. Creación de un nuevo proyecto</span>
 
 Antes de crear nuestro primer programa, es importante introducir un concepto clave: **Gradle**. Gradle es un sistema de gestión y construcción de proyectos (denominado build system). Aunque al principio realizaremos programas sencillos, utilizar Gradle desde el primer día nos permitirá estructurar el proyecto bajo un estándar profesional y nos facilitará la tarea de añadir librerías externas o dependencias más adelante sin tener que configurar todo manualmente.
@@ -55,13 +59,24 @@ Antes de crear nuestro primer programa, es importante introducir un concepto cla
 Para crear tu primer proyecto en Kotlin utilizando este sistema, sigue estos pasos:
 
 1. Abre IntelliJ IDEA y haz clic en **New Project** en la ventana de inicio.
+
+![Imagen Kotlin 2](img/kotlin02.jpg){ width="600" }
+
+También puedes crear un proyecto nuevo desde el menú $File > New > Project$. Elijas el camino que elijas, en ambos casos aparecerá la ventana en la que indicar los datos de tu nuevo proyecto:
+
+![Imagen Kotlin 3](img/kotlin03.jpg){ width="600" }
+
+
 2. Configura los parámetros en la ventana de configuración:
-    * **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `control_plantas`)
-    * **Location:** Selecciona tu directorio de trabajo (por ejemplo, `F:\kot` o la ruta de tu carpeta de usuario).
-    * **Language:** Asegúrate de marcar **Kotlin** en la columna de la izquierda.
+    * Asegúrate de marcar **Kotlin** en la columna de la izquierda.
+    * **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `jardin`)
+    * **Location:** Selecciona tu directorio de trabajo (por ejemplo, `D:\kot` o la ruta de tu carpeta de usuario).
     * **Build system:** Selecciona **Gradle**.
-    * **JDK:** Selecciona la versión disponible de Java instalada en el sistema (por ejemplo, JDK 24 o la versión del aula).
-    * **Opciones adicionales:** Asegúrate de tener activada la opción **Add sample code** (para disponer de un archivo inicial de ejemplo) y **Use compact project structure**.
+    * **JDK:** Selecciona la versión disponible de Java instalada en el sistema.
+    * **Gradle DSL:** Selecciona **Kotlin**.
+    * Marca la opción **Add sample code**.
+    * Indica tu inicial seguida de un punto y tu apellido en GroupId dentro de **Advance Settings:** (en el caso del ejemplo es `b.paterna`). 
+
 3. Haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes la primera vez).
 
 <span class="mi_h3">2.3. Estructura del proyecto y creación de archivos</span>
