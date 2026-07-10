@@ -3,9 +3,10 @@
 
 <span class="mi_h3">Revisiones</span>
 
-| Revisión | Fecha      | Descripción                             |
-|----------|------------|-----------------------------------------|
-| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown |
+| Revisión | Fecha      | Descripción                                                |
+|----------|------------|------------------------------------------------------------|
+| 1.0      | 29-06-2026 | Adaptación de los materiales a markdown                    |
+| 1.1      | 10-07-2026 | Renumeración de apartados |
 
 
 
