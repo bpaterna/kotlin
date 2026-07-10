@@ -11,14 +11,14 @@
 
 ## 1. Instalación de IntelliJ IDEA Community
 
-Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA** en su versión **2025.2 Community Edition**.
+Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA**. Para la creación de estos apuntes se ha utilizado la versión **2025.2.6.2 Community Edition**.
 
 
 <span class="mi_h3">1.1. Instalación en los ordenadores de clase</span>
 
 Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
-1. **Descargar los archivos:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la Version 2025.2 Community Edition para Linux, luego descarga el archivo `.tar.gz`.
+1. **Descargar los archivos:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la versión 2025.2.6.2 Community Edition para Linux, luego descarga el archivo `.tar.gz`.
 2. **Descomprimir y ubicar:** Extrae el archivo descargado (que habitualmente se guarda en la carpeta `Descargas`) y mueve la carpeta resultante a tu directorio de usuario (fuera de la carpeta temporal de descargas).
 3. **Configurar permisos de ejecución:**
     * Navega hasta la carpeta `bin` dentro del directorio extraído.
@@ -30,7 +30,7 @@ Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
 
 Para realizar la instalación en tu equipo personal con Windows:
 
-1. **Descargar el instalador:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la Versión 2025.2 Community Edition para Windows, luego descarga el archivo `.exe`.
+1. **Descargar el instalador:** Accede a la web oficial [https://www.jetbrains.com/idea/download/other/](https://www.jetbrains.com/idea/download/other/) y busca la versión 2025.2.6.2 Community Edition para Windows, luego descarga el archivo `.exe`.
 2. **Asistente de instalación:** Ejecuta el instalador descargado y sigue los pasos indicados en pantalla:
     * **Directorio de destino:** Por defecto se instalará en `C:\Program Files\JetBrains\...` (requiere aproximadamente 3.2 GB de espacio en disco).
     * **Opciones de instalación:** Se recomienda marcar la opción para crear un acceso directo en el escritorio y, opcionalmente, asociar las extensiones de archivo `.kt` (Kotlin).
