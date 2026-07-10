@@ -144,6 +144,7 @@ Cuando debas entregar una tarea de programación o compartir un proyecto con el 
 <span class="mi_h3">Cambiar nombre a proyecto</span>
 
 Si por cualquier motivo necesitamos cambiar el nombre a nuestro proyecto deberemos seguir estos pasos, ya que de lo contrario nuestro proyecto puede quedar inconsistente y no ejecutarse:
+
 * Sobre el nombre del proyecto que aparece al lado de su ruta completa hacer clic con el botón derecho del ratón y acceder a `rename`.
 * En la ventana que se abre indicar el nuevo nombre del proyecto.
 * En el archivo `settings.gradle.kts` cambiar valor de `rootProject.name` por el nuevo nombre.
