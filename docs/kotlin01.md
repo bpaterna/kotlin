@@ -140,6 +140,18 @@ Cuando debas entregar una tarea de programación o compartir un proyecto con el 
 4. Envía o sube a la plataforma del aula el archivo `.zip` resultante.
 
 
+
+<span class="mi_h3">Cambiar nombre a proyecto</span>
+
+Si por cualquier motivo necesitamos cambiar el nombre a nuestro proyecto deberemos seguir estos pasos, ya que de lo contrario nuestro proyecto puede quedar inconsistente y no ejecutarse:
+* Sobre el nombre del proyecto que aparece al lado de su ruta completa hacer clic con el botón derecho del ratón y acceder a `rename`.
+* En la ventana que se abre indicar el nuevo nombre del proyecto.
+* En el archivo `settings.gradle.kts` cambiar valor de `rootProject.name` por el nuevo nombre.
+* Cerrar el proyecto y cambiar el nombre a la carpeta física.
+
+
+
+
 ## 1.3. Organización del código (Packages e Imports)
 
 A medida que nuestros programas crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve difícil de mantener y de leer. En proyectos reales, el código se divide en diferentes archivos y carpetas. Para entender cómo se comunican estos archivos entre sí, primero veremos un proyecto completo distribuido en varias carpetas y luego explicaremos detalladamente cada uno de los conceptos que lo hacen posible.
