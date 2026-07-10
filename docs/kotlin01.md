@@ -13,7 +13,6 @@
 
 Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA**. Para la creación de estos apuntes se ha utilizado la versión **2025.2.6.2 Community Edition**.
 
-
 <span class="mi_h3">Instalación en los ordenadores de clase</span>
 
 Para instalar IntelliJ en el ordenador del aula, sigue estos pasos:
@@ -45,58 +44,52 @@ Para realizar la instalación en tu equipo personal con Windows:
 
 Antes de empezar a crear programas, es importante que mantengas tu espacio de trabajo organizado. Es recomendable que crees una carpeta raíz en tu unidad de almacenamiento (por ejemplo, una carpeta llamada `kot` dentro de tu unidad de trabajo) donde guardar de forma ordenada los proyectos del curso.
 
-> **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. 
+> **Consejo de personalización:** Puedes cambiar la apariencia del entorno pulsando en el icono de la **rueda dentada (Ajustes)** en la esquina inferior izquierda de la pantalla de bienvenida. Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*). 
 
 
-![Imagen Kotlin 1](img/kotlin01.jpg){ width="600" }
+![Imagen Kotlin 1](img/kotlin01.jpg)
 
-Para estas explicaciones utilizaremos el modo de color claro (*Light Mode*).
 
 
 <span class="mi_h3">Primer programa y su ejecución</span>
 
-Antes de crear nuestro primer programa, es importante introducir un concepto clave: **Gradle**. Gradle es un sistema de gestión y construcción de proyectos (denominado build system). Aunque al principio realizaremos programas sencillos, utilizar Gradle desde el primer día nos permitirá estructurar el proyecto bajo un estándar profesional y nos facilitará la tarea de añadir librerías externas o dependencias más adelante sin tener que configurar todo manualmente.
+Antes de crear nuestro primer programa, es importante introducir un concepto clave: **Gradle**. Gradle es un sistema de gestión y construcción de proyectos (denominado build system) que nos permitirá estructurar el proyecto bajo un estándar profesional y nos facilitará la tarea de añadir librerías externas o dependencias sin tener que configurar todo manualmente. Aunque al principio realizaremos programas sencillos utilizaremos Gradle desde el primer día. 
 
-Para crear tu primer proyecto en Kotlin utilizando este sistema, sigue estos pasos:
+Para crear tu primer proyecto en **Kotlin** con **Gradle**, abre IntelliJ IDEA y haz clic en **New Project** en la ventana de inicio, como se muestra en la siguiente imagen:
 
-1. Abre IntelliJ IDEA y haz clic en **New Project** en la ventana de inicio.
+![Imagen Kotlin 2](img/kotlin02.jpg)
 
-![Imagen Kotlin 2](img/kotlin02.jpg){ width="600" }
+También puedes crear un proyecto nuevo desde el menú `File > New > Project`. Elijas el camino que elijas, en ambos casos aparecerá la ventana en la que configurar los parámetros de tu nuevo proyecto. Realiza lo siguiente:
 
-También puedes crear un proyecto nuevo desde el menú `File > New > Project`. Elijas el camino que elijas, en ambos casos aparecerá la ventana en la que indicar los datos de tu nuevo proyecto:
+* Marca **Kotlin** en la columna de la izquierda.
+* **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `jardin`)
+* **Location:** Selecciona tu directorio de trabajo (por ejemplo, `D:\kot` o la ruta de tu carpeta de usuario).
+* **Build system:** Selecciona **Gradle**.
+* **JDK:** Selecciona la versión disponible de Java instalada en el sistema.
+* **Gradle DSL:** Selecciona **Kotlin**.
+* Marca la opción **Add sample code**.
+* Indica tu inicial seguida de un punto y tu apellido en GroupId dentro de **Advance Settings:** (en el caso del ejemplo es `b.paterna`). 
 
-![Imagen Kotlin 3](img/kotlin03.jpg){ width="600" }
+Puedes ver toda esta información en la siguiente imagen:
 
+![Imagen Kotlin 3](img/kotlin03.jpg)
 
-2. Configura los parámetros en la ventana de configuración:
-    * Asegúrate de marcar **Kotlin** en la columna de la izquierda.
-    * **Name:** Indica el nombre de tu proyecto (en el caso del ejemplo es `jardin`)
-    * **Location:** Selecciona tu directorio de trabajo (por ejemplo, `D:\kot` o la ruta de tu carpeta de usuario).
-    * **Build system:** Selecciona **Gradle**.
-    * **JDK:** Selecciona la versión disponible de Java instalada en el sistema.
-    * **Gradle DSL:** Selecciona **Kotlin**.
-    * Marca la opción **Add sample code**.
-    * Indica tu inicial seguida de un punto y tu apellido en GroupId dentro de **Advance Settings:** (en el caso del ejemplo es `b.paterna`). 
-
-3. Haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes la primera vez).
-
-
-Verás lo siguiente:
-
-![Imagen Kotlin 4](img/kotlin04.jpg){ width="600" }
-
-Si vas a tu unidad de trabajo verás que se ha creado la carpeta `jardin` dentro de la carpeta `kot`. 
-
-Al crearse el proyecto bajo el sistema de Gradle, la interfaz de IntelliJ mostrará una estructura de carpetas en el margen izquierdo diseñada para proyectos profesionales:
+Ua vez tengas todos los datos, haz clic en **Create** y espera a que IntelliJ prepare el entorno y sincronice Gradle por primera vez (este proceso puede tardar unos instantes). Cuando termine de preparar el proyecto se habrá creado la carpeta `jardin` dentro de la carpeta `kot` y dentro de `jardin` la estructura de carpetas siguiente:
 
 * **`.idea` / `.gradle` / `build`**: Carpetas de configuración interna de IntelliJ, de Gradle y del proceso de compilación. No deben modificarse manualmente.
 * **`build.gradle.kts`**: Es el archivo de configuración de Gradle. En él definiremos el comportamiento del proyecto y las librerías o dependencias externas que queramos descargar de forma automática.
 * **`src/main/kotlin`**: Es el directorio raíz donde se almacena todo el código fuente de nuestra aplicación. Es la carpeta más importante del proyecto.
 * **`Main.kt`**: Archivo autogenerado (gracias a la opción *Add sample code*) que se encuentra dentro de la ruta de código fuente y que contiene el punto de entrada de nuestro programa.
 
-Para que un proyecto en Kotlin pueda ejecutarse, requiere como mínimo tener un punto de entrada definido por una función llamada `main`. Kotlin utiliza la palabra reservada `fun` para declarar funciones.
 
-Reemplaza el código autogenerado del archivo `Main.kt` con el siguiente programa inicial (que simula un sistema de riego de una planta):
+Puedes ver esta información en la siguiente imagen:
+
+![Imagen Kotlin 4](img/kotlin04.jpg)
+
+
+**Ejecución del programa**
+
+Reemplaza el código autogenerado del archivo `Main.kt` con el siguiente código (que simula un sistema de riego de una planta):
 
 ```kotlin
 fun main() {
