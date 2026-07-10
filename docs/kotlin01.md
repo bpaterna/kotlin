@@ -133,7 +133,7 @@ Cuando debas entregar una tarea de programación o compartir un proyecto con el 
 A medida que nuestros programas crecen, escribir todo el código en un único archivo (`Main.kt`) se vuelve difícil de mantener y de leer. En proyectos reales, el código se divide en diferentes archivos y carpetas. Para entender cómo se comunican estos archivos entre sí, primero veremos un proyecto completo distribuido en varias carpetas y luego explicaremos detalladamente cada uno de los conceptos que lo hacen posible.
 
 
-<span class="mi_h3">3.1. Ejemplo del asistente de control botánico</span>
+<span class="mi_h3">Ejemplo: asistente de control de riego</span>
 
 Imagina que estamos desarrollando un asistente para controlar el riego y la humedad de un invernadero. En lugar de tener un solo archivo, hemos estructurado nuestro proyecto de Gradle en tres carpetas (*paquetes*): **`modelo`**, **`util`** y **`app`**. La estructura de archivos en el panel izquierdo de IntelliJ se ve así:
 
