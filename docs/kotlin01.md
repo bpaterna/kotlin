@@ -11,7 +11,7 @@
 
 ## 1.1. Instalación de IntelliJ IDEA Community
 
-Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA**. Para la creación de estos apuntes se ha utilizado la versión **2025.2.6.2 Community Edition**.
+Para el desarrollo de nuestras aplicaciones utilizaremos el Entorno de Desarrollo Integrado (IDE) **IntelliJ IDEA**. Para la creación de estos apuntes se ha utilizado la versión **2025.2.6.2 Community Edition** (aunque en algunas capturas de pantalla puede verse reflejada otra versión).
 
 <span class="mi_h3">Instalación en los ordenadores de clase</span>
 
@@ -89,7 +89,7 @@ Puedes ver esta información en la siguiente imagen:
 
 **Ejecución del programa**
 
-Reemplaza el código autogenerado del archivo `Main.kt` con el siguiente código (que simula un sistema de riego de una planta):
+Reemplaza la función main del código autogenerado del archivo `Main.kt` con el siguiente código (que simula un sistema de riego de una planta):
 
 ```kotlin
 fun main() {
